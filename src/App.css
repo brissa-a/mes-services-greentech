@@ -24,12 +24,19 @@
   overflow-y: scroll;
 }
 
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
 .card {
   background: #fff;
   border-radius: 2px;
   margin: 1rem;
   padding: 10px;
-  width: auto;
+  max-width: 300px;
+  transition: position 1s;
 }
 
 .card-1 {
