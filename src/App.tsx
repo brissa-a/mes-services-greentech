@@ -24,10 +24,9 @@ type reponseType = {
 }
 
 function OneResult(props: {aide: AidePublique}) {
-    return <div style={{border: "1px solid black", padding: "10px 20px"}}>
-      <div>{props.aide.titre_aide}</div>
-      
-      <div dangerouslySetInnerHTML={{__html: props.aide.contact}}>{}</div>
+    return <div className="card card-1">
+      <div><b>{props.aide.titre_aide}</b></div>
+      <div><i><span dangerouslySetInnerHTML={{__html: props.aide.contact}}></span></i></div>
     </div>
 }
 
@@ -77,10 +76,11 @@ function App() {
 
   return (
     <div className="App">
-      <div className="description-startup">
+      <div className="description-startup card-2">
         <textarea
           onChange={e => setDescriptionStartup(e.target.value)}
-          style={{width: "50vw", height: "50vh"}}
+          className=""
+          style={{width: "30vw", height: "calc(100hv-10px)", margin: "10px"}}
           value={descriptionStartup}
           placeholder="ex: Nous sommes une startup spécialisé dans le tri des déchets métalliques et...">
         </textarea>

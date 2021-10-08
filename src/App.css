@@ -1,37 +1,35 @@
 .App {
   height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: min(0fr) 1fr;
   grid-template-rows: minmax(0, 1fr);
-  /* gap: 10px; */
-  padding: 10px;
   grid-template-areas: 
     ". ."
     "description-startup resultats"
     ". .";
   overflow: hidden;
   align-items: center;
+  justify-items: center;
 }
 
 .description-startup {
   grid-area: description-startup;
-  position: sticky;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.06);
 }
 .resultats {
-  padding: 10px;
   grid-area: resultats;
-  height: 100%;
-  overflow: scroll;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .card {
   background: #fff;
   border-radius: 2px;
-  display: inline-block;
-  height: 300px;
   margin: 1rem;
-  position: relative;
-  width: 300px;
+  padding: 10px;
+  width: auto;
 }
 
 .card-1 {
