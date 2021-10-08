@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import './App.css';
 import reponse_exemple from "./response_exemple.json"
 
@@ -12,6 +12,7 @@ type AidePublique =  {
   "titre_aide": string,
   "aide_detail": string,
   "aide_detail_clean": string,
+  "score": number,
   "contact": string
 }
 
@@ -20,13 +21,22 @@ type reponseType = {
   "descriptionSU": string,
   "fichier_vocab": string,
   "nb_aides": number,
-  "resultats_aides": AidePublique[]
+  "resultats_aides": AidePublique[],
+  "score_max": number
 }
 
-function OneResult(props: {aide: AidePublique}) {
-    return <div className="card card-1">
+function OneResult(props: {aide: AidePublique, maxscore: number}) {
+  const [showDetails, setShowDetails] = useState(false);
+    return <div className="card card-1"
+    onMouseEnter={() => setShowDetails(true)}
+    onMouseLeave={() => setShowDetails(false)}>
+      <div style={{height: "1px", backgroundColor:"red", width: ((1-(props.aide.score/props.maxscore))*100)+"%"}}></div>
+      <br/>
+      {showDetails && <div style={{position: "absolute", top: "1px", right: "10px", fontSize: "0.5em"}}>{props.aide.score}</div>}
       <div><b>{props.aide.titre_aide}</b></div>
-      <div><i><span dangerouslySetInnerHTML={{__html: props.aide.contact}}></span></i></div>
+      {showDetails && <br/>}
+      {showDetails && <div>{props.aide.aide_detail_clean}</div>}
+      {showDetails && <div><i><span dangerouslySetInnerHTML={{__html: props.aide.contact}}></span></i></div>}
     </div>
 }
 
@@ -41,8 +51,9 @@ function buildAidesRequest(description : string) {
         "fichier_aides" : "Aides_detailsandname.xlsx",
         "descriptionSU": description,
         "fichier_vocab" :"vocab.pkl",
-        "nb_aides" : 10,
-        "resultats_aides":[]
+        "nb_aides" : 30,
+        "resultats_aides":[],
+        "score_max": 0
       })
     })
     .then(resp => resp.json())
@@ -73,21 +84,30 @@ function App() {
   }
   useEffect(delayedUpdateReponse, [descriptionStartup]);
   console.log(descriptionStartup)
-
   return (
     <div className="App">
       <div className="description-startup card-2">
         <textarea
           onChange={e => setDescriptionStartup(e.target.value)}
           className=""
-          style={{width: "30vw", height: "calc(100vh - 20px - 22px)", margin: "10px", padding: "10px", fontSize: "1.2em"}}
+          style={{
+            width: "30vw", height: "calc(100vh - 20px - 22px)",
+            margin: "10px", padding: "10px", fontSize: "1.2em"
+          }}
           value={descriptionStartup}
           placeholder="ex: Nous sommes une startup spécialisé dans le tri des déchets métalliques et...">
         </textarea>
       </div>
       <div className="resultats">
         <div className="card-list">
-        {reponse ? reponse.resultats_aides.map(x => <OneResult aide={x}/>) : "It's loading..."}
+          {reponse ? reponse.resultats_aides.map(x => <OneResult aide={x} maxscore={reponse.resultats_aides.slice(-1)[0].score}/>) : 
+            <Fragment>
+              <div className="card card-1">It's loading...</div>
+              <div className="card card-1"></div>
+              <div className="card card-1"></div>
+              <div className="card card-1"></div>
+              <div className="card card-1"></div>
+            </Fragment>}
         </div>
       </div>
     </div>
