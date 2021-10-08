@@ -6,7 +6,10 @@ console.log(reponse_exemple)
 
 const params = new URLSearchParams(window.location.search)
 const apiurl = params.get("api-url")  || 'https://alexisb.pythonanywhere.com/getAides/'
-console.log("Using api url: ", apiurl)
+const max_results_str = params.get("max-results")
+const max_results = max_results_str && JSON.parse(max_results_str) || 30
+
+console.log(`Hidden params: &max-results=${max_results}&api-url=${apiurl}`)
 
 type AidePublique =  {
   "titre_aide": string,
@@ -51,7 +54,7 @@ function buildAidesRequest(description : string) {
         "fichier_aides" : "Aides_detailsandname.xlsx",
         "descriptionSU": description,
         "fichier_vocab" :"vocab.pkl",
-        "nb_aides" : 30,
+        "nb_aides" : max_results,
         "resultats_aides":[],
         "score_max": 0
       })
