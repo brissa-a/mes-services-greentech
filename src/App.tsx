@@ -1,8 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import './App.css';
-import reponse_exemple from "./response_exemple.json"
-
-console.log(reponse_exemple)
 
 const params = new URLSearchParams(window.location.search)
 const apiurl = params.get("api-url")  || 'https://alexisb.pythonanywhere.com/getAides/'
@@ -88,19 +85,25 @@ function App() {
   }
   useEffect(delayedUpdateReponse, [descriptionStartup]);
   console.log(descriptionStartup)
+  const shareableLink = `${window.location.origin}?description=${encodeURIComponent(descriptionStartup)}`
   return (
     <div className="App">
       <div className="description-startup card-2">
+        <div>
         <textarea
           onChange={e => setDescriptionStartup(e.target.value)}
           className=""
           style={{
-            width: "30vw", height: "calc(100vh - 20px - 22px)",
+            width: "30vw", height: "calc(90vh - 20px - 22px)",
             margin: "10px", padding: "10px", fontSize: "1.2em"
           }}
           value={descriptionStartup}
           placeholder="ex: Nous sommes une startup spécialisé dans le tri des déchets métalliques et...">
         </textarea>
+        </div>
+        <div style={{margin: "10px"}}>
+          <a href={shareableLink}>Shareable link</a>
+        </div>
       </div>
       <div className="resultats">
         <div className="card-list">
