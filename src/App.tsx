@@ -8,8 +8,9 @@ const params = new URLSearchParams(window.location.search)
 const apiurl = params.get("api-url")  || 'https://alexisb.pythonanywhere.com/getAides/'
 const max_results_str = params.get("max-results")
 const max_results = max_results_str && JSON.parse(max_results_str) || 30
+const defaultDescription = params.get("description")  || "Nous sommes une startup spécialisé dans le tri des déchets métalliques"
 
-console.log(`Hidden params: &max-results=${max_results}&api-url=${apiurl}`)
+console.log(`Hidden params: &max-results=${max_results}&api-url=${apiurl}&description=${defaultDescription}`)
 
 type AidePublique =  {
   "titre_aide": string,
@@ -71,11 +72,11 @@ declare global {
 function App() {
   const defaultValue = null
   const [reponse, setReponse] = useState<reponseType | null>(null);
-  const [descriptionStartup, setDescriptionStartup] = useState<string>("");
+  const [descriptionStartup, setDescriptionStartup] = useState<string>(defaultDescription);
   function updateReponse() {
     console.log("updating results")
     setReponse(null);
-    buildAidesRequest(descriptionStartup || "Nous sommes une startup spécialisé dans le tri des déchets métalliques").then(json => {
+    buildAidesRequest(descriptionStartup).then(json => {
       setReponse(json)
       window.lastApiResponse = json
     })
