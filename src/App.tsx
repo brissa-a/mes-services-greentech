@@ -2,14 +2,14 @@ import React, { Fragment, useEffect, useState } from 'react';
 import './App.css';
 
 const params = new URLSearchParams(window.location.search)
-const apiurl = params.get("api-url")  || 'https://alexisb.pythonanywhere.com/getAides/'
+const apiurl = params.get("api-url") || 'https://alexisb.pythonanywhere.com/getAides/'
 const max_results_str = params.get("max-results")
 const max_results = max_results_str && JSON.parse(max_results_str) || 30
-const defaultDescription = params.get("description")  || "Nous sommes une startup spécialisé dans le tri des déchets métalliques"
+const defaultDescription = params.get("description") || "Nous sommes une startup spécialisé dans le tri des déchets métalliques"
 
 console.log(`Hidden params: &max-results=${max_results}&api-url=${apiurl}&description=${defaultDescription}`)
 
-type AidePublique =  {
+type AidePublique = {
   "titre_aide": string,
   "aide_detail": string,
   "aide_detail_clean": string,
@@ -26,41 +26,41 @@ type reponseType = {
   "score_max": number
 }
 
-function OneResult(props: {aide: AidePublique, maxscore: number}) {
+function OneResult(props: { aide: AidePublique, maxscore: number }) {
   const [showDetails, setShowDetails] = useState(false);
-    return <div className="card card-1"
+  return <div className="card card-1"
     onMouseEnter={() => setShowDetails(true)}
     onMouseLeave={() => setShowDetails(false)}>
-      <div style={{height: "1px", backgroundColor:"red", width: ((1-(props.aide.score/props.maxscore))*100)+"%"}}></div>
-      <br/>
-      {showDetails && <div style={{position: "absolute", top: "1px", right: "10px", fontSize: "0.5em"}}>{props.aide.score}</div>}
-      <div><b>{props.aide.titre_aide}</b></div>
-      {showDetails && <br/>}
-      {showDetails && <div>{props.aide.aide_detail_clean}</div>}
-      {showDetails && <div><i><span dangerouslySetInnerHTML={{__html: props.aide.contact}}></span></i></div>}
-    </div>
+    <div style={{ height: "1px", backgroundColor: "red", width: ((1 - (props.aide.score / props.maxscore)) * 100) + "%" }}></div>
+    <br />
+    {showDetails && <div style={{ position: "absolute", top: "1px", right: "10px", fontSize: "0.5em" }}>{props.aide.score}</div>}
+    <div><b>{props.aide.titre_aide}</b></div>
+    {showDetails && <br />}
+    {showDetails && <div>{props.aide.aide_detail_clean}</div>}
+    {showDetails && <div><i><span dangerouslySetInnerHTML={{ __html: props.aide.contact }}></span></i></div>}
+  </div>
 }
 
-function buildAidesRequest(description : string) {
+function buildAidesRequest(description: string) {
   return fetch(apiurl, {
-      method: "POST",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        "fichier_aides" : "Aides_detailsandname.xlsx",
-        "descriptionSU": description,
-        "fichier_vocab" :"vocab.pkl",
-        "nb_aides" : max_results,
-        "resultats_aides":[],
-        "score_max": 0
-      })
+    method: "POST",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      "fichier_aides": "Aides_detailsandname.xlsx",
+      "descriptionSU": description,
+      "fichier_vocab": "vocab.pkl",
+      "nb_aides": max_results,
+      "resultats_aides": [],
+      "score_max": 0
     })
+  })
     .then(resp => resp.json())
 }
 
-var to : NodeJS.Timeout | null = null;
+var to: NodeJS.Timeout | null = null;
 
 declare global {
   interface Window { lastApiResponse: reponseType; }
@@ -86,35 +86,39 @@ function App() {
   useEffect(delayedUpdateReponse, [descriptionStartup]);
   console.log(descriptionStartup)
   const shareableLink = `${window.location.origin}?description=${encodeURIComponent(descriptionStartup)}`
+
   return (
     <div className="App">
-      <div className="description-startup card-2">
-        <div>
-        <textarea
-          onChange={e => setDescriptionStartup(e.target.value)}
-          className=""
-          style={{
-            width: "30vw", height: "calc(90vh - 20px - 22px)",
-            margin: "10px", padding: "10px", fontSize: "1.2em"
-          }}
-          value={descriptionStartup}
-          placeholder="ex: Nous sommes une startup spécialisé dans le tri des déchets métalliques et...">
-        </textarea>
+      <div className="header"><img className="msg-icon" src="/msg-icon.png"/><h1>POC - Mes services greentech - Les bonnes aides publiques</h1></div>
+      <div className="body">
+        <div className="description-startup card-2">
+          <div>
+            <textarea
+              onChange={e => setDescriptionStartup(e.target.value)}
+              className=""
+              style={{
+                width: "30vw", height: "calc(90vh - 20px - 22px - 50px - 50px)",
+                margin: "10px", padding: "10px", fontSize: "1.2em"
+              }}
+              value={descriptionStartup}
+              placeholder="ex: Nous sommes une startup spécialisé dans le tri des déchets métalliques et...">
+            </textarea>
+          </div>
+          <div style={{ margin: "10px" }}>
+            <a href={shareableLink}>Shareable link</a>
+          </div>
         </div>
-        <div style={{margin: "10px"}}>
-          <a href={shareableLink}>Shareable link</a>
-        </div>
-      </div>
-      <div className="resultats">
-        <div className="card-list">
-          {reponse ? reponse.resultats_aides.map(x => <OneResult aide={x} maxscore={reponse.resultats_aides.slice(-1)[0].score}/>) : 
-            <Fragment>
-              <div className="card card-1">It's loading...</div>
-              <div className="card card-1"></div>
-              <div className="card card-1"></div>
-              <div className="card card-1"></div>
-              <div className="card card-1"></div>
-            </Fragment>}
+        <div className="resultats">
+          <div className="card-list">
+            {reponse ? reponse.resultats_aides.map(x => <OneResult aide={x} maxscore={reponse.resultats_aides.slice(-1)[0].score} />) :
+              <Fragment>
+                <div className="card card-1">It's loading...</div>
+                <div className="card card-1"></div>
+                <div className="card card-1"></div>
+                <div className="card card-1"></div>
+                <div className="card card-1"></div>
+              </Fragment>}
+          </div>
         </div>
       </div>
     </div>
