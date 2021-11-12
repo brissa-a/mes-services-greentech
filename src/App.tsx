@@ -89,7 +89,10 @@ function App() {
 
   return (
     <div className="App">
-      <div className="header"><img className="msg-icon" src="/msg-icon.png"/><h1>POC - Mes services greentech - Les bonnes aides publiques</h1></div>
+      <div className="header">
+        <img className="msg-icon" src="/icon-ministere.png" />
+        <img className="msg-icon" src="/icon-msg-txt-beta.png" />
+      </div>
       <div className="body">
         <div className="description-startup card-2">
           <div>

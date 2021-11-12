@@ -1,24 +1,26 @@
 :root{
-  --header-height: 50px;
+  --header-height: 172px;
 }
 
 .body {
+  --gap-size: 20px;
   height: calc(100vh - var(--header-height));
   display: grid;
-  grid-template-columns: 0fr 1fr;
-  grid-template-rows: minmax(0, 1fr);
+  grid-template-columns: 1fr 1fr;
   grid-template-areas: 
     "description-startup resultats";
+  gap: var(--gap-size);
+  margin: var(--gap-size);
   overflow: hidden;
   align-items: center;
   justify-items: center;
+  background: linear-gradient(249.94deg, #00E0B7 1.76%, #00BAD9 100.71%);
 }
 
 .header {
   grid-area: header;
   height: calc(var(--header-height) - 10px);
-  background-color: rgba(0,127,255,0.04);
-  border-bottom: 1px solid rgba(0,127,255,0.5);
+  background-color: rgba(255,255,255);
   padding: 10px;
   display: flex;
   align-items: center;
