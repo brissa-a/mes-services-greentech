@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import './App.css';
+import './App.scss';
 
 const params = new URLSearchParams(window.location.search)
 const apiurl = params.get("api-url") || 'https://alexisb.pythonanywhere.com/getAides/'
@@ -95,6 +95,13 @@ function App() {
       </div>
       <div className="body">
         <div className="description-startup card-2">
+          <div>
+            <div>1, 2, 3... pitchez !</div>
+            <div>
+              Mes services Greentech est en version beta. L’outil vous propose automatiquement des pistes pour booster votre développement !
+              Merci de nous aider a améliorer l’expérience
+            </div>
+          </div>
           <div>
             <textarea
               onChange={e => setDescriptionStartup(e.target.value)}

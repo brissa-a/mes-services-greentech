@@ -2,21 +2,6 @@
   --header-height: 172px;
 }
 
-.body {
-  --gap-size: 20px;
-  height: calc(100vh - var(--header-height));
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: 
-    "description-startup resultats";
-  gap: var(--gap-size);
-  margin: var(--gap-size);
-  overflow: hidden;
-  align-items: center;
-  justify-items: center;
-  background: linear-gradient(249.94deg, #00E0B7 1.76%, #00BAD9 100.71%);
-}
-
 .header {
   grid-area: header;
   height: calc(var(--header-height) - 10px);
@@ -34,15 +19,24 @@
 }
 
 .msg-icon {
-  width: calc(var(--header-height) - 10px);
-  height: calc(var(--header-height) - 10px);
   display: inline-block;
   text-align: center;
 }
 
+.body {
+  --gap-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-evenly;
+  background: linear-gradient(249.94deg, #00E0B7 1.76%, #00BAD9 100.71%);
+}
+
+
 .description-startup {
   grid-area: description-startup;
   height: calc(100vh - var(--header-height));
+  width: 45vw;
   background-color: rgba(0,0,0,0.01);
 }
 
@@ -58,6 +52,7 @@
   overflow-x: hidden;
   overflow-y: scroll;
   background-color: rgba(0,0,0,0.02);
+  width: 45vw;
 }
 
 .card-list {
