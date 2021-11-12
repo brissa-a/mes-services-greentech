@@ -1,12 +1,16 @@
-:root{
+:root {
   --header-height: 172px;
+}
+
+.white-text {
+  color: rgba(255, 255, 255, 0.93);
 }
 
 .header {
   grid-area: header;
-  height: calc(var(--header-height) - 10px);
-  background-color: rgba(255,255,255);
-  padding: 10px;
+  height: var(--header-height);
+  background-color: rgba(255, 255, 255);
+  padding: 0px 60px;
   display: flex;
   align-items: center;
 }
@@ -24,35 +28,75 @@
 }
 
 .body {
-  --gap-size: 20px;
+  --column-width: 35vw;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-items: center;
   justify-content: space-evenly;
-  background: linear-gradient(249.94deg, #00E0B7 1.76%, #00BAD9 100.71%);
+  background: linear-gradient(249.94deg, #00e0b7 1.76%, #00bad9 100.71%);
+  padding-top: 45px;
 }
-
 
 .description-startup {
-  grid-area: description-startup;
-  height: calc(100vh - var(--header-height));
-  width: 45vw;
-  background-color: rgba(0,0,0,0.01);
-}
+  width: var(--column-width);
+  .big {
+    //styleName: 1.Titres/H1 - XL/Desktop;
+    font-family: Marianne;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
 
-.description-startup > div > textarea:focus {
-  outline: none !important;
-  border:1px solid rgba(0,127,255,0.5);
-  border-radius: 2px;
+  .small {
+    //styleName: 2.Corps de texte/MD - Texte standard/Desktop & Mobile - Regular;
+    font-family: Marianne;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 16px;
+    margin-top: 16px;
+  }
+
+  .label {
+    font-family: Marianne;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: left;
+    
+  }
+
+  textarea {
+    border: none;
+    border-radius: 6px;
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    padding: 20px;
+    width: 100%;
+    height: 210px;
+    //styleName: 2.Corps de texte/MD - Texte standard/Desktop & Mobile - Regular;
+    font-family: Marianne;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;    
+  }
 }
 
 .resultats {
-  grid-area: resultats;
-  height: calc(100vh - var(--header-height));
+  width: calc(var(--column-width) * 1.36);
+  height: 860px;
   overflow-x: hidden;
   overflow-y: scroll;
-  background-color: rgba(0,0,0,0.02);
-  width: 45vw;
 }
 
 .card-list {
@@ -66,7 +110,7 @@
   border-radius: 2px;
   margin: 1rem;
   padding: 10px;
-  width: 300px;
+  width: 283px;
   overflow: hidden;
   position: relative;
 }
@@ -77,26 +121,26 @@
 }
 
 .card-1 {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .card-1:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .card-2 {
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .card-3 {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .card-4 {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .card-5 {
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }

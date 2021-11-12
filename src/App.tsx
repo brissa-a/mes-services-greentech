@@ -91,25 +91,22 @@ function App() {
     <div className="App">
       <div className="header">
         <img className="msg-icon" src="/icon-ministere.png" />
-        <img className="msg-icon" src="/icon-msg-txt-beta.png" />
+        <img className="msg-icon" style={{marginLeft: "35px"}} src="/icon-msg-txt-beta.png" />
       </div>
       <div className="body">
-        <div className="description-startup card-2">
+        <div className="description-startup">
           <div>
-            <div>1, 2, 3... pitchez !</div>
-            <div>
+            <div className="big white-text">1, 2, 3... pitchez !</div>
+            <div className="small white-text">
               Mes services Greentech est en version beta. L’outil vous propose automatiquement des pistes pour booster votre développement !
               Merci de nous aider a améliorer l’expérience
             </div>
           </div>
-          <div>
+          <div >
+            <div className="label">Pitch de votre startup</div>
             <textarea
               onChange={e => setDescriptionStartup(e.target.value)}
               className=""
-              style={{
-                width: "30vw", height: "calc(90vh - 20px - 22px - 50px - 50px)",
-                margin: "10px", padding: "10px", fontSize: "1.2em"
-              }}
               value={descriptionStartup}
               placeholder="ex: Nous sommes une startup spécialisé dans le tri des déchets métalliques et...">
             </textarea>
