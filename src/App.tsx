@@ -9,6 +9,23 @@ const defaultDescription = params.get("description") || "Nous sommes une startup
 
 console.log(`Hidden params: &max-results=${max_results}&api-url=${apiurl}&description=${defaultDescription}`)
 
+function Tag(props: { color: string, children: React.ReactNode }) {
+  const style = {
+    backgroundColor: props.color,
+    borderRadius: '25px',
+    color: "rgba(255,255,255,0.93",
+    padding: "7px 7px",
+    fontSize: "0.8em"
+  }
+  return <span style={style}>{props.children}</span>
+}
+
+const cardType = {
+  "aide": <Tag color="rgb(255,127,0)">🚀 Aide publique</Tag>,
+  "marché": <Tag color="rgb(0,255,127)">💱 Marché public</Tag>,
+  "collectivité": <Tag color="rgb(127,0,255)">🏙️ Collectivité</Tag>
+};
+
 type AidePublique = {
   "titre_aide": string,
   "aide_detail": string,
@@ -31,10 +48,16 @@ function OneResult(props: { aide: AidePublique, maxscore: number }) {
   return <div className="card card-1"
     onMouseEnter={() => setShowDetails(true)}
     onMouseLeave={() => setShowDetails(false)}>
-    <div style={{ height: "1px", backgroundColor: "red", width: ((1 - (props.aide.score / props.maxscore)) * 100) + "%" }}></div>
-    <br />
+    {/* <div style={{ height: "1px", backgroundColor: "red", width: ((1 - (props.aide.score / props.maxscore)) * 100) + "%" }}></div>
+    <br /> */}
+    <div style={{display: "flex", justifyContent: "space-between"}}>
+      <div>{cardType["aide"]}</div>
+      <div><span>👍</span><span>👎</span></div>
+    </div>
+    <div style={{color: "rgba(0,0,0, 0.2)", padding: "10px 0px"}}>Test texte gris | 2022/06</div>
     {showDetails && <div style={{ position: "absolute", top: "1px", right: "10px", fontSize: "0.5em" }}>{props.aide.score}</div>}
     <div><b>{props.aide.titre_aide}</b></div>
+    <a href="#"><div style={{padding: "10px"}}>👁️ Voir le détail</div></a>
     {showDetails && <br />}
     {showDetails && <div>{props.aide.aide_detail_clean}</div>}
     {showDetails && <div><i><span dangerouslySetInnerHTML={{ __html: props.aide.contact }}></span></i></div>}
@@ -91,7 +114,7 @@ function App() {
     <div className="App">
       <div className="header">
         <img className="msg-icon" src="/icon-ministere.png" />
-        <img className="msg-icon" style={{marginLeft: "35px"}} src="/icon-msg-txt-beta.png" />
+        <img className="msg-icon" style={{ marginLeft: "35px" }} src="/icon-msg-txt-beta.png" />
       </div>
       <div className="body">
         <div className="description-startup">
