@@ -1,5 +1,6 @@
 :root {
-  --header-height: 172px;
+  --header-height: 12vw;
+  scroll-snap-type: y proximity;
 }
 
 .white-text {
@@ -10,7 +11,7 @@
   grid-area: header;
   height: var(--header-height);
   background-color: rgba(255, 255, 255);
-  padding: 0px 60px;
+  padding: 0px 10vw;
   display: flex;
   align-items: center;
 }
@@ -25,11 +26,14 @@
 .msg-icon {
   display: inline-block;
   text-align: center;
+  max-height: 12vw;
 }
 
 .body {
-  --column-width: 35vw;
+  --column-width: 37%;
+  --column-min-width: 330px;
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-items: center;
   justify-content: space-evenly;
@@ -39,6 +43,7 @@
 
 .description-startup {
   width: var(--column-width);
+  min-width: var(--column-min-width);
   .big {
     //styleName: 1.Titres/H1 - XL/Desktop;
     font-family: Marianne;
@@ -97,6 +102,7 @@
 
 .resultats {
   width: calc(var(--column-width) * 1.36);
+  min-width: var(--column-min-width);
   height: 860px;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -107,7 +113,7 @@
 
 .resultats {
   scrollbar-width: 100px;
-  scrollbar-color: rgba(0,0,0,0.25) rgba(0,0,0,0.25);
+  scrollbar-color: rgba(0,0,0,0.50) rgba(0,0,0,0.25);
 }
 
 /* Chrome, Edge, and Safari */
@@ -120,7 +126,7 @@
 }
 
 .resultats::-webkit-scrollbar-thumb {
-  background-color: rgba(0,0,0,0.25);
+  background-color: rgba(0,0,0,0.50);
   border-radius: 10px;
   border: none;
 }
