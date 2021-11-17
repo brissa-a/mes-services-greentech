@@ -10,7 +10,7 @@
 .header {
   grid-area: header;
   height: var(--header-height);
-  background-color: rgba(255, 255, 255);
+  background-color: rgba(31, 31, 31, 1);
   padding: 6vh 10vw;
   display: flex;
   align-items: center;
@@ -37,7 +37,7 @@
   align-items: flex-start;
   justify-items: center;
   justify-content: space-evenly;
-  background: linear-gradient(249.94deg, #00e0b7 1.76%, #00bad9 100.71%);
+  background: rgba(38, 38, 38, 1);
   padding-top: 45px;
 }
 
