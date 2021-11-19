@@ -13,7 +13,7 @@ function Tag(props: { color: string, children: React.ReactNode }) {
   const style = {
     backgroundColor: props.color,
     borderRadius: '25px',
-    color: "rgba(255,255,255,0.93",
+    color: "rgba(255,255,255,0.93)",
     padding: "7px 7px",
     fontSize: "0.8em"
   }
@@ -50,17 +50,17 @@ function OneResult(props: { aide: AidePublique, maxscore: number }) {
     onMouseLeave={() => setShowDetails(false)}>
     {/* <div style={{ height: "1px", backgroundColor: "red", width: ((1 - (props.aide.score / props.maxscore)) * 100) + "%" }}></div>
     <br /> */}
-    <div style={{display: "flex", justifyContent: "space-between"}}>
+    <div style={{ display: "flex", justifyContent: "space-between" }}>
       <div>{cardType["aide"]}</div>
-      <div><span>👍</span><span>👎</span></div>
+      <div><span>⭐</span><span>👎</span></div>
     </div>
-    <div style={{color: "rgba(0,0,0, 0.2)", padding: "10px 0px"}}>Test texte gris | 2022/06</div>
+    <div style={{ color: "rgba(0,0,0, 0.2)", padding: "10px 0px" }}>Test texte gris | 2022/06</div>
     {showDetails && <div style={{ position: "absolute", top: "1px", right: "10px", fontSize: "0.5em" }}>{props.aide.score}</div>}
     <div><b>{props.aide.titre_aide}</b></div>
-    <a href="#"><div style={{padding: "10px"}}>👁️ Voir le détail</div></a>
-    {showDetails && <br />}
+    <a href="#"><div style={{ padding: "10px" }}>👁️ Voir le détail</div></a>
+    {/* {showDetails && <br />}
     {showDetails && <div>{props.aide.aide_detail_clean}</div>}
-    {showDetails && <div><i><span dangerouslySetInnerHTML={{ __html: props.aide.contact }}></span></i></div>}
+    {showDetails && <div><i><span dangerouslySetInnerHTML={{ __html: props.aide.contact }}></span></i></div>} */}
   </div>
 }
 
@@ -93,6 +93,11 @@ function App() {
   const defaultValue = null
   const [reponse, setReponse] = useState<reponseType | null>(null);
   const [descriptionStartup, setDescriptionStartup] = useState<string>(defaultDescription);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-fr-theme", "dark");
+  });
+
   function updateReponse() {
     console.log("updating results")
     setReponse(null);
@@ -109,7 +114,6 @@ function App() {
   useEffect(delayedUpdateReponse, [descriptionStartup]);
   console.log(descriptionStartup)
   const shareableLink = `${window.location.origin}?description=${encodeURIComponent(descriptionStartup)}`
-
   return (
     <div className="App">
       <div className="header">
@@ -119,8 +123,8 @@ function App() {
       <div className="body">
         <div className="description-startup">
           <div>
-            <div className="big white-text">1, 2, 3... pitchez !</div>
-            <div className="small white-text">
+            <div className="big">1, 2, 3... pitchez !</div>
+            <div className="small">
               Mes services Greentech est en version beta. L’outil vous propose automatiquement des pistes pour booster votre développement !
               Merci de nous aider a améliorer l’expérience
             </div>
@@ -139,6 +143,26 @@ function App() {
           </div>
         </div>
         <div className="resultats">
+          <div className="control-pannel white-text">
+            <div style={{ textAlign: "center", fontWeight: 700, marginBottom: "16px" }}>Vos pistes de prospection</div>
+            <div>
+              <div className="fr-toggle">
+                <input type="checkbox" className="fr-toggle__input" aria-describedby="toggle-698-hint-text" id="toggle-698" />
+                <label className="fr-toggle__label" htmlFor="toggle-698" data-fr-checked-label="Activé" data-fr-unchecked-label="Désactivé">Aide publique</label>
+              </div>
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <button className="fr-btn">
+                Toutes (7)
+              </button> &nbsp;
+              <button className="fr-btn">
+                Séletionnées (0)
+              </button> &nbsp;
+              <button className="fr-btn">
+                Archivée (0)
+              </button>
+            </div>
+          </div>
           <div className="card-list">
             {reponse ? reponse.resultats_aides.map(x => <OneResult aide={x} maxscore={reponse.resultats_aides.slice(-1)[0].score} />) :
               <Fragment>
