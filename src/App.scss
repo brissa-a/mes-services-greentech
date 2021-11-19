@@ -113,7 +113,7 @@
 
 .resultats {
   scrollbar-width: 100px;
-  scrollbar-color: rgba(0,0,0,0.50) rgba(0,0,0,0.25);
+  scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.25);
 }
 
 /* Chrome, Edge, and Safari */
@@ -122,11 +122,11 @@
 }
 
 .resultats::-webkit-scrollbar-track {
-  background: rgba(0,0,0,0.25);
+  background: rgba(0, 0, 0, 0.25);
 }
 
 .resultats::-webkit-scrollbar-thumb {
-  background-color: rgba(0,0,0,0.50);
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   border: none;
 }
@@ -138,14 +138,19 @@
 }
 
 .card {
-  background: #fff;
-  color:rgba(0, 0, 0, 0.83);
-  border-radius: 15px;
-  margin: 1rem;
   padding: 10px;
   width: 283px;
   overflow: hidden;
   position: relative;
+
+  fieldset {
+    border-radius: 15px;
+    border: rgb(255, 255, 255, 0.20) solid 2px;
+    legend {
+      padding: 0 10px;
+      color: rgb(255, 255, 255, 0.20);
+    }
+  }
 }
 
 .card:hover {

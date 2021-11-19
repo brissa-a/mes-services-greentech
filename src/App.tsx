@@ -20,12 +20,6 @@ function Tag(props: { color: string, children: React.ReactNode }) {
   return <span style={style}>{props.children}</span>
 }
 
-const cardType = {
-  "aide": <Tag color="rgb(255,127,0)">🚀 Aide publique</Tag>,
-  "marché": <Tag color="rgb(0,255,127)">💱 Marché public</Tag>,
-  "collectivité": <Tag color="rgb(127,0,255)">🏙️ Collectivité</Tag>
-};
-
 type AidePublique = {
   "titre_aide": string,
   "aide_detail": string,
@@ -43,24 +37,32 @@ type reponseType = {
   "score_max": number
 }
 
+const cardType = {
+  "aide": {color: "rgb(255,127,0)", text: "🚀 Aide publique"},
+  "marché": {color: "rgb(0,255,127)", text:"💱 Marché public"},
+  "collectivité": {color: "rgb(127,0,255)", text: "🏙️ Collectivité"}
+};
+
+
 function OneResult(props: { aide: AidePublique, maxscore: number }) {
   const [showDetails, setShowDetails] = useState(false);
-  return <div className="card card-1"
+  return <div className="card"
     onMouseEnter={() => setShowDetails(true)}
     onMouseLeave={() => setShowDetails(false)}>
-    {/* <div style={{ height: "1px", backgroundColor: "red", width: ((1 - (props.aide.score / props.maxscore)) * 100) + "%" }}></div>
+    <fieldset style={{borderColor: cardType["aide"].color}}>
+      <legend style={{color: cardType["aide"].color}}>{cardType["aide"].text}</legend>
+      {/* <div style={{ height: "1px", backgroundColor: "red", width: ((1 - (props.aide.score / props.maxscore)) * 100) + "%" }}></div>
     <br /> */}
-    <div style={{ display: "flex", justifyContent: "space-between" }}>
-      <div>{cardType["aide"]}</div>
-      <div><span>⭐</span><span>👎</span></div>
-    </div>
-    <div style={{ color: "rgba(0,0,0, 0.2)", padding: "10px 0px" }}>Test texte gris | 2022/06</div>
-    {showDetails && <div style={{ position: "absolute", top: "1px", right: "10px", fontSize: "0.5em" }}>{props.aide.score}</div>}
-    <div><b>{props.aide.titre_aide}</b></div>
-    <a href="#"><div style={{ padding: "10px" }}>👁️ Voir le détail</div></a>
-    {/* {showDetails && <br />}
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div style={{fontWeight: 400, fontSize: "12px"}}>Test texte gris | 2022/06</div> <div><span>⭐</span><span>🗑️</span></div>
+      </div>
+      {showDetails && <div style={{ position: "absolute", top: "1px", right: "10px", fontSize: "0.5em" }}>{props.aide.score}</div>}
+      <div><b>{props.aide.titre_aide}</b></div>
+      <a href="#"><div style={{ padding: "10px" }}>👁️ Voir le détail</div></a>
+      {/* {showDetails && <br />}
     {showDetails && <div>{props.aide.aide_detail_clean}</div>}
     {showDetails && <div><i><span dangerouslySetInnerHTML={{ __html: props.aide.contact }}></span></i></div>} */}
+    </fieldset>
   </div>
 }
 
