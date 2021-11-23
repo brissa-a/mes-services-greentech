@@ -138,18 +138,26 @@
 }
 
 .card {
-  padding: 10px;
   width: 283px;
   overflow: hidden;
   position: relative;
-
+  margin: 10px 0;
   fieldset {
-    border-radius: 15px;
+    padding: 11px 25px;
+    border-radius: 20px;
     border: rgb(255, 255, 255, 0.20) solid 2px;
     legend {
       padding: 0 10px;
       color: rgb(255, 255, 255, 0.20);
     }
+  }
+
+  p {
+    display: -webkit-box;
+    max-width: 251px;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }
 

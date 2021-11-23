@@ -38,9 +38,9 @@ type reponseType = {
 }
 
 const cardType = {
-  "aide": {color: "rgb(255,127,0)", text: "🚀 Aide publique"},
-  "marché": {color: "rgb(0,255,127)", text:"💱 Marché public"},
-  "collectivité": {color: "rgb(127,0,255)", text: "🏙️ Collectivité"}
+  "aide": { color: "rgb(255,127,0)", text: "🚀 Aide publique" },
+  "marché": { color: "rgb(0,255,127)", text: "💱 Marché public" },
+  "collectivité": { color: "rgb(127,0,255)", text: "🏙️ Collectivité" }
 };
 
 
@@ -49,15 +49,16 @@ function OneResult(props: { aide: AidePublique, maxscore: number }) {
   return <div className="card"
     onMouseEnter={() => setShowDetails(true)}
     onMouseLeave={() => setShowDetails(false)}>
-    <fieldset style={{borderColor: cardType["aide"].color}}>
-      <legend style={{color: cardType["aide"].color}}>{cardType["aide"].text}</legend>
+    <fieldset style={{ borderColor: cardType["aide"].color }}>
+      <legend style={{ color: cardType["aide"].color }}>{cardType["aide"].text}</legend>
       {/* <div style={{ height: "1px", backgroundColor: "red", width: ((1 - (props.aide.score / props.maxscore)) * 100) + "%" }}></div>
     <br /> */}
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-      <div style={{fontWeight: 400, fontSize: "12px"}}>Test texte gris | 2022/06</div> <div><span>⭐</span><span>🗑️</span></div>
+      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "11px"}}>
+        <div style={{ fontWeight: 100, fontSize: "12px" }}>Test texte gris | 2022/06</div>
+        <div><span>⭐</span><span>🗑️</span></div>
       </div>
       {showDetails && <div style={{ position: "absolute", top: "1px", right: "10px", fontSize: "0.5em" }}>{props.aide.score}</div>}
-      <div><b>{props.aide.titre_aide}</b></div>
+      <p style={{ fontWeight: 400, fontSize: "16px", marginBottom: "11px" }}>{props.aide.titre_aide}</p>
       <a href="#"><div style={{ padding: "10px" }}>👁️ Voir le détail</div></a>
       {/* {showDetails && <br />}
     {showDetails && <div>{props.aide.aide_detail_clean}</div>}
@@ -168,11 +169,11 @@ function App() {
           <div className="card-list">
             {reponse ? reponse.resultats_aides.map(x => <OneResult aide={x} maxscore={reponse.resultats_aides.slice(-1)[0].score} />) :
               <Fragment>
-                <div className="card card-1">It's loading...</div>
-                <div className="card card-1"></div>
-                <div className="card card-1"></div>
-                <div className="card card-1"></div>
-                <div className="card card-1"></div>
+                <div className="card">It's loading...</div>
+                <div className="card"></div>
+                <div className="card"></div>
+                <div className="card"></div>
+                <div className="card"></div>
               </Fragment>}
           </div>
         </div>
