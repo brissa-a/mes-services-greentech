@@ -156,6 +156,9 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     margin: 0;
+    --line-height: 22px;
+    line-height: var(--line-height);
+    min-height: calc(3*var(--line-height));
   }
 }
 
