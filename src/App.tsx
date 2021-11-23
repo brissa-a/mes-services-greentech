@@ -126,14 +126,10 @@ function App() {
       <div className="body">
         <div className="description-startup">
           <div>
-            <div className="big">1, 2, 3... pitchez !</div>
-            <div className="small">
-              Mes services Greentech est en version beta. L’outil vous propose automatiquement des pistes pour booster votre développement !
-              Merci de nous aider a améliorer l’expérience
-            </div>
+            <div className="big">Aimant greentech</div>
           </div>
           <div >
-            <div className="label">Pitch de votre startup</div>
+            <div className="label">1, 2, 3... pitchez !</div>
             <textarea
               onChange={e => setDescriptionStartup(e.target.value)}
               className=""
