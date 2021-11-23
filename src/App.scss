@@ -129,7 +129,7 @@
   width: 283px;
   overflow: hidden;
   position: relative;
-  margin: 10px 0;
+  margin: 2px 2px;
   .fieldset {
     margin-top: 15px;
     --vertical-padding: 11px;
@@ -146,15 +146,17 @@
       padding: 0 10px;
       color: rgb(255, 255, 255, 0.2);
       font-weight: 700;
+      line-height: 22px;
+      font-size: 14px;
     }
   }
 
   p {
     display: -webkit-box;
-    max-width: 251px;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    margin: 0;
   }
 }
 

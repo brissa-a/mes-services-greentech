@@ -53,12 +53,12 @@ function OneResult(props: { aide: AidePublique, maxscore: number }) {
       <span className="legend" style={{ color: cardType["aide"].color }}>{cardType["aide"].text}</span>
       {/* <div style={{ height: "1px", backgroundColor: "red", width: ((1 - (props.aide.score / props.maxscore)) * 100) + "%" }}></div>
     <br /> */}
-      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "11px"}}>
-        <div style={{ fontWeight: 100, fontSize: "12px" }}>Test texte gris | 2022/06</div>
+      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px"}}>
+        <div style={{ fontWeight: 100, fontSize: "12px", lineHeight: "22px" }}>Test texte gris | 2022/06</div>
         <div><span>⭐</span><span>🗑️</span></div>
       </div>
       {showDetails && <div style={{ position: "absolute", top: "1px", right: "10px", fontSize: "0.5em" }}>{props.aide.score}</div>}
-      <p style={{ fontWeight: 400, fontSize: "16px", marginBottom: "11px" }}>{props.aide.titre_aide}</p>
+      <p style={{ fontWeight: 400, fontSize: "16px", lineHeight: "22px",  marginTop: "12px" }}>{props.aide.titre_aide}</p>
       <a href="#"><div style={{ padding: "10px" }}>👁️ Voir le détail</div></a>
       {/* {showDetails && <br />}
     {showDetails && <div>{props.aide.aide_detail_clean}</div>}
