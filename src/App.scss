@@ -132,14 +132,13 @@
   margin: 2px 2px;
   .fieldset {
     margin-top: 15px;
-    --vertical-padding: 11px;
-    padding: var(--vertical-padding) 25px;
     border-radius: 20px;
     border: rgb(255, 255, 255, 0.2) solid 2px;
     background-color: rgba(38, 38, 38, 1);
     .legend {
       position: absolute;
-      transform:  translateY(calc(-1 * var(--vertical-padding)))//revert padding
+      transform:
+        translateX(15px)//margin left
         translateY(-50%)//vertical align middle
         translateY(-15%);//feels moar centered
       background-color: var(--body-bg-color);
