@@ -32,12 +32,13 @@
 .body {
   --column-width: 37%;
   --column-min-width: 330px;
+  --body-bg-color: rgba(38, 38, 38, 1);
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-items: center;
   justify-content: space-evenly;
-  background: rgba(38, 38, 38, 1);
+  background: var(--body-bg-color);
   padding-top: 45px;
 }
 
@@ -129,13 +130,22 @@
   overflow: hidden;
   position: relative;
   margin: 10px 0;
-  fieldset {
-    padding: 11px 25px;
+  .fieldset {
+    margin-top: 15px;
+    --vertical-padding: 11px;
+    padding: var(--vertical-padding) 25px;
     border-radius: 20px;
-    border: rgb(255, 255, 255, 0.20) solid 2px;
-    legend {
+    border: rgb(255, 255, 255, 0.2) solid 2px;
+    background-color: rgba(38, 38, 38, 1);
+    .legend {
+      position: absolute;
+      transform:  translateY(calc(-1 * var(--vertical-padding)))//revert padding
+        translateY(-50%)//vertical align middle
+        translateY(-15%);//feels moar centered
+      background-color: var(--body-bg-color);
       padding: 0 10px;
-      color: rgb(255, 255, 255, 0.20);
+      color: rgb(255, 255, 255, 0.2);
+      font-weight: 700;
     }
   }
 

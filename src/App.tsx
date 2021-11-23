@@ -49,8 +49,8 @@ function OneResult(props: { aide: AidePublique, maxscore: number }) {
   return <div className="card"
     onMouseEnter={() => setShowDetails(true)}
     onMouseLeave={() => setShowDetails(false)}>
-    <fieldset style={{ borderColor: cardType["aide"].color }}>
-      <legend style={{ color: cardType["aide"].color }}>{cardType["aide"].text}</legend>
+    <div className="fieldset" style={{ borderColor: cardType["aide"].color }}>
+      <span className="legend" style={{ color: cardType["aide"].color }}>{cardType["aide"].text}</span>
       {/* <div style={{ height: "1px", backgroundColor: "red", width: ((1 - (props.aide.score / props.maxscore)) * 100) + "%" }}></div>
     <br /> */}
       <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "11px"}}>
@@ -63,7 +63,7 @@ function OneResult(props: { aide: AidePublique, maxscore: number }) {
       {/* {showDetails && <br />}
     {showDetails && <div>{props.aide.aide_detail_clean}</div>}
     {showDetails && <div><i><span dangerouslySetInnerHTML={{ __html: props.aide.contact }}></span></i></div>} */}
-    </fieldset>
+    </div>
   </div>
 }
 
