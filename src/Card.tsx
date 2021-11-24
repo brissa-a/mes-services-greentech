@@ -13,6 +13,11 @@ const thematiqueToUI = {
     "collectivité": { color: "rgb(127,0,255)", text: "🏙️ Collectivité" }
 };
 
+export function CardPlaceholder() {
+    return <div className="card placeholder">
+
+    </div>
+}
 
 export function Card(props: { aide: Aide, maxscore: number }) {
     const [showDetails, setShowDetails] = useState(false);

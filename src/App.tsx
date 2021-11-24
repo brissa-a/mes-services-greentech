@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import type {ApiResponse} from './api/Api';
 import {buildSearchAnythingRequest} from './api/Api';
 import './App.scss';
-import {Card} from './Card'
+import {Card, CardPlaceholder} from './Card'
 import {defaultDescription} from './UrlSearchParam'
 
 var to: NodeJS.Timeout | null = null;
@@ -86,11 +86,12 @@ function App() {
           <div className="card-list">
             {reponse ? reponse.cards.aides.map(x => <Card aide={x} maxscore={reponse.cards.aides.slice(-1)[0].score} />) :
               <Fragment>
-                <div className="card">It's loading...</div>
-                <div className="card"></div>
-                <div className="card"></div>
-                <div className="card"></div>
-                <div className="card"></div>
+                <CardPlaceholder/>
+                <CardPlaceholder/>
+                <CardPlaceholder/>
+                <CardPlaceholder/>
+                <CardPlaceholder/>
+                <CardPlaceholder/>
               </Fragment>}
           </div>
         </div>

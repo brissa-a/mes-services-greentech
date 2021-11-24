@@ -162,6 +162,14 @@
   }
 }
 
+.card.placeholder {
+  margin-top: 15px;
+  width:  283px;
+  height:  190px;
+  border: 1px dashed #FFFFFF;
+  border-radius: 18px;
+}
+
 .card:hover {
   max-height: 250px;
   overflow-y: none;
