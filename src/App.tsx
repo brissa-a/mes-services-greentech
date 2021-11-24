@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import type {Aide, ApiResponse} from './api/Api';
+import type { Aide, ApiResponse } from './api/Api';
+import mockApiResponse from './api/mock_api_resp.json'
 import './App.scss';
 
 const params = new URLSearchParams(window.location.search)
@@ -7,12 +8,14 @@ const apiurl = params.get("api-url") || 'https://alexisb.pythonanywhere.com/getA
 const max_results_str = params.get("max-results")
 const max_results = max_results_str && JSON.parse(max_results_str) || 30
 const defaultDescription = params.get("description") || "Nous sommes une startup spécialisé dans le tri des déchets métalliques"
+const useMockResponse = params.get("use-mock-response") === 'true'
 
 console.log(`Hidden params: &max-results=${max_results}&api-url=${apiurl}&description=${defaultDescription}`)
 
-const cardType = {
+const thematiqueToUI = {
   "aide": {
-    color: "rgba(133, 133, 246, 1)", text: <Fragment>
+    color: "rgba(133, 133, 246, 1)",
+    text: <Fragment>
       <img style={{ height: "1em" }} src="icons/rocket.svg" alt="Favori" aria-label="Favori" />
       <span style={{ marginLeft: "5px" }}>Aide publique</span>
     </Fragment>
@@ -22,13 +25,13 @@ const cardType = {
 };
 
 
-function OneResult(props: { aide: Aide, maxscore: number }) {
+function Card(props: { aide: Aide, maxscore: number }) {
   const [showDetails, setShowDetails] = useState(false);
   return <div className="card"
     onMouseEnter={() => setShowDetails(true)}
     onMouseLeave={() => setShowDetails(false)}>
-    <div className="fieldset" style={{ borderColor: cardType["aide"].color }}>
-      <span className="legend" style={{ color: cardType["aide"].color }}>{cardType["aide"].text}</span>
+    <div className="fieldset" style={{ borderColor: thematiqueToUI["aide"].color }}>
+      <span className="legend" style={{ color: thematiqueToUI["aide"].color }}>{thematiqueToUI["aide"].text}</span>
       {/* <div style={{ height: "1px", backgroundColor: "red", width: ((1 - (props.aide.score / props.maxscore)) * 100) + "%" }}></div>
     <br /> */}
       <div style={{ margin: "15px 25px" }}>
@@ -60,22 +63,27 @@ function OneResult(props: { aide: Aide, maxscore: number }) {
 }
 
 function buildAidesRequest(description: string) {
-  return fetch(apiurl, {
-    method: "POST",
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      "fichier_aides": "Aides_detailsandname.xlsx",
-      "descriptionSU": description,
-      "fichier_vocab": "vocab.pkl",
-      "nb_aides": max_results,
-      "resultats_aides": [],
-      "score_max": 0
+  console.log({useMockResponse})
+  if (useMockResponse) {
+    return  new Promise(res => setTimeout(() => res(mockApiResponse), 3000))
+  } else {
+    return fetch(apiurl, {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        "fichier_aides": "Aides_detailsandname.xlsx",
+        "descriptionSU": description,
+        "fichier_vocab": "vocab.pkl",
+        "nb_aides": max_results,
+        "resultats_aides": [],
+        "score_max": 0
+      })
     })
-  })
-    .then(resp => resp.json())
+    .then(resp => resp.json())      
+  }
 }
 
 var to: NodeJS.Timeout | null = null;
@@ -155,7 +163,7 @@ function App() {
             </div>
           </div>
           <div className="card-list">
-            {reponse ? reponse.resultats_aides.map(x => <OneResult aide={x} maxscore={reponse.resultats_aides.slice(-1)[0].score} />) :
+            {reponse ? reponse.cards.aides.map(x => <Card aide={x} maxscore={reponse.cards.aides.slice(-1)[0].score} />) :
               <Fragment>
                 <div className="card">It's loading...</div>
                 <div className="card"></div>
