@@ -67,7 +67,9 @@ function OneResult(props: { aide: AidePublique, maxscore: number }) {
           </div>
         </div>
         {showDetails && <div style={{ position: "absolute", top: "1px", right: "10px", fontSize: "0.5em" }}>{props.aide.score}</div>}
-        <p style={{ fontWeight: "bolder", fontSize: "16px", lineHeight: "22px", marginTop: "12px" }}>{props.aide.titre_aide}</p>
+        <p style={{ fontWeight: "bolder", fontSize: "16px", lineHeight: "22px", marginTop: "12px" }}>
+          {props.aide.titre_aide}
+        </p>
         <a href="#"><div style={{
           height: "32px", width: "130px", marginTop: "11px",
           display: "flex", alignItems: "center", justifyContent: "space-around",
