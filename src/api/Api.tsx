@@ -1,4 +1,4 @@
-type Aide = {
+export type Aide = {
     "titre_aide": string,
     "aide_detail": string,
     "aide_detail_clean": string,
@@ -7,13 +7,13 @@ type Aide = {
     "funding_source_url": string
 }
 
-type CollectiviteScore = null | {
+export type CollectiviteScore = null | {
     "proportion_numerateur": string,
     "proportion_denominateur": string,
     "proportion": number
 }
 
-type Collectivite = {
+export type Collectivite = {
     "nom": string,
     "score": {
         "innovation": CollectiviteScore,
@@ -23,7 +23,7 @@ type Collectivite = {
     "scoretotal": number
 }
 
-type Marche = {
+export type Marche = {
     "libelle": string,                  //"MS_S\u00e9rigraphies, vitrages",
     "domaine": string,                  //"Transport de personnes et de biens - V\u00e9hicules",
     "groupe_marchandise_code": string,  //"34.03.01",
@@ -39,7 +39,7 @@ type Marche = {
     "score": number,                    //1.6401309967041016
 }
 
-type ApiResponse = {
+export type ApiResponse = {
     "fichier_aides": string,
     "fichier_achats_previs": string,
     "fichier_embeddings_achats": string,

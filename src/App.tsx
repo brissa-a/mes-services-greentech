@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
+import type {Aide, ApiResponse} from './api/Api';
 import './App.scss';
 
 const params = new URLSearchParams(window.location.search)
@@ -21,7 +22,7 @@ const cardType = {
 };
 
 
-function OneResult(props: { aide: AidePublique, maxscore: number }) {
+function OneResult(props: { aide: Aide, maxscore: number }) {
   const [showDetails, setShowDetails] = useState(false);
   return <div className="card"
     onMouseEnter={() => setShowDetails(true)}
@@ -80,12 +81,12 @@ function buildAidesRequest(description: string) {
 var to: NodeJS.Timeout | null = null;
 
 declare global {
-  interface Window { lastApiResponse: reponseType; }
+  interface Window { lastApiResponse: ApiResponse; }
 }
 
 function App() {
   const defaultValue = null
-  const [reponse, setReponse] = useState<reponseType | null>(null);
+  const [reponse, setReponse] = useState<ApiResponse | null>(null);
   const [descriptionStartup, setDescriptionStartup] = useState<string>(defaultDescription);
 
   useEffect(() => {
