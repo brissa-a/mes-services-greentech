@@ -9,34 +9,6 @@ const defaultDescription = params.get("description") || "Nous sommes une startup
 
 console.log(`Hidden params: &max-results=${max_results}&api-url=${apiurl}&description=${defaultDescription}`)
 
-function Tag(props: { color: string, children: React.ReactNode }) {
-  const style = {
-    backgroundColor: props.color,
-    borderRadius: '25px',
-    color: "rgba(255,255,255,0.93)",
-    padding: "7px 7px",
-    fontSize: "0.8em"
-  }
-  return <span style={style}>{props.children}</span>
-}
-
-type AidePublique = {
-  "titre_aide": string,
-  "aide_detail": string,
-  "aide_detail_clean": string,
-  "score": number,
-  "contact": string
-}
-
-type reponseType = {
-  "fichier_aides": string,
-  "descriptionSU": string,
-  "fichier_vocab": string,
-  "nb_aides": number,
-  "resultats_aides": AidePublique[],
-  "score_max": number
-}
-
 const cardType = {
   "aide": {
     color: "rgba(133, 133, 246, 1)", text: <Fragment>

@@ -1,0 +1,533 @@
+{
+    "fichier_aides": "Aides_detailsandname.xlsx",
+    "fichier_achats_previs": "Programmation_2021-2024.xlsx",
+    "fichier_embeddings_achats": "embeddings_achats_previs.pkl",
+    "fichier_decp": "decp_score.csv",
+    "descriptionSU": "Chargemap, permet aux conducteurs de v\u00e9hicules \u00e9lectriques de trouver le point de charge le plus proche et adapt\u00e9 \u00e0 son v\u00e9hicule et toutes les informations n\u00e9cessaires pour planifier un voyage. La communaut\u00e9 des conducteurs de v\u00e9hicules \u00e9lectriques envoie r\u00e9guli\u00e8rement des mises \u00e0 jour permettant d\u2019assurer une mise \u00e0 jour rapide et de qualit\u00e9 des informations fournies par ChargeMap. Cette solution d'acc\u00e8s est compatible avec un nombre croissant de r\u00e9seaux de recharge en France et en Europe.",
+    "fichier_vocab": "vocab.pkl",
+    "nb_aides": 10,
+    "nb_achats_previs": 12,
+    "cards": {
+        "collectivites": [
+            {
+                "nom": "MSA SUD AQUITAINE",
+                "score": {
+                    "innovation": {
+                        "proportion_numerateur": "1",
+                        "proportion_denominateur": "5",
+                        "proportion": 20.0
+                    },
+                    "sous_les_seuils": {
+                        "proportion_numerateur": "4",
+                        "proportion_denominateur": "5",
+                        "proportion": 80.0
+                    },
+                    "petites_entreprises": null
+                },
+                "scoretotal": 50.0
+            },
+            {
+                "nom": "SEINE HABITAT",
+                "score": {
+                    "innovation": {
+                        "proportion_numerateur": "",
+                        "proportion_denominateur": "",
+                        "proportion": 0.0
+                    },
+                    "sous_les_seuils": {
+                        "proportion_numerateur": "1",
+                        "proportion_denominateur": "1",
+                        "proportion": 100.0
+                    },
+                    "petites_entreprises": null
+                },
+                "scoretotal": 50.0
+            },
+            {
+                "nom": "SDIS (06)",
+                "score": {
+                    "innovation": {
+                        "proportion_numerateur": "",
+                        "proportion_denominateur": "",
+                        "proportion": 0.0
+                    },
+                    "sous_les_seuils": {
+                        "proportion_numerateur": "1",
+                        "proportion_denominateur": "1",
+                        "proportion": 100.0
+                    },
+                    "petites_entreprises": null
+                },
+                "scoretotal": 50.0
+            },
+            {
+                "nom": "H\u00f4pitaux Civils de Colmar (68)",
+                "score": {
+                    "innovation": {
+                        "proportion_numerateur": "",
+                        "proportion_denominateur": "",
+                        "proportion": 0.0
+                    },
+                    "sous_les_seuils": {
+                        "proportion_numerateur": "1",
+                        "proportion_denominateur": "1",
+                        "proportion": 100.0
+                    },
+                    "petites_entreprises": null
+                },
+                "scoretotal": 50.0
+            },
+            {
+                "nom": "Centre Hospitalier Intercommunal Nord Ardennes (08)",
+                "score": {
+                    "innovation": {
+                        "proportion_numerateur": "",
+                        "proportion_denominateur": "",
+                        "proportion": 0.0
+                    },
+                    "sous_les_seuils": {
+                        "proportion_numerateur": "1",
+                        "proportion_denominateur": "1",
+                        "proportion": 100.0
+                    },
+                    "petites_entreprises": null
+                },
+                "scoretotal": 50.0
+            },
+            {
+                "nom": "COMMUNE TREMBLAY",
+                "score": {
+                    "innovation": {
+                        "proportion_numerateur": "",
+                        "proportion_denominateur": "",
+                        "proportion": 0.0
+                    },
+                    "sous_les_seuils": {
+                        "proportion_numerateur": "1",
+                        "proportion_denominateur": "1",
+                        "proportion": 100.0
+                    },
+                    "petites_entreprises": null
+                },
+                "scoretotal": 50.0
+            },
+            {
+                "nom": "MAIRIE  DE LAUNAC",
+                "score": {
+                    "innovation": {
+                        "proportion_numerateur": "",
+                        "proportion_denominateur": "",
+                        "proportion": 0.0
+                    },
+                    "sous_les_seuils": {
+                        "proportion_numerateur": "1",
+                        "proportion_denominateur": "1",
+                        "proportion": 100.0
+                    },
+                    "petites_entreprises": null
+                },
+                "scoretotal": 50.0
+            },
+            {
+                "nom": "Centre Hospitalier Universitaire de Clermont-Ferrand",
+                "score": {
+                    "innovation": {
+                        "proportion_numerateur": "",
+                        "proportion_denominateur": "",
+                        "proportion": 0.0
+                    },
+                    "sous_les_seuils": {
+                        "proportion_numerateur": "1",
+                        "proportion_denominateur": "1",
+                        "proportion": 100.0
+                    },
+                    "petites_entreprises": null
+                },
+                "scoretotal": 50.0
+            },
+            {
+                "nom": "DIED - Direction de l infrastructure et de l \ufffdconomie digitale",
+                "score": {
+                    "innovation": {
+                        "proportion_numerateur": "",
+                        "proportion_denominateur": "",
+                        "proportion": 0.0
+                    },
+                    "sous_les_seuils": {
+                        "proportion_numerateur": "1",
+                        "proportion_denominateur": "1",
+                        "proportion": 100.0
+                    },
+                    "petites_entreprises": null
+                },
+                "scoretotal": 50.0
+            },
+            {
+                "nom": "Communaut\u00e9 de Communes Vall\u00e9e des Baux-Alpilles (13)",
+                "score": {
+                    "innovation": {
+                        "proportion_numerateur": "",
+                        "proportion_denominateur": "",
+                        "proportion": 0.0
+                    },
+                    "sous_les_seuils": {
+                        "proportion_numerateur": "1",
+                        "proportion_denominateur": "1",
+                        "proportion": 100.0
+                    },
+                    "petites_entreprises": null
+                },
+                "scoretotal": 50.0
+            },
+            {
+                "nom": "Commune de Curdin ",
+                "score": {
+                    "innovation": {
+                        "proportion_numerateur": "",
+                        "proportion_denominateur": "",
+                        "proportion": 0.0
+                    },
+                    "sous_les_seuils": {
+                        "proportion_numerateur": "1",
+                        "proportion_denominateur": "1",
+                        "proportion": 100.0
+                    },
+                    "petites_entreprises": null
+                },
+                "scoretotal": 50.0
+            },
+            {
+                "nom": "1 - Fonc - Groupement Ville",
+                "score": {
+                    "innovation": {
+                        "proportion_numerateur": "",
+                        "proportion_denominateur": "",
+                        "proportion": 0.0
+                    },
+                    "sous_les_seuils": {
+                        "proportion_numerateur": "1",
+                        "proportion_denominateur": "1",
+                        "proportion": 100.0
+                    },
+                    "petites_entreprises": null
+                },
+                "scoretotal": 50.0
+            },
+            {
+                "nom": "SPL L'Or Am\u00e9nagement (Mandataire)",
+                "score": {
+                    "innovation": {
+                        "proportion_numerateur": "2",
+                        "proportion_denominateur": "2",
+                        "proportion": 100.0
+                    },
+                    "sous_les_seuils": {
+                        "proportion_numerateur": "",
+                        "proportion_denominateur": "",
+                        "proportion": 0.0
+                    },
+                    "petites_entreprises": null
+                },
+                "scoretotal": 50.0
+            },
+            {
+                "nom": "COMMUNE DE PLOURIN",
+                "score": {
+                    "innovation": {
+                        "proportion_numerateur": "2",
+                        "proportion_denominateur": "2",
+                        "proportion": 100.0
+                    },
+                    "sous_les_seuils": {
+                        "proportion_numerateur": "",
+                        "proportion_denominateur": "",
+                        "proportion": 0.0
+                    },
+                    "petites_entreprises": null
+                },
+                "scoretotal": 50.0
+            },
+            {
+                "nom": "SEMSAMAR (973)",
+                "score": {
+                    "innovation": {
+                        "proportion_numerateur": "1",
+                        "proportion_denominateur": "1",
+                        "proportion": 100.0
+                    },
+                    "sous_les_seuils": {
+                        "proportion_numerateur": "",
+                        "proportion_denominateur": "",
+                        "proportion": 0.0
+                    },
+                    "petites_entreprises": null
+                },
+                "scoretotal": 50.0
+            }
+        ],
+        "aides": [
+            {
+                "titre_aide": "Faciliter l'acquisition de v\u00e9hicules propres pour les TPE/PME",
+                "score": 1.2734904106216407,
+                "aide_detail_clean": " Le dispositif a vocation \u00e0 accompagner l'acquisition par les artisans, les TPE et les PME franciliennes de v\u00e9hicules \u00e9lectriques, \u00e0 hydrog\u00e8ne, au gaz, ou hybrides rechargeables pour les taxis, les entreprises de transports par route de marchandises pour le compte d'autrui.  Qui peut en b\u00e9n\u00e9ficier ?  Entreprises comptant jusqu'\u00e0 50 salari\u00e9s, ayant leur si\u00e8ge en \u00cele-de-France et dont le chiffre d'affaire annuel ou le total du bilan annuel n'exc\u00e8de pas 10 000 000 \u20ac. Cela inclut les taxis et VTC et les entreprises de transport de marchandises pour le compte d'autrui. Les auto-entrepreneurs et les professions lib\u00e9rales remplissent les crit\u00e8res d'\u00e9ligibilit\u00e9s au dispositif. Pour l'acquisition de deux-roues de type scooters, trois-roues ou quadricycles \u00e9lectriques et de v\u00e9hicules de tourisme (champs J1 de la carte grise TM, QM, CYCL, CL, MTL, MTT1 et MTT2, VP), l'entreprise devra justifier d'une anciennet\u00e9 sup\u00e9rieure \u00e0 un an.  Nature de l'aide    De 1.500\u20ac \u00e0 3.000\u20ac pour les deux-, trois-roues et quadricycles \u00e9lectriques, selon les caract\u00e9ristiques du v\u00e9hicule.      Jusqu'\u00e0 6.000\u20ac pour les v\u00e9hicules professionnels l\u00e9gers \u00e9lectriques, hydrog\u00e8ne ou GNV de moins de 3,5 tonnes. Pour les artisans taxi, l'aide inclut \u00e9galement les v\u00e9hicules hybrides rechargeables.      Jusqu'\u00e0 9.000\u20ac pour les v\u00e9hicules professionnels de plus de 3,5 tonnes.      Jusqu'\u00e0 15 k\u20ac pour les v\u00e9hicules de transport de marchandises pour autrui de PTAC sup\u00e9rieur \u00e0 3,5 tonnes.   ",
+                "aide_detail": "<p>\n Le dispositif a vocation \u00e0 accompagner l'acquisition par les artisans, les TPE et les PME franciliennes de v\u00e9hicules \u00e9lectriques, \u00e0 hydrog\u00e8ne, au gaz, ou hybrides rechargeables pour les taxis, les entreprises de transports par route de marchandises pour le compte d'autrui.\n</p>\n<p>\n <strong>\n  Qui peut en b\u00e9n\u00e9ficier ?\n </strong>\n</p>\n<p>\n Entreprises comptant jusqu'\u00e0 50 salari\u00e9s, ayant leur si\u00e8ge en \u00cele-de-France et dont le chiffre d'affaire annuel ou le total du bilan annuel n'exc\u00e8de pas 10 000 000 \u20ac. Cela inclut les taxis et VTC et les entreprises de transport de marchandises pour le compte d'autrui. Les auto-entrepreneurs et les professions lib\u00e9rales remplissent les crit\u00e8res d'\u00e9ligibilit\u00e9s au dispositif.\n</p>\n<p>\n Pour l'acquisition de deux-roues de type scooters, trois-roues ou quadricycles \u00e9lectriques et de v\u00e9hicules de tourisme (champs J1 de la carte grise TM, QM, CYCL, CL, MTL, MTT1 et MTT2, VP), l'entreprise devra justifier d'une anciennet\u00e9 sup\u00e9rieure \u00e0 un an.\n</p>\n<p>\n <strong>\n  Nature de l'aide\n </strong>\n</p>\n<p>\n <ul>\n  <li>\n   De 1.500\u20ac \u00e0 3.000\u20ac pour les deux-, trois-roues et quadricycles \u00e9lectriques, selon les caract\u00e9ristiques du v\u00e9hicule.\n   <br/>\n  </li>\n  <li>\n   Jusqu'\u00e0 6.000\u20ac pour les v\u00e9hicules professionnels l\u00e9gers \u00e9lectriques, hydrog\u00e8ne ou GNV de moins de 3,5 tonnes. Pour les artisans taxi, l'aide inclut \u00e9galement les v\u00e9hicules hybrides rechargeables.\n   <br/>\n  </li>\n  <li>\n   Jusqu'\u00e0 9.000\u20ac pour les v\u00e9hicules professionnels de plus de 3,5 tonnes.\n   <br/>\n  </li>\n  <li>\n   Jusqu'\u00e0 15 k\u20ac pour les v\u00e9hicules de transport de marchandises pour autrui de PTAC sup\u00e9rieur \u00e0 3,5 tonnes.\n   <br/>\n  </li>\n </ul>\n</p>",
+                "contact": "<p>\n Pour toute question sur l'instruction d'un dossier en cours : gestionvehiculespropres@asp-public.fr\n</p>\n<p>\n Vous trouvez plus d'informations sur le dispositif dans le document \u00ab tutoriel-r\u00e8glement d'intervention-FAQ et sur mesdemarches.iledefrance.\n</p>\n<p>\n <strong>\n  Qui peut me renseigner sur le dispositif ?\n </strong>\n</p>\n<p>\n Pour toute question relative \u00e0 la compr\u00e9hension du dispositif, vous pouvez d\u00e9j\u00e0 vous rapprocher des professionnels (concessionnaires et entreprises de location), qui commencent pour certains \u00e0 bien connaitre le dispositif, et qui pourront vous apporter des pr\u00e9cisions.\n</p>\n<p>\n Pour toute question relative \u00e0 l'instruction d'un dossier en cours, une fois celui-ci d\u00e9pos\u00e9, merci de contacter l'Agence de Services et des Paiementsgestionvehiculespropres@asp-public.fr\n</p>\n<p>\n Enfin en dernier recours, vous avez la possibilit\u00e9 de contacter les services de la R\u00e9gion \u00cele de France \u00e0 l'adresse suivante \u00ab\n <strong>\n  vehiculespropres@iledefrance.fr\n </strong>\n \u00bb. Attention le d\u00e9lai de r\u00e9ponse peut \u00eatre important : la R\u00e9gion ayant confi\u00e9 la gestion de ce dispositif \u00e0 l'Agence de Services et des Paiements, elle n'intervient dans le traitement des dossiers de demande d'aide.\n</p>",
+                "funding_source_url": "https://www.iledefrance.fr/acquisition-de-vehicules-propres-par-les-professionnels-franciliens"
+            },
+            {
+                "titre_aide": "Soutenir le d\u00e9veloppement de bornes de recharge accessibles au public sur voiries pour v\u00e9hicules hybrides et \u00e9lectriques",
+                "score": 1.3004998092166873,
+                "aide_detail_clean": "  Objectifs   Contribuer \u00e0 l'atteinte des objectifs du SRADDET   Compl\u00e9ter le maillage r\u00e9gional en infrastructures de recharge pour v\u00e9hicules hybrides et \u00e9lectriques accessibles au public   Favoriser les d\u00e9marches globales de mobilit\u00e9 bas-carbone   R\u00e9duire les \u00e9missions de gaz \u00e0 effet de serre et la pollution atmosph\u00e9rique   Substituer des ressources renouvelables aux ressources fossiles   Pr\u00e9server le pouvoir d'achat des m\u00e9nages   Faciliter le d\u00e9ploiement de r\u00e9seaux \u00e9nerg\u00e9tiques intelligents permettant d'\u00e9viter les pointes de consommation \u00e9lectrique et d'absorber les exc\u00e9dents de production renouvelable   Montant de l'aide  Dispositif d'aide pris en application du r\u00e9gime d'aide exempt\u00e9 n\u00b0 SA.59108, relatif aux aides \u00e0 la protection de l'environnement pour la p\u00e9riode 2014-2023, adopt\u00e9 sur la base du r\u00e8glement g\u00e9n\u00e9ral d'exemption par cat\u00e9gorie n\u00b0 651/2014 de la Commission europ\u00e9enne, publi\u00e9 au JOUE du 26 juin 2014, modifi\u00e9 par les r\u00e8glements 2017/1084 du 14 juin 2017 publi\u00e9 au JOUE du 20 juin 2017 et 2020/972 du 2 juillet 2020 publi\u00e9 au JOUE du 7 juillet 2020. Taux maximum : 55 % du co\u00fbt HT du projet (co\u00fbts du mat\u00e9riel, g\u00e9nie civil, raccordement au r\u00e9seau du distributeur d'\u00e9lectricit\u00e9) Plafond de subvention pour les projets port\u00e9s par des collectivit\u00e9s :  Recharge normale (< 7 kVA) : 1 250 \u20ac par point de charge   Recharge acc\u00e9l\u00e9r\u00e9e (\u2264 22 kVA) : 2 200 \u20ac par point de charge   Recharge rapide (> 22 kVA) : 8 000 \u20ac par borne  Plafond pour les projets port\u00e9s par des entreprises : 1 000 \u20ac par point de charge  Plafond pour les projets port\u00e9s par des entreprises int\u00e9grant des services associ\u00e9s aux IRVE : 1 500 \u20ac par point de charge  Aide cumulable avec le dispositif national Advenir  Aide cumulable avec le dispositif r\u00e9gional de soutien au photovolta\u00efque",
+                "aide_detail": "<p>\n <strong>\n  Objectifs\n </strong>\n</p>\n<ul>\n <li>\n  Contribuer \u00e0 l'atteinte des objectifs du SRADDET\n </li>\n <li>\n  Compl\u00e9ter le maillage r\u00e9gional en infrastructures de recharge pour v\u00e9hicules hybrides et \u00e9lectriques accessibles au public\n </li>\n <li>\n  Favoriser les d\u00e9marches globales de mobilit\u00e9 bas-carbone\n </li>\n <li>\n  R\u00e9duire les \u00e9missions de gaz \u00e0 effet de serre et la pollution atmosph\u00e9rique\n </li>\n <li>\n  Substituer des ressources renouvelables aux ressources fossiles\n </li>\n <li>\n  Pr\u00e9server le pouvoir d'achat des m\u00e9nages\n </li>\n <li>\n  Faciliter le d\u00e9ploiement de r\u00e9seaux \u00e9nerg\u00e9tiques intelligents permettant d'\u00e9viter les pointes de consommation \u00e9lectrique et d'absorber les exc\u00e9dents de production renouvelable\n </li>\n</ul>\n<p>\n <strong>\n  Montant de l'aide\n </strong>\n</p>\n<p>\n Dispositif d'aide pris en application du r\u00e9gime d'aide exempt\u00e9 n\u00b0 SA.59108, relatif aux aides \u00e0 la protection de l'environnement pour la p\u00e9riode 2014-2023, adopt\u00e9 sur la base du r\u00e8glement g\u00e9n\u00e9ral d'exemption par cat\u00e9gorie n\u00b0 651/2014 de la Commission europ\u00e9enne, publi\u00e9 au JOUE du 26 juin 2014, modifi\u00e9 par les r\u00e8glements 2017/1084 du 14 juin 2017 publi\u00e9 au JOUE du 20 juin 2017 et 2020/972 du 2 juillet 2020 publi\u00e9 au JOUE du 7 juillet 2020.\n</p>\n<p>\n Taux maximum : 55 % du co\u00fbt HT du projet (co\u00fbts du mat\u00e9riel, g\u00e9nie civil, raccordement au r\u00e9seau du distributeur d'\u00e9lectricit\u00e9)\n</p>\n<p>\n Plafond de subvention pour les projets port\u00e9s par des collectivit\u00e9s :\n</p>\n<ul>\n <li>\n  Recharge normale (&lt; 7 kVA) : 1 250 \u20ac par point de charge\n </li>\n <li>\n  Recharge acc\u00e9l\u00e9r\u00e9e (\u2264 22 kVA) : 2 200 \u20ac par point de charge\n </li>\n <li>\n  Recharge rapide (&gt; 22 kVA) : 8 000 \u20ac par borne\n </li>\n</ul>\n<p>\n Plafond pour les projets port\u00e9s par des entreprises : 1 000 \u20ac par point de charge\n <br/>\n Plafond pour les projets port\u00e9s par des entreprises int\u00e9grant des services associ\u00e9s aux IRVE : 1 500 \u20ac par point de charge\n <br/>\n Aide cumulable avec le dispositif national Advenir\n <br/>\n Aide cumulable avec le dispositif r\u00e9gional de soutien au photovolta\u00efque\n</p>",
+                "contact": "<p>\n Selon le lieu d'implantation du projet, la demande devra \u00eatre adress\u00e9e \u00e0 :\n</p>\n<p>\n <strong>\n  Territoires des Maisons Saverne/Haguenau \u2013 Strasbourg \u2013 S\u00e9lestat \u2013 Mulhouse :\n </strong>\n</p>\n<ul>\n <li>\n  Monsieur le Pr\u00e9sident du Conseil R\u00e9gional\n </li>\n <li>\n  R\u00e9gion Grand Est\n </li>\n <li>\n  Service Transition Energ\u00e9tique\n </li>\n <li>\n  1 Place Adrien Zeller - BP 91006 67070 STRASBOURG Cedex\n </li>\n <li>\n  T\u00e9l : 03 88 15 66 33\n </li>\n</ul>\n<strong style=\"color: var(--body-fg);\">\n Territoires des Maisons Thionville/Longwy \u2013 Metz \u2013 Nancy \u2013 Epinal :\n</strong>\n<br/>\n<ul>\n <li>\n  Monsieur le Pr\u00e9sident du Conseil R\u00e9gional\n </li>\n <li>\n  R\u00e9gion Grand Est\n </li>\n <li>\n  Service Transition Energ\u00e9tique\n </li>\n <li>\n  Place Gabriel Hocquard - CS 81004 57036 METZ Cedex 01\n </li>\n <li>\n  T\u00e9l : 03 87 33 61 40\n </li>\n</ul>\n<p>\n <strong>\n  Territoires des Maisons Charleville-M\u00e9zi\u00e8res/Verdun \u2013 Ch\u00e2lons-en-Champagne \u2013 Troyes/Chaumont \u2013\n  Saint-Dizier/Bar-le-Duc :\n </strong>\n</p>\n<ul>\n <li>\n  Monsieur le Pr\u00e9sident du Conseil R\u00e9gional\n </li>\n <li>\n  R\u00e9gion Grand Est\n </li>\n <li>\n  Service Transition Energ\u00e9tique\n </li>\n <li>\n  5 rue de J\u00e9richo - CS 70441 51037 CHALONS-EN-CHAMPAGNE Cedex\n </li>\n <li>\n  T\u00e9l : 03 26 70 66 08\n </li>\n</ul>",
+                "funding_source_url": "https://www.grandest.fr/appel-a-projet/soutien-aux-bornes-de-recharge-accessibles-au-public-sur-voiries-pour-vehicules-hybrides-et-electriques/"
+            },
+            {
+                "titre_aide": "Soutenir le d\u00e9ploiement des bornes de recharge pour v\u00e9hicules hybrides et \u00e9lectriques - bornes \u00e0 destination des salari\u00e9s",
+                "score": 1.321522994106494,
+                "aide_detail_clean": " Objectifs  Contribuer \u00e0 l'atteinte des objectifs du SRADDET   Compl\u00e9ter le maillage r\u00e9gional en infrastructures de recharge pour v\u00e9hicules hybrides et \u00e9lectriques utiles aux trajets domicile-travail et aux s\u00e9jours touristiques   Favoriser les d\u00e9marches globales de mobilit\u00e9 bas-carbone   R\u00e9duire les \u00e9missions de gaz \u00e0 effet de serre et la pollution atmosph\u00e9rique   Substituer des ressources renouvelables aux ressources fossiles   Pr\u00e9server le pouvoir d'achat des m\u00e9nages   Faciliter le d\u00e9ploiement de r\u00e9seaux \u00e9nerg\u00e9tiques intelligents permettant d'\u00e9viter les pointes de consommation \u00e9lectrique et d'absorber les exc\u00e9dents de production renouvelable  Montant de l'aide Taux : maximum de 50% du co\u00fbt du projet (co\u00fbts du mat\u00e9riel, g\u00e9nie civil, raccordement aur\u00e9seau du distributeur d'\u00e9lectricit\u00e9), dans le respect du r\u00e9gime cadre en vigueur, notamment ler\u00e9gime cadre exempt\u00e9 de notification SA 40405 relatif aux aides pour la protection del'environnement sur la p\u00e9riode 2014-2020. Plafond :  Recharge normale (< 7 kVA) et acc\u00e9l\u00e9r\u00e9e (\u2264 22 kVA) : 1 000 \u20ac par point de charge Aide cumulable avec le dispositif national Advenir Aide cumulable avec le dispositif r\u00e9gional de soutien au photovolta\u00efque",
+                "aide_detail": "<h4>\n Objectifs\n</h4>\n<ul>\n <li>\n  Contribuer \u00e0 l'atteinte des objectifs du SRADDET\n </li>\n <li>\n  Compl\u00e9ter le maillage r\u00e9gional en infrastructures de recharge pour v\u00e9hicules hybrides et \u00e9lectriques utiles aux trajets domicile-travail et aux s\u00e9jours touristiques\n </li>\n <li>\n  Favoriser les d\u00e9marches globales de mobilit\u00e9 bas-carbone\n </li>\n <li>\n  R\u00e9duire les \u00e9missions de gaz \u00e0 effet de serre et la pollution atmosph\u00e9rique\n </li>\n <li>\n  Substituer des ressources renouvelables aux ressources fossiles\n </li>\n <li>\n  Pr\u00e9server le pouvoir d'achat des m\u00e9nages\n </li>\n <li>\n  Faciliter le d\u00e9ploiement de r\u00e9seaux \u00e9nerg\u00e9tiques intelligents permettant d'\u00e9viter les pointes de consommation \u00e9lectrique et d'absorber les exc\u00e9dents de production renouvelable\n </li>\n</ul>\n<h4>\n Montant de l'aide\n</h4>\n<p>\n Taux : maximum de 50% du co\u00fbt du projet (co\u00fbts du mat\u00e9riel, g\u00e9nie civil, raccordement au\nr\u00e9seau du distributeur d'\u00e9lectricit\u00e9), dans le respect du r\u00e9gime cadre en vigueur, notamment le\nr\u00e9gime cadre exempt\u00e9 de notification SA 40405 relatif aux aides pour la protection de\nl'environnement sur la p\u00e9riode 2014-2020.\n</p>\n<p>\n Plafond :  Recharge normale (&lt; 7 kVA) et acc\u00e9l\u00e9r\u00e9e (\u2264 22 kVA) : 1 000 \u20ac par point de charge\n</p>\n<p>\n Aide cumulable avec le dispositif national Advenir\n</p>\n<p>\n Aide cumulable avec le dispositif r\u00e9gional de soutien au photovolta\u00efque\n</p>",
+                "contact": "<p>\n Selon le lieu d'implantation du projet, la demande devra \u00eatre adress\u00e9e \u00e0 :\n</p>\n<p>\n <strong>\n  \u25ba Territoires des Maisons Saverne/Haguenau \u2013 Strasbourg \u2013 S\u00e9lestat \u2013 Mulhouse :\n </strong>\n</p>\n<ul>\n <li>\n  Monsieur le Pr\u00e9sident du Conseil R\u00e9gional\n </li>\n <li>\n  R\u00e9gion Grand Est\n </li>\n <li>\n  Service Transition Energ\u00e9tique\n </li>\n <li>\n  1 Place Adrien Zeller - BP 91006\n </li>\n <li>\n  67070 STRASBOURG Cedex\n </li>\n <li>\n  T\u00e9l : 03 88 15 66 33\n </li>\n</ul>\n<p>\n <strong>\n  \u25ba Territoires des Maisons Thionville/Longwy \u2013 Metz \u2013 Nancy \u2013 Epinal :\n </strong>\n</p>\n<ul>\n <li>\n  Monsieur le Pr\u00e9sident du Conseil R\u00e9gional\n </li>\n <li>\n  R\u00e9gion Grand Est\n </li>\n <li>\n  Service Transition Energ\u00e9tique\n </li>\n <li>\n  Place Gabriel Hocquard - CS 81004\n </li>\n <li>\n  57036 METZ Cedex 01\n </li>\n <li>\n  T\u00e9l : 03 87 33 61 40\n </li>\n</ul>\n<p>\n <strong>\n  \u25ba Territoires des Maisons Charleville-M\u00e9zi\u00e8res/Verdun \u2013 Ch\u00e2lons-en-Champagne :\n </strong>\n</p>\n<ul>\n <li>\n  Troyes/Chaumont \u2013 Saint-Dizier/Bar-le-Duc\n </li>\n <li>\n  Monsieur le Pr\u00e9sident du Conseil R\u00e9gional\n </li>\n <li>\n  R\u00e9gion Grand Est\n </li>\n <li>\n  Service Transition Energ\u00e9tique\n </li>\n <li>\n  5 rue de J\u00e9richo - CS 70441\n </li>\n <li>\n  51037 CHALONS-EN-CHAMPAGNE Cedex\n </li>\n <li>\n  T\u00e9l : 03 26 70 66 08\n </li>\n</ul>",
+                "funding_source_url": "https://www.grandest.fr/appel-a-projet/soutien-aux-bornes-de-recharge-pour-vehicules-hybrides-et-electriques-bornes-a-destination-des-salaries/"
+            },
+            {
+                "titre_aide": "Acqu\u00e9rir ou louer un v\u00e9hicule peu polluant - Bonus \u00e9cologique",
+                "score": 1.325306728070768,
+                "aide_detail_clean": " Le bonus \u00e9cologique est une aide financi\u00e8re \u00e0 l'acquisition ou \u00e0 la location pour une dur\u00e9e d'au moins deux ans d'un v\u00e9hicule appartenant \u00e0 la cat\u00e9gorie :  des voitures particuli\u00e8res ou des camionnettes \u00e9mettant une quantit\u00e9 de CO2 inf\u00e9rieure ou \u00e9gale \u00e0 50 g/km ;   des v\u00e9hicules \u00e9lectriques \u00e0 moteur \u00e0 2 ou 3 roues et des quadricycles \u00e0 moteur \u00e9lectrique n'utilisant pas de batterie au plomb ;   des poids lourds, autobus ou autocars appartenant aux cat\u00e9gories N2, N3, M2 ou M3 (au sens de l'article R. 311-1 du code de la route) fonctionnant \u00e0 l'\u00e9lectricit\u00e9 et/ou \u00e0 l'hydrog\u00e8ne.    Crit\u00e8res d'\u00e9ligibilit\u00e9  Le v\u00e9hicule (voiture ou camionnette) doit remplir les conditions suivantes :  avoir un taux d'\u00e9mission de CO2 de 50 g/km au maximum (v\u00e9hicule \u00e9lectrique, hydrog\u00e8ne ou hybride rechargeable),   \u00eatre achet\u00e9 ou lou\u00e9 (pour une dur\u00e9e d'au moins 2 ans),   \u00eatre immatricul\u00e9 en France dans une s\u00e9rie d\u00e9finitive,   ne pas \u00eatre vendu dans les 6 mois suivant sa premi\u00e8re immatriculation, ni avant d'avoir parcouru au moins 6 000 km.  Le v\u00e9hicule (2 roues, 3 roues ou quadricycle \u00e0 moteur) doit remplir les conditions suivantes :  utiliser l'\u00e9lectricit\u00e9 comme source d'\u00e9nergie,   ne pas utiliser de batterie au plomb,   \u00eatre achet\u00e9 ou lou\u00e9 (pour une dur\u00e9e d'au moins 2 ans),   \u00eatre un v\u00e9hicule neuf,   \u00eatre immatricul\u00e9 en France dans une s\u00e9rie d\u00e9finitive,   ne pas \u00eatre vendu dans l'ann\u00e9e suivant sa 1\u00e8re immatriculation, ni avant d'avoir parcouru au moins 2 000 kilom\u00e8tres.  Le v\u00e9hicule (poids lourd, autobus ou autocar) doit remplir les conditions suivantes :   utiliser l'\u00e9lectricit\u00e9, l'hydrog\u00e8ne ou une combinaison des deux comme source exclusive d'\u00e9nergie,    \u00eatre achet\u00e9 ou lou\u00e9 (pour une dur\u00e9e d'au moins 2 ans),   \u00eatre un v\u00e9hicule neuf,   \u00eatre immatricul\u00e9 en France dans une s\u00e9rie d\u00e9finitive,    ne pas \u00eatre vendu dans les six mois suivant sa premi\u00e8re immatriculation ni avant d'avoir parcouru au moins 40 000 kilom\u00e8tres.    Montant de l'aide  Pour les v\u00e9hicules \u00e9lectriques et/ou \u00e0 hydrog\u00e8ne neufs (dont le taux de CO2 est inf\u00e9rieur ou \u00e9gal \u00e0 20 g/km), le montant du bonus s'\u00e9l\u00e8ve \u00e0 :   27% du co\u00fbt d'acquisition dans la limite de 6 000 \u20ac pour un particulier et 4 000 \u20ac pour une personne morale, pour une voiture de moins de 45 000 \u20ac ;   2 000 \u20ac pour une voiture comprise entre 45 000 \u20ac et 60 000 \u20ac ;    2 000 \u20ac pour une voiture fonctionnant \u00e0 l'hydrog\u00e8ne de plus de 60 000 \u20ac ;    40% du prix d'acquisition dans la limite de 7 000 \u20ac pour un particulier et 5 000 \u20ac pour une personne morale, pour une camionnette, quel que soit le co\u00fbt d'acquisition.   Pour les v\u00e9hicules hybrides rechargeables neufs dont le taux de CO2 est compris entre 21 et 50 g/km, de moins de 50 000 \u20ac et dont l'autonomie en mode \u00e9lectrique est sup\u00e9rieure \u00e0 50 km, le montant du bonus s'\u00e9l\u00e8ve \u00e0 1 000 \u20ac.  Pour v\u00e9hicules \u00e0 moteur \u00e0 2 ou 3 roues et quadricycles \u00e0 moteur avec une puissance de 2 kilowatts (ou 3 kw selon le r\u00e8glement d'homologation), le montant de l'aide s'\u00e9l\u00e8ve \u00e0 250 \u20ac par kWh d'\u00e9nergie de la batterie sans \u00eatre sup\u00e9rieur au plus faible des 2 montants suivants :  soit 27 % du co\u00fbt d'acquisition TTC du v\u00e9hicule augment\u00e9 du co\u00fbt de la batterie si elle est lou\u00e9e,   soit 900 \u20ac.  Pour les v\u00e9hicules \u00e0 moteur \u00e0 2 ou 3 roues et quadricycles \u00e0 moteur avec une puissance inf\u00e9rieure \u00e0 2 kilowatts (ou 3 kw), le montant de l'aide est fix\u00e9 \u00e0 20% du co\u00fbt d'acquisition TTC du v\u00e9hicule dans la limite de 100 \u20ac.  Pour les v\u00e9hicules lourds, le montant de l'aide est fix\u00e9 \u00e0 40% du co\u00fbt d'acquisition, dans la limite de 50 000 \u20ac pour un poids lourd ou de 30 000 \u20ac pour un autobus/autocar. Le montant de l'aide d\u00e9termin\u00e9 aux paragraphes ci-dessus est augment\u00e9 de 1 000 \u20ac si le b\u00e9n\u00e9ficiaire est domicili\u00e9 en outre-mer (Guadeloupe, Guyane, Martinique, Mayotte, R\u00e9union) et que le v\u00e9hicule y circule dans les 6 mois suivant son acquisition.  Pour les v\u00e9hicules \u00e9lectriques ou hydrog\u00e8ne d'occasion d'au moins 2 ans (dont le taux de CO2 est inf\u00e9rieur ou \u00e9gal \u00e0 20 g/km), le montant du bonus s'\u00e9l\u00e8ve \u00e0 1 000 \u20ac.  Les bar\u00e8mes ci-dessus sont applicables jusqu'au 31 d\u00e9cembre 2021.   Modalit\u00e9s de versement du bonus  2 possibilit\u00e9s pour b\u00e9n\u00e9ficier du bonus \u00e9cologique :  soit le bonus est d\u00e9duit directement par le concessionnaire,   soit le b\u00e9n\u00e9ficiaire d\u00e9pose une demande directement sur le t\u00e9l\u00e9service www.primealaconversion.gouv.fr. ",
+                "aide_detail": "<p>\n Le bonus \u00e9cologique est une aide financi\u00e8re \u00e0 l'acquisition ou \u00e0 la location pour une dur\u00e9e d'au moins deux ans d'un v\u00e9hicule appartenant \u00e0 la cat\u00e9gorie :\n</p>\n<ul>\n <li>\n  des voitures particuli\u00e8res ou des camionnettes \u00e9mettant une quantit\u00e9 de CO2 inf\u00e9rieure ou \u00e9gale \u00e0 50 g/km ;\n </li>\n <li>\n  des v\u00e9hicules \u00e9lectriques \u00e0 moteur \u00e0 2 ou 3 roues et des quadricycles \u00e0 moteur \u00e9lectrique n'utilisant pas de batterie au plomb ;\n </li>\n <li>\n  des poids lourds, autobus ou autocars appartenant aux cat\u00e9gories N2, N3, M2 ou M3 (au sens de l'article R. 311-1 du code de la route) fonctionnant \u00e0 l'\u00e9lectricit\u00e9 et/ou \u00e0 l'hydrog\u00e8ne.\n  <br/>\n </li>\n</ul>\n<p>\n <strong>\n  Crit\u00e8res d'\u00e9ligibilit\u00e9\n </strong>\n <br/>\n</p>\n<p>\n Le v\u00e9hicule (voiture ou camionnette) doit remplir les conditions suivantes :\n</p>\n<ul>\n <li>\n  avoir un taux d'\u00e9mission de CO2 de 50 g/km au maximum (v\u00e9hicule \u00e9lectrique, hydrog\u00e8ne ou hybride rechargeable),\n </li>\n <li>\n  \u00eatre achet\u00e9 ou lou\u00e9 (pour une dur\u00e9e d'au moins 2 ans),\n </li>\n <li>\n  \u00eatre immatricul\u00e9 en France dans une s\u00e9rie d\u00e9finitive,\n </li>\n <li>\n  ne pas \u00eatre vendu dans les 6 mois suivant sa premi\u00e8re immatriculation, ni avant d'avoir parcouru au moins 6 000 km.\n </li>\n</ul>\n<p>\n Le v\u00e9hicule (2 roues, 3 roues ou quadricycle \u00e0 moteur) doit remplir les conditions suivantes :\n</p>\n<ul>\n <li>\n  utiliser l'\u00e9lectricit\u00e9 comme source d'\u00e9nergie,\n </li>\n <li>\n  ne pas utiliser de batterie au plomb,\n </li>\n <li>\n  \u00eatre achet\u00e9 ou lou\u00e9 (pour une dur\u00e9e d'au moins 2 ans),\n </li>\n <li>\n  \u00eatre un v\u00e9hicule neuf,\n </li>\n <li>\n  \u00eatre immatricul\u00e9 en France dans une s\u00e9rie d\u00e9finitive,\n </li>\n <li>\n  ne pas \u00eatre vendu dans l'ann\u00e9e suivant sa 1\u00e8re immatriculation, ni avant d'avoir parcouru au moins 2 000 kilom\u00e8tres.\n </li>\n</ul>\n<p>\n Le v\u00e9hicule (poids lourd, autobus ou autocar) doit remplir les conditions suivantes :\n <br/>\n</p>\n<ul>\n <li>\n  utiliser l'\u00e9lectricit\u00e9, l'hydrog\u00e8ne ou une combinaison des deux comme source exclusive d'\u00e9nergie,\n  <br/>\n </li>\n <li>\n  \u00eatre achet\u00e9 ou lou\u00e9 (pour une dur\u00e9e d'au moins 2 ans),\n </li>\n <li>\n  \u00eatre un v\u00e9hicule neuf,\n </li>\n <li>\n  \u00eatre immatricul\u00e9 en France dans une s\u00e9rie d\u00e9finitive,\n  <br/>\n </li>\n <li>\n  ne pas \u00eatre vendu dans les six mois suivant sa premi\u00e8re immatriculation ni avant d'avoir parcouru au moins 40 000 kilom\u00e8tres.\n  <br/>\n </li>\n</ul>\n<p>\n <strong>\n  Montant de l'aide\n </strong>\n <br/>\n</p>\n<p>\n Pour les v\u00e9hicules \u00e9lectriques et/ou \u00e0 hydrog\u00e8ne neufs (dont le taux de CO2 est inf\u00e9rieur ou \u00e9gal \u00e0 20 g/km), le montant du bonus s'\u00e9l\u00e8ve \u00e0 :\n <br/>\n</p>\n<ul>\n <li>\n  27% du co\u00fbt d'acquisition dans la limite de 6 000 \u20ac pour un particulier et 4 000 \u20ac pour une personne morale, pour une voiture de moins de 45 000 \u20ac ;\n </li>\n <li>\n  2 000 \u20ac pour une voiture comprise entre 45 000 \u20ac et 60 000 \u20ac ;\n  <br/>\n </li>\n <li>\n  2 000 \u20ac pour une voiture fonctionnant \u00e0 l'hydrog\u00e8ne de plus de 60 000 \u20ac ;\n  <br/>\n </li>\n <li>\n  40% du prix d'acquisition dans la limite de 7 000 \u20ac pour un particulier et 5 000 \u20ac pour une personne morale, pour une camionnette, quel que soit le co\u00fbt d'acquisition.\n  <br/>\n </li>\n</ul>\n<p>\n Pour les v\u00e9hicules hybrides rechargeables neufs dont le taux de CO2 est compris entre 21 et 50 g/km, de moins de 50 000 \u20ac et dont l'autonomie en mode \u00e9lectrique est sup\u00e9rieure \u00e0 50 km, le montant du bonus s'\u00e9l\u00e8ve \u00e0 1 000 \u20ac.\n <br/>\n</p>\n<p>\n Pour v\u00e9hicules \u00e0 moteur \u00e0 2 ou 3 roues et quadricycles \u00e0 moteur avec une puissance de 2 kilowatts (ou 3 kw selon le r\u00e8glement d'homologation), le montant de l'aide s'\u00e9l\u00e8ve \u00e0 250 \u20ac par kWh d'\u00e9nergie de la batterie sans \u00eatre sup\u00e9rieur au plus faible des 2 montants suivants :\n</p>\n<ul>\n <li>\n  soit 27 % du co\u00fbt d'acquisition TTC du v\u00e9hicule augment\u00e9 du co\u00fbt de la batterie si elle est lou\u00e9e,\n </li>\n <li>\n  soit 900 \u20ac.\n </li>\n</ul>\n<p>\n Pour les v\u00e9hicules \u00e0 moteur \u00e0 2 ou 3 roues et quadricycles \u00e0 moteur avec une puissance inf\u00e9rieure \u00e0 2 kilowatts (ou 3 kw), le montant de l'aide est fix\u00e9 \u00e0 20% du co\u00fbt d'acquisition TTC du v\u00e9hicule dans la limite de 100 \u20ac.\n <br/>\n</p>\n<p>\n Pour les v\u00e9hicules lourds, le montant de l'aide est fix\u00e9 \u00e0 40% du co\u00fbt d'acquisition, dans la limite de 50 000 \u20ac pour un poids lourd ou de 30 000 \u20ac pour un autobus/autocar.\n</p>\n<p>\n Le montant de l'aide d\u00e9termin\u00e9 aux paragraphes ci-dessus est augment\u00e9 de 1 000 \u20ac si le b\u00e9n\u00e9ficiaire est domicili\u00e9 en outre-mer (Guadeloupe, Guyane, Martinique, Mayotte, R\u00e9union) et que le v\u00e9hicule y circule dans les 6 mois suivant son acquisition.\n <br/>\n</p>\n<p>\n Pour les v\u00e9hicules \u00e9lectriques ou hydrog\u00e8ne d'occasion d'au moins 2 ans (dont le taux de CO2 est inf\u00e9rieur ou \u00e9gal \u00e0 20 g/km), le montant du bonus s'\u00e9l\u00e8ve \u00e0 1 000 \u20ac.\n <br/>\n</p>\n<p>\n Les bar\u00e8mes ci-dessus sont applicables jusqu'au 31 d\u00e9cembre 2021.\n <br/>\n</p>\n<p>\n <strong>\n  Modalit\u00e9s de versement du bonus\n </strong>\n <br/>\n</p>\n<p>\n 2 possibilit\u00e9s pour b\u00e9n\u00e9ficier du bonus \u00e9cologique :\n</p>\n<ul>\n <li>\n  soit le bonus est d\u00e9duit directement par le concessionnaire,\n </li>\n <li>\n  soit le b\u00e9n\u00e9ficiaire d\u00e9pose une demande directement sur le t\u00e9l\u00e9service www.primealaconversion.gouv.fr.\n </li>\n</ul>",
+                "contact": "<p>\n T\u00e9l. : 0 800 74 74 00\n <br/>\n</p>\n<p>\n ou contactez\n <a href=\"https://www.asp-public.fr/carte/choisissez-une-direction-regionale-sur-la-carte\">\n  votre direction r\u00e9gionale\n </a>\n de l'Agence de services et de paiement.\n</p>",
+                "funding_source_url": "https://www.primealaconversion.gouv.fr/dboneco/accueil/"
+            },
+            {
+                "titre_aide": "D\u00e9velopper des stations et flottes de v\u00e9hicules \u00e0 hydrog\u00e8ne pour une mobilit\u00e9 z\u00e9ro \u00e9mission - Investissement pour la mobilit\u00e9 hydrog\u00e8ne",
+                "score": 1.3271791027552795,
+                "aide_detail_clean": " ________________________________________________________________________ \ud83d\udea9 Les financements d\u00e9crits dans cette section respectent la r\u00e9glementation relative aux aides d'Etat et n'emportent donc pas d'\u00e9l\u00e9ments d'aide. ________________________________________________________________________ Investissement pour la mobilit\u00e9 hydrog\u00e8ne  Votre projet  Vous souhaitez soutenir le d\u00e9veloppement des flottes de v\u00e9hicules propres pour les transports en commun (bus, cars), vos propres v\u00e9hicules ou les flottes d'entreprises (v\u00e9hicules utilitaires, voitures de soci\u00e9t\u00e9...), dans le cadre notamment des nouvelles exigences de la loi de transition \u00e9nerg\u00e9tique pour une croissance verte. Votre projet concerne :  L'installation de points d'avitaillement en hydrog\u00e8ne pour v\u00e9hicules routiers, ferroviaires ou maritimes   La location de v\u00e9hicules \u00e0 motorisation hydrog\u00e8ne pour une client\u00e8le implant\u00e9e sur votre territoire   Notre offre   Investissement minoritaire au capital d'une soci\u00e9t\u00e9 de projet \u00e0 constituer (SEM ou SAS) porteuse des infrastructures (production d'hydrog\u00e8ne vert par \u00e9lectrolyse, compresseurs, stockage, bornes de distribution)   Possibilit\u00e9 d'\u00e9tudier des montages mixtes de type SEM ou SEMOP  Nous pouvons aussi cofinancer les \u00e9tudes pr\u00e9alables n\u00e9cessaires au montage du dossier d'investissement",
+                "aide_detail": "<p>\n ________________________________________________________________________\n</p>\n<p>\n \ud83d\udea9\n</p>\n<p>\n Les financements d\u00e9crits dans cette section respectent la r\u00e9glementation relative aux aides d'Etat et n'emportent donc pas d'\u00e9l\u00e9ments d'aide.\n</p>\n<p>\n ________________________________________________________________________\n</p>\n<p>\n Investissement pour la mobilit\u00e9 hydrog\u00e8ne\n</p>\n<p>\n <strong>\n  Votre projet\n </strong>\n</p>\n<p>\n Vous souhaitez soutenir le d\u00e9veloppement des flottes de v\u00e9hicules propres pour les transports en commun (bus, cars), vos propres v\u00e9hicules ou les flottes d'entreprises (v\u00e9hicules utilitaires, voitures de soci\u00e9t\u00e9...), dans le cadre notamment des nouvelles exigences de la loi de transition \u00e9nerg\u00e9tique pour une croissance verte.\n</p>\n<p>\n Votre projet concerne :\n</p>\n<ul>\n <li>\n  L'installation de points d'avitaillement en hydrog\u00e8ne pour v\u00e9hicules routiers, ferroviaires ou maritimes\n </li>\n <li>\n  La location de v\u00e9hicules \u00e0 motorisation hydrog\u00e8ne pour une client\u00e8le implant\u00e9e sur votre territoire\n </li>\n</ul>\n<p>\n <strong>\n  Notre offre\n </strong>\n</p>\n<ul>\n <li>\n  Investissement minoritaire au capital d'une soci\u00e9t\u00e9 de projet \u00e0 constituer (SEM ou SAS) porteuse des infrastructures (production d'hydrog\u00e8ne vert par \u00e9lectrolyse, compresseurs, stockage, bornes de distribution)\n </li>\n <li>\n  Possibilit\u00e9 d'\u00e9tudier des montages mixtes de type SEM ou SEMOP\n </li>\n</ul>\n<p>\n Nous pouvons aussi cofinancer les \u00e9tudes pr\u00e9alables n\u00e9cessaires au montage du dossier d'investissement\n</p>",
+                "contact": "<p>\n <strong>\n  Retrouvez votre contact r\u00e9gional sur :\n </strong>\n</p>\n<ul>\n <li>\n  <a href=\"https://www.banquedesterritoires.fr/directions-regionales?pk_campaign=Aides-Territoires&amp;pk_kwd=directions-regionales&amp;pk_source=Affiliation\">\n   https://www.banquedesterritoires.fr/directions-regionales\n  </a>\n </li>\n</ul>\n<p>\n <strong>\n  Vous \u00eates int\u00e9ress\u00e9(e) par cette offre ?\n </strong>\n</p>\n<ul>\n <li>\n  <a href=\"https://mon-compte.banquedesterritoires.fr/#/contact/formulaire\">\n   Contactez-nous \u00e0 travers notre formulaire de contact\n  </a>\n </li>\n</ul>",
+                "funding_source_url": "https://www.banquedesterritoires.fr/investissement-pour-la-mobilite-hydrogene?pk_campaign=Aides-Territoires&pk_kwd=mobilite-hydrogene&pk_source=Affiliation"
+            },
+            {
+                "titre_aide": "Aider \u00e0 l'acquisition de v\u00e9hicules propres",
+                "score": 1.3500448484613563,
+                "aide_detail_clean": " Seine Normandie Agglom\u00e9ration (SNA) s'est engag\u00e9e dans une d\u00e9marche de d\u00e9ploiement des \u00e9nergies renouvelables et de r\u00e9duction de la consommation d'\u00e9nergie sur son territoire, \u00e0 travers la d\u00e9marche r\u00e9gionale \u00ab Territoire 100% \u00e9nergies renouvelables en 2040 \u00bb. SNA cherche \u00e0 accompagner le d\u00e9veloppement de solutions visant la d\u00e9carbonation de la mobilit\u00e9 sur son territoire:  les v\u00e9hicules \u00e0 hydrog\u00e8ne - SNA a \u00e9galement \u00e9t\u00e9 s\u00e9lectionn\u00e9e, via le programme EAS-HyMob, pour d'accueillir sur son territoire une station de recharge pour v\u00e9hicules \u00e0 hydrog\u00e8ne, qui fera partie d'un r\u00e9seau normand de 15 stations.    la mobilit\u00e9 \u00e9lectrique    la mobilit\u00e9 au gaz naturel   Pour cela, SNA a mis en place un dispositif d'aide \u00e0 l'acquisition de ces 3 types de v\u00e9hicules propres, \u00e0 destination des communes et des entreprises de son territoire.",
+                "aide_detail": "<p>\n Seine Normandie Agglom\u00e9ration (SNA) s'est engag\u00e9e dans une d\u00e9marche de d\u00e9ploiement des \u00e9nergies renouvelables et de r\u00e9duction de la consommation d'\u00e9nergie sur son territoire, \u00e0 travers la d\u00e9marche r\u00e9gionale \u00ab Territoire 100% \u00e9nergies renouvelables en 2040 \u00bb.\n</p>\n<p>\n SNA cherche \u00e0 accompagner le d\u00e9veloppement de solutions visant la d\u00e9carbonation de la mobilit\u00e9 sur son territoire:\n</p>\n<ul>\n <li>\n  les v\u00e9hicules \u00e0 hydrog\u00e8ne - SNA a \u00e9galement \u00e9t\u00e9 s\u00e9lectionn\u00e9e, via le programme EAS-HyMob, pour d'accueillir sur son territoire une station de recharge pour v\u00e9hicules \u00e0 hydrog\u00e8ne, qui fera partie d'un r\u00e9seau normand de 15 stations.\n  <br/>\n </li>\n <li>\n  la mobilit\u00e9 \u00e9lectrique\n  <br/>\n </li>\n <li>\n  la mobilit\u00e9 au gaz naturel\n  <br/>\n </li>\n</ul>\n<p>\n Pour cela, SNA a mis en place un dispositif d'aide \u00e0 l'acquisition de ces 3 types de v\u00e9hicules propres, \u00e0 destination des communes et des entreprises de son territoire.\n</p>",
+                "contact": "<p>\n Fabien GU\u00c9ROT\n</p>\n<p>\n Charg\u00e9 de mission d\u00e9veloppement durable\n</p>\n<p>\n fguerot@sna27.fr\n</p>\n<p>\n 02 32 53 85 33\n <br/>\n</p>",
+                "funding_source_url": ""
+            },
+            {
+                "titre_aide": "Financer les investissements de r\u00e9seaux de chaleur ou de froid",
+                "score": 1.351588810271276,
+                "aide_detail_clean": "  Aide - \u00ab Financement d'investissements de r\u00e9seaux de chaleur ou de froid \u00bb, mis en place par l'ADEME  Objectif :  Soutien \u00e0 l'investissement pour vos r\u00e9seaux aliment\u00e9s par des \u00e9nergies renouvelables et/ou de r\u00e9cup\u00e9ration, sur l'extension ou la densification de r\u00e9seaux de chaleur existant ou sur la cr\u00e9ation de nouveaux r\u00e9seaux de chaleur ou de froid. B\u00e9n\u00e9ficiaires :    Collectivit\u00e9,      Entreprise.   Accompagnement :    L'aide aux r\u00e9seaux de l'ADEME porte sur la fonction \u00ab distribution \u00bb. Elle est conditionn\u00e9e aux caract\u00e9ristiques techniques de mise en \u0153uvre des r\u00e9seaux pr\u00e9vus et aux \u00e9ventuels autres financements sollicit\u00e9s.      Selon la puissance de l'installation sur laquelle le r\u00e9seau est ou sera connect\u00e9, votre aide est calcul\u00e9e sur la base d'une analyse \u00e9conomique ou sur la base d'une aide forfaitaire.  ",
+                "aide_detail": "<p>\n <strong>\n  Aide - \u00ab Financement d'investissements de r\u00e9seaux de chaleur ou de froid \u00bb, mis en place par l'ADEME\n </strong>\n</p>\n<p>\n Objectif :\n <br/>\n Soutien \u00e0 l'investissement pour vos r\u00e9seaux aliment\u00e9s par des \u00e9nergies renouvelables et/ou de r\u00e9cup\u00e9ration, sur l'extension ou la densification de r\u00e9seaux de chaleur existant ou sur la cr\u00e9ation de nouveaux r\u00e9seaux de chaleur ou de froid.\n</p>\n<p>\n B\u00e9n\u00e9ficiaires :\n <br/>\n <ul>\n  <li>\n   Collectivit\u00e9,\n   <br/>\n  </li>\n  <li>\n   Entreprise.\n  </li>\n </ul>\n Accompagnement :\n <br/>\n <ul>\n  <li>\n   L'aide aux r\u00e9seaux de l'ADEME porte sur la fonction \u00ab distribution \u00bb. Elle est conditionn\u00e9e aux caract\u00e9ristiques techniques de mise en \u0153uvre des r\u00e9seaux pr\u00e9vus et aux \u00e9ventuels autres financements sollicit\u00e9s.\n   <br/>\n  </li>\n  <li>\n   Selon la puissance de l'installation sur laquelle le r\u00e9seau est ou sera connect\u00e9, votre aide est calcul\u00e9e sur la base d'une analyse \u00e9conomique ou sur la base d'une aide forfaitaire.\n  </li>\n </ul>\n</p>",
+                "contact": "<p>\n Contactez l'ADEME via le\n <a href=\"https://agirpourlatransition.ademe.fr/entreprises/form/contact?source_entity_type=node&amp;source_entity_bundle=dispositif_gre_a_gre&amp;source_entity_id=48353\" rel=\"noopener\" target=\"_blank\">\n  formulaire en ligne\n </a>\n pour en savoir plus sur ce dispositif\n <br/>\n</p>",
+                "funding_source_url": "https://agirpourlatransition.ademe.fr/entreprises/dispositif-aide/financement-dinvestissements-reseaux-chaleur-froid"
+            },
+            {
+                "titre_aide": "Faire l'acquisition de bus \u00e9lectriques - Programme MoeBUS",
+                "score": 1.3553435249691774,
+                "aide_detail_clean": " Dispositif de certificats d'\u00e9conomies d'\u00e9nergie (CEE). Moebus est un programme de Certificats d'Economie d'Energie (CEE) qui vise \u00e0 accompagner les collectivit\u00e9s et op\u00e9rateurs de transports collectifs \u00e0 acc\u00e9l\u00e9rer la conversion de leur parc thermique vers des v\u00e9hicules \u00e0 faibles \u00e9missions plus efficients \u00e9nerg\u00e9tiquement d'ici fin 2021. Par l'apport d'une prime au moment de la commande, ce programme permet de compenser le surco\u00fbt \u00e0 l'achat d'autobus \u00e9lectriques et de prendre en charge une partie des co\u00fbts de la transformation des d\u00e9p\u00f4ts de bus. La prime d'un montant \u00e9quivalent \u00e0 30% du montant hors taxe des premiers v\u00e9hicules est vers\u00e9e d\u00e8s la commande. Soutenu par le Minist\u00e8re de la Transition \u00c9cologique et Solidaire (https://www.ecologique-solidaire.gouv.fr/politiques/certificats-economies-denergie) et l'Ademe, le programme est financ\u00e9 par Total Direct Energie et Bollor\u00e9 Energy dans le cadre des programme CEE. Ce programme se prolonge jusqu'\u00e0 fin 2021. Inscrivez votre projet d'acquisition aupr\u00e8s de Vertigo.",
+                "aide_detail": "<p>\n Dispositif de certificats d'\u00e9conomies d'\u00e9nergie (CEE). Moebus est un programme de Certificats d'Economie d'Energie (CEE) qui vise \u00e0 accompagner les collectivit\u00e9s et op\u00e9rateurs de transports collectifs \u00e0 acc\u00e9l\u00e9rer la conversion de leur parc thermique vers des v\u00e9hicules \u00e0 faibles \u00e9missions plus efficients \u00e9nerg\u00e9tiquement d'ici fin 2021.\n</p>\n<p>\n Par l'apport d'une prime au moment de la commande, ce programme permet de compenser le surco\u00fbt \u00e0 l'achat d'autobus \u00e9lectriques et de prendre en charge une partie des co\u00fbts de la transformation des d\u00e9p\u00f4ts de bus. La prime d'un montant \u00e9quivalent \u00e0 30% du montant hors taxe des premiers v\u00e9hicules est vers\u00e9e d\u00e8s la commande.\n</p>\n<p>\n Soutenu par le Minist\u00e8re de la Transition \u00c9cologique et Solidaire (https://www.ecologique-solidaire.gouv.fr/politiques/certificats-economies-denergie) et l'Ademe, le programme est financ\u00e9 par Total Direct Energie et Bollor\u00e9 Energy dans le cadre des programme CEE.\n Ce programme se prolonge jusqu'\u00e0 fin 2021.\n</p>\n<p>\n Inscrivez votre projet d'acquisition aupr\u00e8s de Vertigo.\n</p>",
+                "contact": "<p>\n <strong>\n  Service Programmes Moebus\n </strong>\n</p>\n<p>\n moebus@vertigo.energy\n</p>\n<p>\n Responsable du programme Florence Olive\n</p>\n<p>\n tel : 06 44 16 56 10\n</p>",
+                "funding_source_url": "https://vertigo-energy.com/moebus/"
+            },
+            {
+                "titre_aide": "B\u00e9n\u00e9ficier de conseils et de solutions pour accompagner vos administr\u00e9s dans la ma\u00eetrise des consommations d'\u00e9nergie, les \u00e9nergies renouvelables et les aides financi\u00e8res existantes",
+                "score": 1.358495520817112,
+                "aide_detail_clean": " Les Espaces Info \u00c9nergie sont des services d'utilit\u00e9 publique de conseil \u00e0 la r\u00e9novation cr\u00e9\u00e9 par l'Ademe. Le CAUE du Tarn porte un Espace INFO-\u00c9NERGIE. Ind\u00e9pendant financi\u00e8rement, il offre \u00e0 vos administr\u00e9s un conseil de proximit\u00e9 gratuit et neutre et un accompagnement personnalis\u00e9 pour mener \u00e0 bien leurs projets. La mission premi\u00e8re des conseillers INFO-\u00c9NERGIE est de proposer aux particuliers conseils et solutions concr\u00e8tes pour :  mieux ma\u00eetriser ses consommations d'\u00e9nergie : isolation, chauffage, ventilation, mat\u00e9riaux, \u00e9quipements et appareils \u00e9lectriques, ...   s'orienter vers les \u00e9nergies renouvelables : solaire, g\u00e9othermie, bois, \u00e9olien ...   se renseigner sur les aides financi\u00e8res existantes.  Pour les accompagner dans leurs d\u00e9marches et projets, apporter des r\u00e9ponses concr\u00e8tes aux questions pos\u00e9es, l'EIE r\u00e9alise r\u00e9guli\u00e8rement des ressources t\u00e9l\u00e9chargeables :  des fiches pratiques sur une th\u00e9matique relative \u00e0 l'habitat ou li\u00e9e \u00e0 une probl\u00e9matique r\u00e9glementaire,   des fiches r\u00e9alisations offrant un r\u00e9f\u00e9rentiel de maisons d'architectes en Occitanie,   des dossiers th\u00e9matiques pour r\u00e9pondre \u00e0 vos premi\u00e8res interrogations et aux questions les plus fr\u00e9quentes. Les informations et/ou conseils sont indicatifs, non exhaustifs et fournis \u00e0 partir des seuls \u00e9l\u00e9ments pr\u00e9sent\u00e9s ou demand\u00e9s par le public. Le choix et la mise en \u0153uvre des solutions d\u00e9coulant des informations et/ou des conseils pr\u00e9sent\u00e9s par un conseiller rel\u00e8vent de la seule responsabilit\u00e9 du public.Les conseillers info \u00e9nergie ne sont li\u00e9s \u00e0 aucun fournisseur d'\u00e9nergie ou artisan ou professionnelIls ne se d\u00e9placent pas chez les particuliers et ne peuvent pas r\u00e9aliser d'audits \u00e9nerg\u00e9tiques, \u00e9tudes thermiques, DPE, ...",
+                "aide_detail": "<p>\n Les Espaces Info \u00c9nergie sont des services d'utilit\u00e9 publique de conseil \u00e0 la r\u00e9novation cr\u00e9\u00e9 par l'Ademe.\n</p>\n<p>\n Le CAUE du Tarn porte un Espace INFO-\u00c9NERGIE. Ind\u00e9pendant financi\u00e8rement, il offre \u00e0 vos administr\u00e9s un conseil de proximit\u00e9 gratuit et neutre et un accompagnement personnalis\u00e9 pour mener \u00e0 bien leurs projets.\n</p>\n<p>\n La mission premi\u00e8re des conseillers INFO-\u00c9NERGIE est de proposer aux particuliers conseils et solutions concr\u00e8tes pour :\n</p>\n<p>\n</p>\n<ul>\n <li>\n  mieux ma\u00eetriser ses consommations d'\u00e9nergie : isolation, chauffage, ventilation, mat\u00e9riaux, \u00e9quipements et appareils \u00e9lectriques, ...\n </li>\n <li>\n  s'orienter vers les \u00e9nergies renouvelables : solaire, g\u00e9othermie, bois, \u00e9olien ...\n </li>\n <li>\n  se renseigner sur les aides financi\u00e8res existantes.\n </li>\n</ul>\n<p>\n Pour les accompagner dans leurs d\u00e9marches et projets, apporter des r\u00e9ponses concr\u00e8tes aux questions pos\u00e9es, l'EIE r\u00e9alise r\u00e9guli\u00e8rement des ressources t\u00e9l\u00e9chargeables :\n</p>\n<p>\n</p>\n<ul>\n <li>\n  des fiches pratiques sur une th\u00e9matique relative \u00e0 l'habitat ou li\u00e9e \u00e0 une probl\u00e9matique r\u00e9glementaire,\n </li>\n <li>\n  des fiches r\u00e9alisations offrant un r\u00e9f\u00e9rentiel de maisons d'architectes en Occitanie,\n </li>\n <li>\n  des dossiers th\u00e9matiques pour r\u00e9pondre \u00e0 vos premi\u00e8res interrogations et aux questions les plus fr\u00e9quentes.\n </li>\n</ul>\n<p>\n</p>\nLes informations et/ou conseils sont indicatifs, non exhaustifs et fournis \u00e0 partir des seuls \u00e9l\u00e9ments pr\u00e9sent\u00e9s ou demand\u00e9s par le public. Le choix et la mise en \u0153uvre des solutions d\u00e9coulant des informations et/ou des conseils pr\u00e9sent\u00e9s par un conseiller rel\u00e8vent de la seule responsabilit\u00e9 du public.\nLes conseillers info \u00e9nergie ne sont li\u00e9s \u00e0 aucun fournisseur d'\u00e9nergie ou artisan ou professionnel\nIls ne se d\u00e9placent pas chez les particuliers et ne peuvent pas r\u00e9aliser d'audits \u00e9nerg\u00e9tiques, \u00e9tudes thermiques, DPE, ...\n<p>\n</p>\n<p>\n</p>\n<p>\n</p>",
+                "contact": "<p>\n Tel : 06 63 60 16 80\n</p>\n<p>\n Mail : infoenergie@tarn.fr\n</p>",
+                "funding_source_url": "http://www.caue81.fr"
+            },
+            {
+                "titre_aide": "Soutenir l'acquisition de v\u00e9hicules de recharge hydrog\u00e8ne",
+                "score": 1.3646766301225384,
+                "aide_detail_clean": " Objectifs  Favoriser l'\u00e9mergence d'un r\u00e9seau r\u00e9gional de stations distribuant de l'hydrog\u00e8ne d'origine renouvelable   Favoriser les d\u00e9marches globales de mobilit\u00e9 bas-carbone   R\u00e9duire les \u00e9missions de gaz \u00e0 effet de serre et la pollution atmosph\u00e9rique   Substituer des ressources renouvelables aux ressources fossiles   Pr\u00e9server le pouvoir d'achat des m\u00e9nages  Montant de l'aide L'aide financi\u00e8re apport\u00e9e sera plafonn\u00e9e \u00e0 10 v\u00e9hicules pour chaque projet de station Hydrog\u00e8ne Taux : 25 % du co\u00fbt \u00e9ligible HT du projet (surco\u00fbt \u00e0 l'acquisition d'un v\u00e9hicule Hydrog\u00e8ne en comparaison d'un v\u00e9hicule \u00e9quivalent r\u00e9pondant \u00e0 la Norme europ\u00e9enne d'\u00e9mission (Euro) en vigueur.) Plafond : 40 000 \u20ac Aide cumulable avec les Appels \u00e0 Projets nationaux",
+                "aide_detail": "<h4>\n Objectifs\n</h4>\n<ul>\n <li>\n  Favoriser l'\u00e9mergence d'un r\u00e9seau r\u00e9gional de stations distribuant de l'hydrog\u00e8ne d'origine renouvelable\n </li>\n <li>\n  Favoriser les d\u00e9marches globales de mobilit\u00e9 bas-carbone\n </li>\n <li>\n  R\u00e9duire les \u00e9missions de gaz \u00e0 effet de serre et la pollution atmosph\u00e9rique\n </li>\n <li>\n  Substituer des ressources renouvelables aux ressources fossiles\n </li>\n <li>\n  Pr\u00e9server le pouvoir d'achat des m\u00e9nages\n </li>\n</ul>\n<h4>\n Montant de l'aide\n</h4>\n<p>\n L'aide financi\u00e8re apport\u00e9e sera plafonn\u00e9e \u00e0 10 v\u00e9hicules pour chaque projet de station Hydrog\u00e8ne\n</p>\n<p>\n Taux : 25 % du co\u00fbt \u00e9ligible HT du projet (surco\u00fbt \u00e0 l'acquisition d'un v\u00e9hicule Hydrog\u00e8ne en comparaison d'un v\u00e9hicule \u00e9quivalent r\u00e9pondant \u00e0 la Norme europ\u00e9enne d'\u00e9mission (Euro) en vigueur.)\n</p>\n<p>\n Plafond : 40 000 \u20ac\n</p>\n<p>\n Aide cumulable avec les Appels \u00e0 Projets nationaux\n</p>",
+                "contact": "<p>\n Selon le lieu d'implantation du projet, la demande devra \u00eatre adress\u00e9e \u00e0 :\n</p>\n<p>\n <strong>\n  \u25ba Territoires des Maisons Saverne/Haguenau \u2013 Strasbourg \u2013 S\u00e9lestat \u2013 Mulhouse :\n </strong>\n</p>\n<ul>\n <li>\n  Monsieur le Pr\u00e9sident du Conseil R\u00e9gional\n </li>\n <li>\n  R\u00e9gion Grand Est\n </li>\n <li>\n  Service Transition Energ\u00e9tique\n </li>\n <li>\n  1 Place Adrien Zeller - BP 91006\n </li>\n <li>\n  67070 STRASBOURG Cedex\n </li>\n <li>\n  T\u00e9l : 03 88 15 64 96\n </li>\n</ul>\n<p>\n <strong>\n  \u25ba Territoires des Maisons Thionville/Longwy \u2013 Metz \u2013 Nancy \u2013 Epinal :\n </strong>\n</p>\n<ul>\n <li>\n  Monsieur le Pr\u00e9sident du Conseil R\u00e9gional\n </li>\n <li>\n  R\u00e9gion Grand Est\n </li>\n <li>\n  Service Transition Energ\u00e9tique\n </li>\n <li>\n  Place Gabriel Hocquard - CS 81004\n </li>\n <li>\n  57036 METZ Cedex 01\n </li>\n <li>\n  T\u00e9l : 03 87 33 62 85\n </li>\n</ul>\n<p>\n <strong>\n  \u25ba Territoires des Maisons Charleville-M\u00e9zi\u00e8res/Verdun \u2013 Ch\u00e2lons-en-Champagne \u2013\n  Troyes/Chaumont \u2013 Saint-Dizier/Bar-le-Duc :\n </strong>\n</p>\n<ul>\n <li>\n  Monsieur le Pr\u00e9sident du Conseil R\u00e9gional\n </li>\n <li>\n  R\u00e9gion Grand Est\n </li>\n <li>\n  Service Transition Energ\u00e9tique\n </li>\n <li>\n  5 rue de J\u00e9richo - CS 70441\n </li>\n <li>\n  51037 CHALONS-EN-CHAMPAGNE Cedex\n </li>\n <li>\n  T\u00e9l : 03 26 70 66 08\n </li>\n</ul>",
+                "funding_source_url": "https://www.grandest.fr/appel-a-projet/recharge-hydrogene-aide-a-lacquisition-de-vehicules-h2/"
+            }
+        ],
+        "marches": [
+            {
+                "libelle": "MS_S\u00e9rigraphies, vitrages",
+                "domaine": "Transport de personnes et de biens - V\u00e9hicules",
+                "groupe_marchandise_code": "34.03.01",
+                "groupe_marchandise_nom": "PIECES DETACHEES ET ACCESSOIRES VEHICULES TERRESTRES",
+                "acheteur": "Minist\u00e8re de l'Int\u00e9rieur",
+                "entite_porteuse": "Etablissement central logistique de la police nationale",
+                "contexte": "Renouvellement march\u00e9 existant",
+                "duree_mois": 48.0,
+                "annee": 2023.0,
+                "depense_annualisee": "Compris entre 200 000 \u20ac et 1 M\u20ac",
+                "depense_min": 200000,
+                "depense_max": 1000000,
+                "score": 1.6401309967041016
+            },
+            {
+                "libelle": "Fourniture d\u2019un navire de balisage pour La Corse",
+                "domaine": "Transport de personnes et de biens - V\u00e9hicules",
+                "groupe_marchandise_code": "34.02.02",
+                "groupe_marchandise_nom": "Navire, bateau et autres embarcations civils yc pi\u00e8ces d\u00e9ta",
+                "acheteur": "Minist\u00e8re de la Transition \u00e9cologique et solidaire - Minist\u00e8re de la Coh\u00e9sion des Territoires",
+                "entite_porteuse": "Direction G\u00e9n\u00e9rale des Infrastructures, des Transports et de la Mer \u2013 Armement des phares et balises",
+                "contexte": "Nouveau besoin ponctuel",
+                "duree_mois": 18.0,
+                "annee": 2022.0,
+                "depense_annualisee": "Compris entre 1M et 5M\u20ac",
+                "depense_min": 1000000,
+                "depense_max": 5000000,
+                "score": 1.7315665483474731
+            },
+            {
+                "libelle": "[TRAVAUX] Prestations de travaux d'entretien locatif au profit de l'H\u00f4pital d'Instruction des Arm\u00e9es Robert Picqu\u00e9",
+                "domaine": "Immobilier",
+                "groupe_marchandise_code": "37.05.02",
+                "groupe_marchandise_nom": "Contrat de maintenance multitechniques",
+                "acheteur": "Minist\u00e8re des Arm\u00e9es ",
+                "entite_porteuse": "SSA - Service de Sant\u00e9 des Arm\u00e9es",
+                "contexte": "Renouvellement march\u00e9 existant",
+                "duree_mois": 48.0,
+                "annee": 2024.0,
+                "depense_annualisee": "Compris entre 200 000 \u20ac et 1 M\u20ac",
+                "depense_min": 200000,
+                "depense_max": 1000000,
+                "score": 1.7580993175506592
+            },
+            {
+                "libelle": "Analyse sch\u00e9mas r\u00e9gionaux biomasse",
+                "domaine": "Prestations intellectuelles et formation",
+                "groupe_marchandise_code": "40.01.08",
+                "groupe_marchandise_nom": "\u00c9tude \u00e0 caract\u00e8re g\u00e9n\u00e9ral",
+                "acheteur": "Minist\u00e8re de la Transition \u00e9cologique et solidaire - Minist\u00e8re de la Coh\u00e9sion des Territoires",
+                "entite_porteuse": "Direction G\u00e9n\u00e9rale de l'Energie et du Climat",
+                "contexte": "Nouveau besoin ponctuel",
+                "duree_mois": 12.0,
+                "annee": 2021.0,
+                "depense_annualisee": "Compris entre 40 000 et 200 000 \u20ac",
+                "depense_min": 40000,
+                "depense_max": 200000,
+                "score": 1.850014567375183
+            },
+            {
+                "libelle": "Peinture hydrodiluable de Toulouse",
+                "domaine": "Fournitures g\u00e9n\u00e9rales",
+                "groupe_marchandise_code": "44.03.14",
+                "groupe_marchandise_nom": "Autres fournitures et petit \u00e9quipement",
+                "acheteur": "Minist\u00e8re de l'Int\u00e9rieur",
+                "entite_porteuse": "SGAMI SUD - Marseille - BMP- DAFJ",
+                "contexte": "Nouveau besoin ponctuel",
+                "duree_mois": 48.0,
+                "annee": 2021.0,
+                "depense_annualisee": "Inf\u00e9rieur \u00e0 40 000\u20ac",
+                "depense_min": null,
+                "depense_max": 40000,
+                "score": 1.8702166080474854
+            },
+            {
+                "libelle": "Refonte du Portail documentaire PICSEL pour la sous-direction du cadre de vie du Secr\u00e9tariat g\u00e9n\u00e9ral du MEFR",
+                "domaine": "Informatique et t\u00e9l\u00e9coms",
+                "groupe_marchandise_code": "33.02.15",
+                "groupe_marchandise_nom": "LOGICIELS POUR LES AUTRES FONCTIONS SUPPORTS",
+                "acheteur": "Minist\u00e8res de l'\u00c9conomie, des Finances et de la Relance",
+                "entite_porteuse": "Sous-Direction de l'Informatique des Services Centraux",
+                "contexte": "Nouveau besoin r\u00e9current",
+                "duree_mois": 48.0,
+                "annee": 2022.0,
+                "depense_annualisee": "Compris entre 40 000 et 200 000 \u20ac",
+                "depense_min": 40000,
+                "depense_max": 200000,
+                "score": 1.8835792541503906
+            },
+            {
+                "libelle": "Formation \u00ab\u00a0La politique de restauration de la continuit\u00e9 \u00e9cologique des cours d\u2019eau\u00a0: fondements, mise en \u0153uvre et accompagnement\u00a0\u00bb",
+                "domaine": "Prestations intellectuelles et formation",
+                "groupe_marchandise_code": "40.02.06",
+                "groupe_marchandise_nom": "Autres formations technique / m\u00e9tier",
+                "acheteur": "Minist\u00e8re de la Transition \u00e9cologique et solidaire - Minist\u00e8re de la Coh\u00e9sion des Territoires",
+                "entite_porteuse": "MTES - Secr\u00e9tariat G\u00e9n\u00e9ral \u2013 Centre de Mutualisation et de Valorisation des Ressources Humaines",
+                "contexte": "Renouvellement march\u00e9 existant",
+                "duree_mois": 36.0,
+                "annee": 2023.0,
+                "depense_annualisee": "Inf\u00e9rieur \u00e0 40 000\u20ac",
+                "depense_min": null,
+                "depense_max": 40000,
+                "score": 1.9399333000183105
+            },
+            {
+                "libelle": "Multiservices Lumi\u00e8re",
+                "domaine": "Immobilier",
+                "groupe_marchandise_code": "37.05.01",
+                "groupe_marchandise_nom": "Contrat de prestations multiservices",
+                "acheteur": "Minist\u00e8re de l'Int\u00e9rieur",
+                "entite_porteuse": "Bureau des march\u00e9s immobiliers et des moyens g\u00e9n\u00e9raux",
+                "contexte": "Nouveau besoin ponctuel",
+                "duree_mois": 48.0,
+                "annee": 2021.0,
+                "depense_annualisee": "Inf\u00e9rieur \u00e0 40 000\u20ac",
+                "depense_min": null,
+                "depense_max": 40000,
+                "score": 1.9616177082061768
+            },
+            {
+                "libelle": "19 23 24 87 - BDD BRIVE LA GAILLARDE - ACBC relatif au maintien en condition des \u00e9quipements et installations industrielles",
+                "domaine": "Immobilier",
+                "groupe_marchandise_code": "37.02.05",
+                "groupe_marchandise_nom": "Maintenance appareil de levage lourd (\u00e9l\u00e9vateur, plateforme)",
+                "acheteur": "Minist\u00e8re des Arm\u00e9es ",
+                "entite_porteuse": "Etablissement du service d'infrastructure de la d\u00e9fense de Bordeaux - ESID Bordeaux",
+                "contexte": "Renouvellement march\u00e9 existant",
+                "duree_mois": 48.0,
+                "annee": 2021.0,
+                "depense_annualisee": "Compris entre 40 000 et 200 000 \u20ac",
+                "depense_min": 40000,
+                "depense_max": 200000,
+                "score": 1.9670571088790894
+            },
+            {
+                "libelle": "Location de balayeuse aspiratrice m\u00e9canique avec chauffeur (6 Lots g\u00e9ographiques\u00a0: Brest / Laval / Nantes / Rennes / Saint-Brieuc / Vannes)",
+                "domaine": "Transport de personnes et de biens - V\u00e9hicules",
+                "groupe_marchandise_code": "34.04.03",
+                "groupe_marchandise_nom": "Location autres v\u00e9hicules et engins sp\u00e9ciaux (toute dur\u00e9e)",
+                "acheteur": "Minist\u00e8re de la Transition \u00e9cologique et solidaire - Minist\u00e8re de la Coh\u00e9sion des Territoires",
+                "entite_porteuse": "Direction Interd\u00e9partementale des Routes Ouest",
+                "contexte": "Renouvellement march\u00e9 existant",
+                "duree_mois": 48.0,
+                "annee": 2024.0,
+                "depense_annualisee": "Compris entre 200 000 \u20ac et 1 M\u20ac",
+                "depense_min": 200000,
+                "depense_max": 1000000,
+                "score": 2.0733389854431152
+            },
+            {
+                "libelle": "PROG_2023_ACHEMINEMENT ET TRAITEMENT DU COURRIER - AVP",
+                "domaine": "Transport de personnes et de biens - V\u00e9hicules",
+                "groupe_marchandise_code": "35.01.07",
+                "groupe_marchandise_nom": "Prestation courses et tourn\u00e9es collecte courrier",
+                "acheteur": "Minist\u00e8re des Arm\u00e9es ",
+                "entite_porteuse": "Plate-Forme Commissariat Paris",
+                "contexte": "Renouvellement march\u00e9 existant",
+                "duree_mois": 60.0,
+                "annee": 2023.0,
+                "depense_annualisee": "Compris entre 200 000 \u20ac et 1 M\u20ac",
+                "depense_min": 200000,
+                "depense_max": 1000000,
+                "score": 2.0733389854431152
+            },
+            {
+                "libelle": "Travaux d\u2019entretien courant DADS Nord",
+                "domaine": "Travaux routiers",
+                "groupe_marchandise_code": "37.04.01",
+                "groupe_marchandise_nom": "Services et travaux d'entretien des routes (yc d\u00e9neigement)",
+                "acheteur": "Minist\u00e8re de la Transition \u00e9cologique et solidaire - Minist\u00e8re de la Coh\u00e9sion des Territoires",
+                "entite_porteuse": "Directions Interd\u00e9partementales des Routes M\u00e9diterran\u00e9e",
+                "contexte": "Renouvellement march\u00e9 existant",
+                "duree_mois": 48.0,
+                "annee": 2023.0,
+                "depense_annualisee": "Compris entre 200 000 \u20ac et 1 M\u20ac",
+                "depense_min": 200000,
+                "depense_max": 1000000,
+                "score": 2.1065640449523926
+            }
+        ]
+    }
+}
