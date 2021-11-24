@@ -1,3 +1,6 @@
+import mockApiResponse from './mock_api_resp.json'
+import {useMockResponse, apiurl, max_results} from "../UrlSearchParam"
+
 export type Aide = {
     "titre_aide": string,
     "aide_detail": string,
@@ -54,3 +57,28 @@ export type ApiResponse = {
         "marches": Marche[]
     }
 }
+
+export function buildSearchAnythingRequest(description: string) {
+    if (useMockResponse) {
+      return  new Promise<ApiResponse>(res => setTimeout(() => res(mockApiResponse), 3000))
+    } else {
+      return fetch(apiurl, {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          "fichier_aides": "Aides_detailsandname.xlsx",
+          "descriptionSU": description,
+          "fichier_vocab": "vocab.pkl",
+          "nb_aides": max_results,
+          "resultats_aides": [],
+          "score_max": 0
+        })
+      })
+      .then(resp => resp.json())      
+    }
+  }
+  
+  

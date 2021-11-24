@@ -1,44 +1,9 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import type {ApiResponse } from './api/Api';
-import mockApiResponse from './api/mock_api_resp.json'
+import type {ApiResponse} from './api/Api';
+import {buildSearchAnythingRequest} from './api/Api';
 import './App.scss';
 import {Card} from './Card'
-
-const params = new URLSearchParams(window.location.search)
-const apiurl = params.get("api-url") || 'https://alexisb.pythonanywhere.com/getAides/'
-const max_results_str = params.get("max-results")
-const max_results = max_results_str && JSON.parse(max_results_str) || 30
-const defaultDescription = params.get("description") || "Nous sommes une startup spécialisé dans le tri des déchets métalliques"
-const useMockResponse = params.get("use-mock-response") === 'true'
-
-console.log(`Hidden params:
-&max-results=${max_results}
-&api-url=${apiurl}
-&description=${defaultDescription}`)
-
-function buildAidesRequest(description: string) {
-  console.log({useMockResponse})
-  if (useMockResponse) {
-    return  new Promise<ApiResponse>(res => setTimeout(() => res(mockApiResponse), 3000))
-  } else {
-    return fetch(apiurl, {
-      method: "POST",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        "fichier_aides": "Aides_detailsandname.xlsx",
-        "descriptionSU": description,
-        "fichier_vocab": "vocab.pkl",
-        "nb_aides": max_results,
-        "resultats_aides": [],
-        "score_max": 0
-      })
-    })
-    .then(resp => resp.json())      
-  }
-}
+import {defaultDescription} from './UrlSearchParam'
 
 var to: NodeJS.Timeout | null = null;
 
@@ -58,16 +23,18 @@ function App() {
   function updateReponse() {
     console.log("updating results")
     setReponse(null);
-    buildAidesRequest(descriptionStartup).then(json => {
+    buildSearchAnythingRequest(descriptionStartup).then(json => {
       setReponse(json)
       window.lastApiResponse = json
     })
   }
+
   function delayedUpdateReponse() {
     console.log("delaying request")
     if (to) clearTimeout(to)
     to = setTimeout(updateReponse, 600)
   }
+
   useEffect(delayedUpdateReponse, [descriptionStartup]);
   console.log(descriptionStartup)
   const shareableLink = `${window.location.origin}?description=${encodeURIComponent(descriptionStartup)}`
