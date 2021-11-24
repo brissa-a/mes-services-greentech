@@ -34,7 +34,7 @@ export type Marche = {
     "duree_mois": number,               //48.0,
     "annee": number,                    //2023.0,
     "depense_annualisee": string,       //"Compris entre 200 000 \u20ac et 1 M\u20ac",
-    "depense_min": number,              //200000,
+    "depense_min": number | null,              //200000,
     "depense_max": number,              //1000000,
     "score": number,                    //1.6401309967041016
 }
