@@ -11,7 +11,7 @@
         "collectivites": [
             {
                 "nom": "MSA SUD AQUITAINE",
-                "score": {
+                "score_details": {
                     "innovation": {
                         "proportion_numerateur": "1",
                         "proportion_denominateur": "5",
@@ -24,11 +24,11 @@
                     },
                     "petites_entreprises": null
                 },
-                "scoretotal": 50.0
+                "score": 50.0
             },
             {
                 "nom": "SEINE HABITAT",
-                "score": {
+                "score_details": {
                     "innovation": {
                         "proportion_numerateur": "",
                         "proportion_denominateur": "",
@@ -41,11 +41,11 @@
                     },
                     "petites_entreprises": null
                 },
-                "scoretotal": 50.0
+                "score": 50.0
             },
             {
                 "nom": "SDIS (06)",
-                "score": {
+                "score_details": {
                     "innovation": {
                         "proportion_numerateur": "",
                         "proportion_denominateur": "",
@@ -58,11 +58,11 @@
                     },
                     "petites_entreprises": null
                 },
-                "scoretotal": 50.0
+                "score": 50.0
             },
             {
                 "nom": "H\u00f4pitaux Civils de Colmar (68)",
-                "score": {
+                "score_details": {
                     "innovation": {
                         "proportion_numerateur": "",
                         "proportion_denominateur": "",
@@ -75,11 +75,11 @@
                     },
                     "petites_entreprises": null
                 },
-                "scoretotal": 50.0
+                "score": 50.0
             },
             {
                 "nom": "Centre Hospitalier Intercommunal Nord Ardennes (08)",
-                "score": {
+                "score_details": {
                     "innovation": {
                         "proportion_numerateur": "",
                         "proportion_denominateur": "",
@@ -92,11 +92,11 @@
                     },
                     "petites_entreprises": null
                 },
-                "scoretotal": 50.0
+                "score": 50.0
             },
             {
                 "nom": "COMMUNE TREMBLAY",
-                "score": {
+                "score_details": {
                     "innovation": {
                         "proportion_numerateur": "",
                         "proportion_denominateur": "",
@@ -109,11 +109,11 @@
                     },
                     "petites_entreprises": null
                 },
-                "scoretotal": 50.0
+                "score": 50.0
             },
             {
                 "nom": "MAIRIE  DE LAUNAC",
-                "score": {
+                "score_details": {
                     "innovation": {
                         "proportion_numerateur": "",
                         "proportion_denominateur": "",
@@ -126,11 +126,11 @@
                     },
                     "petites_entreprises": null
                 },
-                "scoretotal": 50.0
+                "score": 50.0
             },
             {
                 "nom": "Centre Hospitalier Universitaire de Clermont-Ferrand",
-                "score": {
+                "score_details": {
                     "innovation": {
                         "proportion_numerateur": "",
                         "proportion_denominateur": "",
@@ -143,11 +143,11 @@
                     },
                     "petites_entreprises": null
                 },
-                "scoretotal": 50.0
+                "score": 50.0
             },
             {
                 "nom": "DIED - Direction de l infrastructure et de l \ufffdconomie digitale",
-                "score": {
+                "score_details": {
                     "innovation": {
                         "proportion_numerateur": "",
                         "proportion_denominateur": "",
@@ -160,11 +160,11 @@
                     },
                     "petites_entreprises": null
                 },
-                "scoretotal": 50.0
+                "score": 50.0
             },
             {
                 "nom": "Communaut\u00e9 de Communes Vall\u00e9e des Baux-Alpilles (13)",
-                "score": {
+                "score_details": {
                     "innovation": {
                         "proportion_numerateur": "",
                         "proportion_denominateur": "",
@@ -177,11 +177,11 @@
                     },
                     "petites_entreprises": null
                 },
-                "scoretotal": 50.0
+                "score": 50.0
             },
             {
                 "nom": "Commune de Curdin ",
-                "score": {
+                "score_details": {
                     "innovation": {
                         "proportion_numerateur": "",
                         "proportion_denominateur": "",
@@ -194,11 +194,11 @@
                     },
                     "petites_entreprises": null
                 },
-                "scoretotal": 50.0
+                "score": 50.0
             },
             {
                 "nom": "1 - Fonc - Groupement Ville",
-                "score": {
+                "score_details": {
                     "innovation": {
                         "proportion_numerateur": "",
                         "proportion_denominateur": "",
@@ -211,11 +211,11 @@
                     },
                     "petites_entreprises": null
                 },
-                "scoretotal": 50.0
+                "score": 50.0
             },
             {
                 "nom": "SPL L'Or Am\u00e9nagement (Mandataire)",
-                "score": {
+                "score_details": {
                     "innovation": {
                         "proportion_numerateur": "2",
                         "proportion_denominateur": "2",
@@ -228,11 +228,11 @@
                     },
                     "petites_entreprises": null
                 },
-                "scoretotal": 50.0
+                "score": 50.0
             },
             {
                 "nom": "COMMUNE DE PLOURIN",
-                "score": {
+                "score_details": {
                     "innovation": {
                         "proportion_numerateur": "2",
                         "proportion_denominateur": "2",
@@ -245,11 +245,11 @@
                     },
                     "petites_entreprises": null
                 },
-                "scoretotal": 50.0
+                "score": 50.0
             },
             {
                 "nom": "SEMSAMAR (973)",
-                "score": {
+                "score_details": {
                     "innovation": {
                         "proportion_numerateur": "1",
                         "proportion_denominateur": "1",
@@ -262,7 +262,7 @@
                     },
                     "petites_entreprises": null
                 },
-                "scoretotal": 50.0
+                "score": 50.0
             }
         ],
         "aides": [
