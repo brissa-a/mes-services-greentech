@@ -18,12 +18,12 @@ export type CollectiviteScore = null | {
 
 export type Collectivite = {
     "nom": string,
-    "score": {
+    "score_details": {
         "innovation": CollectiviteScore,
         "sous_les_seuils": CollectiviteScore,
         "petites_entreprises": CollectiviteScore
     },
-    "scoretotal": number
+    "score": number
 }
 
 export type Marche = {
