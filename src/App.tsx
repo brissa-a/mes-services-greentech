@@ -7,6 +7,13 @@ import { defaultDescription } from './UrlSearchParam'
 
 var to: NodeJS.Timeout | null = null;
 
+//Totally not uniform but easy
+var seed = 1;
+function random() {
+    var x = Math.sin(seed++) * 10000;
+    return x - Math.floor(x);
+}
+
 declare global {
   interface Window { lastApiResponse: ApiResponse; }
 }
@@ -50,8 +57,7 @@ function App() {
     const allList = [[...aides], [...collectivites], [...marches]];
     const allNames : Thematique[] = ["aide", "collectivité", "marché"]
     while (allList.some(x => x.length)) {//While one of the list still as elements
-      //debugger;
-      const rand = Math.floor(Math.random() * allList.length );//entier 0 < rand < allList.length 
+      const rand = Math.floor(random() * allList.length);//entier 0 < rand < allList.length 
       const pick = allList[rand].pop()
       const name = allNames[rand];
       if (pick) allcards.push(Object.assign({thematique: name}, pick))
