@@ -38,11 +38,25 @@ function App() {
   useEffect(delayedUpdateReponse, [descriptionStartup]);
   console.log(descriptionStartup)
   const shareableLink = `${window.location.origin}?description=${encodeURIComponent(descriptionStartup)}`
-  const allcards = reponse && [
+  const toto = reponse && [
     ...reponse.cards.aides.map(x => Object.assign({ type: "aide" as Thematique}, x)),
     ...reponse.cards.collectivites.map(x => Object.assign({ type: "collectivité"  as Thematique}, x)),
     ...reponse.cards.marches.map(x => Object.assign({ type: "marché" as Thematique}, x))
   ]
+  type Themed = {thematique: Thematique}
+  const allcards : ((Themed & Aide) | (Themed & Collectivite) | (Themed & Marche))[] | null = []
+  if (reponse) {
+    const {aides, collectivites, marches} = reponse.cards;
+    const allList = [[...aides], [...collectivites], [...marches]];
+    const allNames : Thematique[] = ["aide", "collectivité", "marché"]
+    while (allList.some(x => x.length)) {//While one of the list still as elements
+      //debugger;
+      const rand = Math.floor(Math.random() * allList.length );//entier 0 < rand < allList.length 
+      const pick = allList[rand].pop()
+      const name = allNames[rand];
+      allcards.push(Object.assign({thematique: name}, pick))
+    }
+  }
   return (
     <div className="App">
       <div className="header">
@@ -89,7 +103,7 @@ function App() {
             </div>
           </div>
           <div className="card-list">
-            {allcards ? allcards.map(x => <Card data={x} maxscore={allcards.slice(-1)[0].score} />) :
+            {reponse ? allcards.map(x => <Card data={x} maxscore={allcards.slice(-1)[0].score} />) :
               <Fragment>
                 <CardPlaceholder />
                 <CardPlaceholder />

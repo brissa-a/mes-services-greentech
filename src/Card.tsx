@@ -12,7 +12,7 @@ const thematiqueToUI: Record<Thematique, { color: string, text: ReactElement | s
         </Fragment>
     },
     "marché": { color: "rgb(0,255,127)", text: "💱 Marché public" },
-    "collectivité": { color: "rgb(127,0,255)", text: "🏙️ Collectivité" }
+    "collectivité": { color: "rgb(255,127,0)", text: "🏙️ Collectivité" }
 };
 
 export function CardPlaceholder() {
@@ -21,13 +21,13 @@ export function CardPlaceholder() {
     </div>
 }
 
-export function Card(props: { data: { type: Thematique } & (Partial<Aide> & Partial<Marche> & Partial<Collectivite>), maxscore: number }) {
+export function Card(props: { data: { thematique: Thematique } & (Partial<Aide> & Partial<Marche> & Partial<Collectivite>), maxscore: number }) {
     const [showDetails, setShowDetails] = useState(false);
     return <div className="card" onClick={() => console.log(props.data)}
         onMouseEnter={() => setShowDetails(true)}
         onMouseLeave={() => setShowDetails(false)}>
-        <div className="fieldset" style={{ borderColor: thematiqueToUI[props.data.type].color }}>
-            <span className="legend" style={{ color: thematiqueToUI[props.data.type].color }}>{thematiqueToUI[props.data.type].text}</span>
+        <div className="fieldset" style={{ borderColor: thematiqueToUI[props.data.thematique].color }}>
+            <span className="legend" style={{ color: thematiqueToUI[props.data.thematique].color }}>{thematiqueToUI[props.data.thematique].text}</span>
             {/* <div style={{ height: "1px", backgroundColor: "red", width: ((1 - (props.aide.score / props.maxscore)) * 100) + "%" }}></div>
       <br /> */}
             <div style={{ margin: "15px 25px" }}>
