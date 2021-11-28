@@ -54,7 +54,7 @@ function App() {
       const rand = Math.floor(Math.random() * allList.length );//entier 0 < rand < allList.length 
       const pick = allList[rand].pop()
       const name = allNames[rand];
-      allcards.push(Object.assign({thematique: name}, pick))
+      if (pick) allcards.push(Object.assign({thematique: name}, pick))
     }
   }
   return (
