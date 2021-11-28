@@ -1,9 +1,9 @@
 import React, { Fragment, ReactElement, useEffect, useState } from 'react';
 import type { Aide, Collectivite, Marche } from './api/Api';
 
-type Thematique = "aide" | "marché" | "collectivité"
+export type Thematique = "aide" | "marché" | "collectivité"
 
-const thematiqueToUI : Record<Thematique, {color:string, text:ReactElement|string}> = {
+const thematiqueToUI: Record<Thematique, { color: string, text: ReactElement | string }> = {
     "aide": {
         color: "rgba(133, 133, 246, 1)",
         text: <Fragment>
@@ -21,13 +21,13 @@ export function CardPlaceholder() {
     </div>
 }
 
-export function Card(props: { data: {type: Thematique} & Partial<Aide> & Partial<Marche> & Partial<Collectivite>, maxscore: number }) {
+export function Card(props: { data: { type: Thematique } & (Partial<Aide> & Partial<Marche> & Partial<Collectivite>), maxscore: number }) {
     const [showDetails, setShowDetails] = useState(false);
-    return <div className="card"
+    return <div className="card" onClick={() => console.log(props.data)}
         onMouseEnter={() => setShowDetails(true)}
         onMouseLeave={() => setShowDetails(false)}>
-        <div className="fieldset" style={{ borderColor: thematiqueToUI["aide"].color }}>
-            <span className="legend" style={{ color: thematiqueToUI["aide"].color }}>{thematiqueToUI["aide"].text}</span>
+        <div className="fieldset" style={{ borderColor: thematiqueToUI[props.data.type].color }}>
+            <span className="legend" style={{ color: thematiqueToUI[props.data.type].color }}>{thematiqueToUI[props.data.type].text}</span>
             {/* <div style={{ height: "1px", backgroundColor: "red", width: ((1 - (props.aide.score / props.maxscore)) * 100) + "%" }}></div>
       <br /> */}
             <div style={{ margin: "15px 25px" }}>
@@ -40,7 +40,7 @@ export function Card(props: { data: {type: Thematique} & Partial<Aide> & Partial
                 </div>
                 {showDetails && <div style={{ position: "absolute", top: "1px", right: "10px", fontSize: "0.5em" }}>{props.data.score}</div>}
                 <p style={{ fontWeight: "bolder", fontSize: "16px", lineHeight: "22px", marginTop: "12px" }}>
-                    {props.data.}
+                    {props.data.titre_aide || props.data.libelle || props.data.nom || "N/A"}
                 </p>
                 <a href="#"><div style={{
                     height: "32px", width: "130px", marginTop: "11px",

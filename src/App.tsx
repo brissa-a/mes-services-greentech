@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import type { Aide, ApiResponse, Collectivite, Marche } from './api/Api';
 import { buildSearchAnythingRequest } from './api/Api';
 import './App.scss';
-import { Card, CardPlaceholder } from './Card'
+import { Card, CardPlaceholder, Thematique } from './Card'
 import { defaultDescription } from './UrlSearchParam'
 
 var to: NodeJS.Timeout | null = null;
@@ -39,9 +39,9 @@ function App() {
   console.log(descriptionStartup)
   const shareableLink = `${window.location.origin}?description=${encodeURIComponent(descriptionStartup)}`
   const allcards = reponse && [
-    ...reponse.cards.aides.map(x => Object.assign({ type: "aide" }, x as Partial<Aide>)),
-    ...reponse.cards.collectivites.map(x => Object.assign({ type: "collectivité" }, x as Partial<Collectivite>)),
-    ...reponse.cards.marches.map(x => Object.assign({ type: "marché" }, x as Partial<Marche>))
+    ...reponse.cards.aides.map(x => Object.assign({ type: "aide" as Thematique}, x)),
+    ...reponse.cards.collectivites.map(x => Object.assign({ type: "collectivité"  as Thematique}, x)),
+    ...reponse.cards.marches.map(x => Object.assign({ type: "marché" as Thematique}, x))
   ]
   return (
     <div className="App">
@@ -89,7 +89,7 @@ function App() {
             </div>
           </div>
           <div className="card-list">
-            {allcards ? allcards.map(x => <Card card={x} maxscore={allcards.slice(-1)[0].score} />) :
+            {allcards ? allcards.map(x => <Card data={x} maxscore={allcards.slice(-1)[0].score} />) :
               <Fragment>
                 <CardPlaceholder />
                 <CardPlaceholder />
