@@ -1,9 +1,9 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import type {ApiResponse} from './api/Api';
-import {buildSearchAnythingRequest} from './api/Api';
+import type { Aide, ApiResponse, Collectivite, Marche } from './api/Api';
+import { buildSearchAnythingRequest } from './api/Api';
 import './App.scss';
-import {Card, CardPlaceholder} from './Card'
-import {defaultDescription} from './UrlSearchParam'
+import { Card, CardPlaceholder } from './Card'
+import { defaultDescription } from './UrlSearchParam'
 
 var to: NodeJS.Timeout | null = null;
 
@@ -38,6 +38,11 @@ function App() {
   useEffect(delayedUpdateReponse, [descriptionStartup]);
   console.log(descriptionStartup)
   const shareableLink = `${window.location.origin}?description=${encodeURIComponent(descriptionStartup)}`
+  const allcards = reponse && [
+    ...reponse.cards.aides.map(x => Object.assign({ type: "aide" }, x as Partial<Aide>)),
+    ...reponse.cards.collectivites.map(x => Object.assign({ type: "collectivité" }, x as Partial<Collectivite>)),
+    ...reponse.cards.marches.map(x => Object.assign({ type: "marché" }, x as Partial<Marche>))
+  ]
   return (
     <div className="App">
       <div className="header">
@@ -84,14 +89,17 @@ function App() {
             </div>
           </div>
           <div className="card-list">
-            {reponse ? reponse.cards.aides.map(x => <Card aide={x} maxscore={reponse.cards.aides.slice(-1)[0].score} />) :
+            {allcards ? allcards.map(x => <Card card={x} maxscore={allcards.slice(-1)[0].score} />) :
               <Fragment>
-                <CardPlaceholder/>
-                <CardPlaceholder/>
-                <CardPlaceholder/>
-                <CardPlaceholder/>
-                <CardPlaceholder/>
-                <CardPlaceholder/>
+                <CardPlaceholder />
+                <CardPlaceholder />
+                <CardPlaceholder />
+                <CardPlaceholder />
+                <CardPlaceholder />
+                <CardPlaceholder />
+                <CardPlaceholder />
+                <CardPlaceholder />
+                <CardPlaceholder />
               </Fragment>}
           </div>
         </div>

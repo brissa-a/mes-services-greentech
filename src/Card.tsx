@@ -1,7 +1,9 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import type { Aide } from './api/Api';
+import React, { Fragment, ReactElement, useEffect, useState } from 'react';
+import type { Aide, Collectivite, Marche } from './api/Api';
 
-const thematiqueToUI = {
+type Thematique = "aide" | "marché" | "collectivité"
+
+const thematiqueToUI : Record<Thematique, {color:string, text:ReactElement|string}> = {
     "aide": {
         color: "rgba(133, 133, 246, 1)",
         text: <Fragment>
@@ -19,7 +21,7 @@ export function CardPlaceholder() {
     </div>
 }
 
-export function Card(props: { aide: Aide, maxscore: number }) {
+export function Card(props: { data: {type: Thematique} & Partial<Aide> & Partial<Marche> & Partial<Collectivite>, maxscore: number }) {
     const [showDetails, setShowDetails] = useState(false);
     return <div className="card"
         onMouseEnter={() => setShowDetails(true)}
@@ -36,9 +38,9 @@ export function Card(props: { aide: Aide, maxscore: number }) {
                         <img style={{ height: "1em" }} src="icons/trash.svg" alt="Favori" aria-label="Archiver" />
                     </div>
                 </div>
-                {showDetails && <div style={{ position: "absolute", top: "1px", right: "10px", fontSize: "0.5em" }}>{props.aide.score}</div>}
+                {showDetails && <div style={{ position: "absolute", top: "1px", right: "10px", fontSize: "0.5em" }}>{props.data.score}</div>}
                 <p style={{ fontWeight: "bolder", fontSize: "16px", lineHeight: "22px", marginTop: "12px" }}>
-                    {props.aide.titre_aide}
+                    {props.data.}
                 </p>
                 <a href="#"><div style={{
                     height: "32px", width: "130px", marginTop: "11px",
