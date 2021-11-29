@@ -21,9 +21,10 @@ export function CardPlaceholder() {
     </div>
 }
 
-export function Card(props: { data: { thematique: Thematique } & (Partial<Aide> & Partial<Marche> & Partial<Collectivite>), maxscore: number }) {
+export function Card(props: { archived: boolean, data: { thematique: Thematique } & (Partial<Aide> & Partial<Marche> & Partial<Collectivite>), maxscore: number }) {
     const [showDetails, setShowDetails] = useState(false);
-    return <div className="card" onClick={() => console.log(props.data)}
+    const achivedProps = props.archived ? {style: {"opacity": 0.3, "filter": "grayscale(50%)"}} : {}
+    return <div {...achivedProps} className="card" onClick={() => console.log(props.data)}
         onMouseEnter={() => setShowDetails(true)}
         onMouseLeave={() => setShowDetails(false)}>
         <div className="fieldset" style={{ borderColor: thematiqueToUI[props.data.thematique].color }}>

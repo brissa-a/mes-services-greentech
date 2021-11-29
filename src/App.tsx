@@ -2,17 +2,18 @@ import React, { Fragment, useEffect, useState } from 'react';
 import type { Aide, ApiResponse, Collectivite, Marche } from './api/Api';
 import { buildSearchAnythingRequest } from './api/Api';
 import './App.scss';
-import { Card, CardPlaceholder, Thematique } from './Card'
-import { defaultDescription } from './UrlSearchParam'
+import { Card, CardPlaceholder, Thematique } from './Card';
+import { defaultDescription } from './UrlSearchParam';
+import { canonicalize } from 'json-canonicalize';
+import sha1 from 'sha1';
+
+const id = (obj: any) => sha1(canonicalize(obj))
 
 var to: NodeJS.Timeout | null = null;
 
-//Totally not uniform but easy
-var seed = 1;
-function random() {
-    var x = Math.sin(seed++) * 10000;
-    return x - Math.floor(x);
-}
+Object.assign(window, { id })
+
+const archives: Record<string, boolean> = { '605f26f616f88c8028d2f8d2c87c9385f7bf5651': true }
 
 declare global {
   interface Window { lastApiResponse: ApiResponse; }
@@ -46,21 +47,27 @@ function App() {
   console.log(descriptionStartup)
   const shareableLink = `${window.location.origin}?description=${encodeURIComponent(descriptionStartup)}`
   const toto = reponse && [
-    ...reponse.cards.aides.map(x => Object.assign({ type: "aide" as Thematique}, x)),
-    ...reponse.cards.collectivites.map(x => Object.assign({ type: "collectivité"  as Thematique}, x)),
-    ...reponse.cards.marches.map(x => Object.assign({ type: "marché" as Thematique}, x))
+    ...reponse.cards.aides.map(x => Object.assign({ type: "aide" as Thematique }, x)),
+    ...reponse.cards.collectivites.map(x => Object.assign({ type: "collectivité" as Thematique }, x)),
+    ...reponse.cards.marches.map(x => Object.assign({ type: "marché" as Thematique }, x))
   ]
-  type Themed = {thematique: Thematique}
-  const allcards : ((Themed & Aide) | (Themed & Collectivite) | (Themed & Marche))[] | null = []
+  type Themed = { thematique: Thematique, id: string }
+  const allcards: ((Themed & Aide) | (Themed & Collectivite) | (Themed & Marche))[] | null = []
   if (reponse) {
-    const {aides, collectivites, marches} = reponse.cards;
+    //Totally not uniform but easy
+    var seed = 1;
+    const random = () => {
+      var x = Math.sin(seed++) * 10000;
+      return x - Math.floor(x);
+    }
+    const { aides, collectivites, marches } = reponse.cards;
     const allList = [[...aides], [...collectivites], [...marches]];
-    const allNames : Thematique[] = ["aide", "collectivité", "marché"]
+    const allNames: Thematique[] = ["aide", "collectivité", "marché"]
     while (allList.some(x => x.length)) {//While one of the list still as elements
       const rand = Math.floor(random() * allList.length);//entier 0 < rand < allList.length 
       const pick = allList[rand].pop()
       const name = allNames[rand];
-      if (pick) allcards.push(Object.assign({thematique: name}, pick))
+      if (pick) allcards.push(Object.assign({ thematique: name, id: id(pick) }, pick))
     }
   }
   return (
@@ -104,12 +111,18 @@ function App() {
                 Séletionnées (0)
               </button> &nbsp;
               <button className="fr-btn">
-                Archivée (0)
+                Archivée ({archives.length})
               </button>
             </div>
           </div>
           <div className="card-list">
-            {reponse ? allcards.map(x => <Card data={x} maxscore={allcards.slice(-1)[0].score} />) :
+            {reponse ? allcards.map(x => <Card
+              data={x}
+              maxscore={allcards.slice(-1)[0].score}
+              archived={archives[x.id]}
+              onFavori={}
+              onArchive={}
+            />) :
               <Fragment>
                 <CardPlaceholder />
                 <CardPlaceholder />
