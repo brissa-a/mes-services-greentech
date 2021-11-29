@@ -23,6 +23,7 @@ export function CardPlaceholder() {
 
 type CardProps = {
     archived: boolean,
+    favori: { thematique: Thematique } & (Partial<Aide> & Partial<Marche> & Partial<Collectivite>),
     data: { thematique: Thematique } & (Partial<Aide> & Partial<Marche> & Partial<Collectivite>),
     maxscore: number,
     onFavori: () => void,
@@ -32,6 +33,7 @@ type CardProps = {
 export function Card(props: CardProps) {
     const [showDetails, setShowDetails] = useState(false);
     const achivedProps = props.archived ? {style: {"opacity": 0.3, "filter": "grayscale(50%)"}} : {}
+    const favoriPros = props.favori ? {style: {"filter": "invert(42%) sepia(93%) saturate(1352%) hue-rotate(0deg) brightness(119%) contrast(119%)"}} : {};
     return <div {...achivedProps} className="card"
         onMouseEnter={() => setShowDetails(true)}
         onMouseLeave={() => setShowDetails(false)}>
@@ -43,7 +45,7 @@ export function Card(props: CardProps) {
                 <div style={{ display: "flex", justifyContent: "space-between", marginTop: "3px" }}>
                     <div style={{ fontWeight: 100, fontSize: "12px", lineHeight: "22px" }}>Test texte gris | 2022/06</div>
                     <div style={{ display: "flex", width: "42px", justifyContent: "space-between" }}>
-                        <img style={{ height: "1em", cursor: "pointer" }} src="icons/star.svg" alt="Favori" aria-label="Favori" onClick={props.onFavori}/>
+                        <img style={Object.assign({ height: "1em", cursor: "pointer" }, favoriPros.style)} src="icons/star.svg" alt="Favori" aria-label="Favori" onClick={props.onFavori}/>
                         <img style={{ height: "1em", cursor: "pointer" }} src="icons/trash.svg" alt="Archiver" aria-label="Archiver" onClick={props.onArchive}/>
                     </div>
                 </div>

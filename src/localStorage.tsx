@@ -6,8 +6,8 @@ function getStorageValue<Type>(key:string, defaultValue:Type) {
   return saved && JSON.parse(saved) || defaultValue;
 }
 
-export function useLocalStorage<Type>(key:string, defaultValue:Type) {
-  const [value, setValue] = useState(() => {
+export function useLocalStorage<Type>(key:string, defaultValue:Type) : [Type, React.Dispatch<React.SetStateAction<Type>>] {
+  const [value, setValue] = useState<Type>(() => {
     return getStorageValue<Type>(key, defaultValue);
   });
 

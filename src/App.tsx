@@ -22,7 +22,8 @@ function App() {
   const defaultValue = null
   const [reponse, setReponse] = useState<ApiResponse | null>(null);
   const [descriptionStartup, setDescriptionStartup] = useState<string>(defaultDescription);
-  const [archives, setArchive] = useLocalStorage<Record<string, boolean>>("archives", { '605f26f616f88c8028d2f8d2c87c9385f7bf5651': true })
+  const [archives, setArchives] = useLocalStorage<Record<string, boolean>>("archives", { '605f26f616f88c8028d2f8d2c87c9385f7bf5651': true })
+  const [favoris, setFavoris] = useLocalStorage<Record<string, ({ thematique: Thematique } & (Partial<Aide> & Partial<Marche> & Partial<Collectivite>))>>("favoris", {})
 
   useEffect(() => {
     document.documentElement.setAttribute("data-fr-theme", "dark");
@@ -46,11 +47,6 @@ function App() {
   useEffect(delayedUpdateReponse, [descriptionStartup]);
   console.log(descriptionStartup)
   const shareableLink = `${window.location.origin}?description=${encodeURIComponent(descriptionStartup)}`
-  const toto = reponse && [
-    ...reponse.cards.aides.map(x => Object.assign({ type: "aide" as Thematique }, x)),
-    ...reponse.cards.collectivites.map(x => Object.assign({ type: "collectivité" as Thematique }, x)),
-    ...reponse.cards.marches.map(x => Object.assign({ type: "marché" as Thematique }, x))
-  ]
   type Themed = { thematique: Thematique, id: string }
   const allcards: ((Themed & Aide) | (Themed & Collectivite) | (Themed & Marche))[] | null = []
   if (reponse) {
@@ -120,10 +116,12 @@ function App() {
               data={x}
               maxscore={allcards.slice(-1)[0].score}
               archived={archives[x.id]}
-              onFavori={() => console.log("Favori", x)}
+              favori={favoris[x.id]}
+              onFavori={() => {
+                setFavoris(Object.assign({}, favoris, {[x.id]: favoris[x.id] ? null : x}))
+              }}
               onArchive={() => {
-                console.log("Archive", x);
-                setArchive(Object.assign({}, archives, {[x.id]: !archives[x.id]}))
+                setArchives(Object.assign({}, archives, {[x.id]: !archives[x.id]}))
               }}
             />) :
               <Fragment>
