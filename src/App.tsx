@@ -13,8 +13,6 @@ var to: NodeJS.Timeout | null = null;
 
 Object.assign(window, { id })
 
-const archives: Record<string, boolean> = { '605f26f616f88c8028d2f8d2c87c9385f7bf5651': true }
-
 declare global {
   interface Window { lastApiResponse: ApiResponse; }
 }
@@ -23,6 +21,7 @@ function App() {
   const defaultValue = null
   const [reponse, setReponse] = useState<ApiResponse | null>(null);
   const [descriptionStartup, setDescriptionStartup] = useState<string>(defaultDescription);
+  const [archives, setArchive] = useState<Record<string, boolean>>({ '605f26f616f88c8028d2f8d2c87c9385f7bf5651': true })
 
   useEffect(() => {
     document.documentElement.setAttribute("data-fr-theme", "dark");
@@ -120,8 +119,11 @@ function App() {
               data={x}
               maxscore={allcards.slice(-1)[0].score}
               archived={archives[x.id]}
-              onFavori={}
-              onArchive={}
+              onFavori={() => console.log("Favori", x)}
+              onArchive={() => {
+                console.log("Archive", x);
+                setArchive(Object.assign({}, archives, {[x.id]: !archives[x.id]}))
+              }}
             />) :
               <Fragment>
                 <CardPlaceholder />

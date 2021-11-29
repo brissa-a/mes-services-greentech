@@ -21,22 +21,30 @@ export function CardPlaceholder() {
     </div>
 }
 
-export function Card(props: { archived: boolean, data: { thematique: Thematique } & (Partial<Aide> & Partial<Marche> & Partial<Collectivite>), maxscore: number }) {
+type CardProps = {
+    archived: boolean,
+    data: { thematique: Thematique } & (Partial<Aide> & Partial<Marche> & Partial<Collectivite>),
+    maxscore: number,
+    onFavori: () => void,
+    onArchive: () => void
+}
+
+export function Card(props: CardProps) {
     const [showDetails, setShowDetails] = useState(false);
     const achivedProps = props.archived ? {style: {"opacity": 0.3, "filter": "grayscale(50%)"}} : {}
-    return <div {...achivedProps} className="card" onClick={() => console.log(props.data)}
+    return <div {...achivedProps} className="card"
         onMouseEnter={() => setShowDetails(true)}
         onMouseLeave={() => setShowDetails(false)}>
         <div className="fieldset" style={{ borderColor: thematiqueToUI[props.data.thematique].color }}>
-            <span className="legend" style={{ color: thematiqueToUI[props.data.thematique].color }}>{thematiqueToUI[props.data.thematique].text}</span>
+            <span onClick={() => console.log(props.data)} className="legend" style={{ color: thematiqueToUI[props.data.thematique].color }}>{thematiqueToUI[props.data.thematique].text}</span>
             {/* <div style={{ height: "1px", backgroundColor: "red", width: ((1 - (props.aide.score / props.maxscore)) * 100) + "%" }}></div>
       <br /> */}
             <div style={{ margin: "15px 25px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", marginTop: "3px" }}>
                     <div style={{ fontWeight: 100, fontSize: "12px", lineHeight: "22px" }}>Test texte gris | 2022/06</div>
                     <div style={{ display: "flex", width: "42px", justifyContent: "space-between" }}>
-                        <img style={{ height: "1em" }} src="icons/star.svg" alt="Favori" aria-label="Favori" />
-                        <img style={{ height: "1em" }} src="icons/trash.svg" alt="Favori" aria-label="Archiver" />
+                        <img style={{ height: "1em" }} src="icons/star.svg" alt="Favori" aria-label="Favori" onClick={props.onFavori}/>
+                        <img style={{ height: "1em" }} src="icons/trash.svg" alt="Archiver" aria-label="Archiver" onClick={props.onArchive}/>
                     </div>
                 </div>
                 {showDetails && <div style={{ position: "absolute", top: "1px", right: "10px", fontSize: "0.5em" }}>{props.data.score}</div>}
