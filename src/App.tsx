@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
+import {useLocalStorage} from './localStorage'
 import type { Aide, ApiResponse, Collectivite, Marche } from './api/Api';
 import { buildSearchAnythingRequest } from './api/Api';
 import './App.scss';
@@ -21,7 +22,7 @@ function App() {
   const defaultValue = null
   const [reponse, setReponse] = useState<ApiResponse | null>(null);
   const [descriptionStartup, setDescriptionStartup] = useState<string>(defaultDescription);
-  const [archives, setArchive] = useState<Record<string, boolean>>({ '605f26f616f88c8028d2f8d2c87c9385f7bf5651': true })
+  const [archives, setArchive] = useLocalStorage<Record<string, boolean>>("archives", { '605f26f616f88c8028d2f8d2c87c9385f7bf5651': true })
 
   useEffect(() => {
     document.documentElement.setAttribute("data-fr-theme", "dark");
