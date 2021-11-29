@@ -43,8 +43,8 @@ export function Card(props: CardProps) {
                 <div style={{ display: "flex", justifyContent: "space-between", marginTop: "3px" }}>
                     <div style={{ fontWeight: 100, fontSize: "12px", lineHeight: "22px" }}>Test texte gris | 2022/06</div>
                     <div style={{ display: "flex", width: "42px", justifyContent: "space-between" }}>
-                        <img style={{ height: "1em" }} src="icons/star.svg" alt="Favori" aria-label="Favori" onClick={props.onFavori}/>
-                        <img style={{ height: "1em" }} src="icons/trash.svg" alt="Archiver" aria-label="Archiver" onClick={props.onArchive}/>
+                        <img style={{ height: "1em", cursor: "pointer" }} src="icons/star.svg" alt="Favori" aria-label="Favori" onClick={props.onFavori}/>
+                        <img style={{ height: "1em", cursor: "pointer" }} src="icons/trash.svg" alt="Archiver" aria-label="Archiver" onClick={props.onArchive}/>
                     </div>
                 </div>
                 {showDetails && <div style={{ position: "absolute", top: "1px", right: "10px", fontSize: "0.5em" }}>{props.data.score}</div>}
