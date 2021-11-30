@@ -4,6 +4,7 @@ import type { Aide, ApiResponse, Collectivite, Marche } from '../api/Api';
 import { buildSearchAnythingRequest } from '../api/Api';
 import { defaultDescription } from '../UrlSearchParam';
 import { buildId, Card, CardData, CardPlaceholder, Thematique, Themed } from '../Card';
+import "./SearchAnything.scss"
 
 declare global {
     interface Window { lastApiResponse: ApiResponse; }
@@ -58,7 +59,7 @@ export function SearchAnything(props:SearchAnythingProps) {
         }
     }
 
-    return <Fragment>
+    return <div className="search-anything">
         <div className="description-startup">
             <div>
                 <div className="big">Aimant greentech</div>
@@ -119,5 +120,5 @@ export function SearchAnything(props:SearchAnythingProps) {
                     </Fragment>}
             </div>
         </div>
-    </Fragment>
+    </div>
 }
