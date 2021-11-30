@@ -1,7 +1,14 @@
 import React, { Fragment, ReactElement, useEffect, useState } from 'react';
 import type { Aide, Collectivite, Marche } from './api/Api';
+import { canonicalize } from 'json-canonicalize';
+import sha1 from 'sha1';
 
 export type Thematique = "aide" | "marché" | "collectivité"
+export type Themed = { thematique: Thematique, id: string }
+export type CardData = (Themed & (Partial<Aide> & Partial<Marche> & Partial<Collectivite>))
+
+export const buildId = (obj: any) => sha1(canonicalize(obj))
+Object.assign(window, { buildId })
 
 const thematiqueToUI: Record<Thematique, { color: string, text: ReactElement | string }> = {
     "aide": {
