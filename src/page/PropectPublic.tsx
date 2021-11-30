@@ -6,11 +6,14 @@ export type ProspectPublicProps = {
     data: Themed & Partial<Collectivite>
 }
 export function ProspectPublic(props: ProspectPublicProps) {
-    return <div className="PropectPublic">
-        <div>&lt;- Retourner a la recherche</div>
-        <div>Prospect Public</div>
-        <div>Bordreaux Metropole</div>
-        <div><div>DECP</div><div>⭐👁️</div></div>
+    return <div style={{marginLeft: "10vw"}}>
+        <div style={{marginTop: "20px"}}>&lt;- Retourner a la recherche</div>
+        <div style={{marginTop: "20px", color: "rgb(255,127,0)"}}>🏙️ Prospect Public</div>
+        <div style={{marginTop: "20px"}}><h1>Bordreaux Métropole</h1></div>
+        <div style={{marginTop: "20px", display: "flex", }}>
+            <div>DECP</div>
+            <div>⭐👁️</div>
+        </div>
         <div className="col1">
             <div>
                 Les données essentielles de la commande publique, actualisées
