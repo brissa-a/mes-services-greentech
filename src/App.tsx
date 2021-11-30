@@ -1,10 +1,11 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { useLocalStorage } from './localStorage'
-import type { Aide, ApiResponse, Collectivite, Marche } from './api/Api';
 import { buildId, Card, CardPlaceholder, Thematique, CardData } from './Card';
-import {SearchAnything} from "./page/SearchAnything"
+import { SearchAnything } from "./page/SearchAnything"
+import { page } from './UrlSearchParam';
 
 import './App.scss';
+import { ProspectPublic } from './page/PropectPublic';
 
 var to: NodeJS.Timeout | null = null;
 
@@ -26,12 +27,12 @@ function App() {
         <img className="msg-icon" style={{ marginLeft: "35px" }} src="/icon-msg-txt-beta.png" />
       </div>
       <div className="body">
-        <SearchAnything
-          favoris={favoris}
-          archives={archives}
-          toggleFavori={toggleFavori}
-          toggleArchive={toggleArchive}
-        />
+          {page === "ProspectPublic" ? <ProspectPublic data={Object.values(favoris)[0]} /> : <SearchAnything
+            favoris={favoris}
+            archives={archives}
+            toggleFavori={toggleFavori}
+            toggleArchive={toggleArchive}
+          />}
       </div>
     </div>
   );
