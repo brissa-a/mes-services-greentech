@@ -83,7 +83,7 @@ export function SearchAnything(props:SearchAnythingProps) {
                 <div>
                     <div className="fr-toggle">
                         <input type="checkbox" className="fr-toggle__input" aria-describedby="toggle-698-hint-text" id="toggle-698" />
-                        <label className="fr-toggle__label" htmlFor="toggle-698" data-fr-checked-label="Activé" data-fr-unchecked-label="Désactivé">Aide publique</label>
+                        <label className="fr-toggle__label" htmlFor="toggle-698">Aide publique</label>
                     </div>
                 </div>
                 <div style={{ textAlign: "center" }}>

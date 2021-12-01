@@ -56,26 +56,49 @@ export function ProspectPublic(props: ProspectPublicProps) {
                     </div>
                 </div>
             </div>
-            <div style={{ flex: "1 1 40%", margin: "12.5px" }}>
-                <img width="100%" src="/map-placeholder.png" />
+            <div style={{ flex: "1 1 40%", margin: "12.5px", backgroundImage: "url('/map-placeholder.png')" }}>
             </div>
         </div>
         <div className="charts" style={{display: "flex", justifyContent: "space-between"}}>
-            <div>
-                <div style={{color: "rgba(255, 111, 76, 1)"}}>Marchés sous les seuils</div>
-                <div style={{display: "flex"}}>
+            <div className="chart-block">
+                <div style={{color: "rgba(255, 111, 76, 1)", textAlign: "center"}}>Marchés sous les seuils</div>
+                <div style={{display: "flex", marginTop: "48px", justifyContent: "space-between"}}>
+                    <div>
+                        <div><img width="90px" src="/chart-placeholder.png" /></div>
+                        <div style={{ marginTop: "12px"}}>légende</div>
+                    </div>
                     <div>
                         <div><img width="90px" src="/chart-placeholder.png" /></div>
                         <div>légende</div>
                     </div>
+                </div>
+            </div>
+            <div className="chart-block">
+                <div className="titre">Marchés sous les seuils</div>
+                <div className="per-region">
                     <div>
-                        <div>image</div>
+                        <div className="chart"><img width="90px" src="/chart-placeholder.png" /></div>
+                        <div>légende</div>
+                    </div>
+                    <div>
+                        <div><img width="90px" src="/chart-placeholder.png" /></div>
                         <div>légende</div>
                     </div>
                 </div>
             </div>
-            <div>Marchés innovants</div>
-            <div>Marchés TPE/PME</div>
+            <div className="chart-block">
+                <div style={{color: "rgba(255, 111, 76, 1)", textAlign: "center"}}>Marchés sous les seuils</div>
+                <div style={{display: "flex", marginTop: "48px", justifyContent: "space-between"}}>
+                    <div>
+                        <div><img width="90px" src="/chart-placeholder.png" /></div>
+                        <div style={{ marginTop: "12px"}}>légende</div>
+                    </div>
+                    <div>
+                        <div><img width="90px" src="/chart-placeholder.png" /></div>
+                        <div>légende</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 }
