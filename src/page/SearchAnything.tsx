@@ -78,7 +78,7 @@ export function SearchAnything(props:SearchAnythingProps) {
             </div>
         </div>
         <div className="resultats">
-            <div className="control-pannel white-text">
+            <div className="control-panel white-text">
                 <div style={{ textAlign: "center", fontWeight: 700, marginBottom: "16px" }}>Vos pistes de prospection</div>
                 <div>
                     <div className="fr-toggle">
