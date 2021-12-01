@@ -1,7 +1,8 @@
 .figures-card {
     border: 2px solid rgba(255, 111, 76, 1);
     border-radius: 9px;
-    width: 180px;
+    flex: 1 1 10%;
+    margin: 12px;
     .content {
         margin: 25px;
         .figures {

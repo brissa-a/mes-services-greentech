@@ -20,6 +20,8 @@ function App() {
     document.documentElement.setAttribute("data-fr-theme", "dark");
   });
 
+  const staticWidthClass = page === "ProspectPublic" ? "static" : ""
+  
   return (
     <div className="App">
       <div className="header">
@@ -28,7 +30,7 @@ function App() {
           <img className="msg-icon" style={{ marginLeft: "35px", transform: "scale(0.8)"}} src="/icon-msg-txt-beta.png"/>
         </div>
       </div>
-      <div className="body">
+      <div className={`body ${staticWidthClass}`}>
         <div className="body-container">
           {page === "ProspectPublic" ? <ProspectPublic data={Object.values(favoris)[0]} /> : <SearchAnything
             favoris={favoris}

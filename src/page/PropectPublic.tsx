@@ -21,18 +21,18 @@ export function ProspectPublic(props: ProspectPublicProps) {
             <div style={{ flex: "1 1 50%", margin: "0px 12px", display: "flex", justifyContent: "space-between"}}>
                 <div>DECP</div><div>⭐👁️</div>
             </div>
-            <div style={{ flex: "1 1 50%", margin: "12px" }}>
+            <div style={{ flex: "1 1 49%", margin: "12px" }}>
             </div>
         </div>
-        <div style={{ display: "flex" }}>
-            <div style={{ flex: "1 1 50%", margin: "12px" }}>
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
+            <div style={{ flex: "1 1 40%", margin: "12px" }}>
                 <div>
                     Les données essentielles de la commande publique, actualisées
                     toutes les xx fois par semaine nous permettre d’effectuer des calculs
                     pour vous faire remonter les villes les plus propices à la mise en place
                     de démonstrateurs sur les critères suivants :
                 </div>
-                <div style={{ display: "flex", marginTop: "45px", justifyContent: "space-between" }}>
+                <div style={{ display: "flex", marginTop: "45px", justifyContent: "space-between", flexWrap:"wrap" }}>
                     <div className="figures-card">
                         <div className="content">
                             <div className="figures">50%</div>
@@ -56,16 +56,16 @@ export function ProspectPublic(props: ProspectPublicProps) {
                     </div>
                 </div>
             </div>
-            <div style={{ flex: "1 1 50%", margin: "12.5px" }}>
-                <img src="/map-placeholder.png" />
+            <div style={{ flex: "1 1 40%", margin: "12.5px" }}>
+                <img width="100%" src="/map-placeholder.png" />
             </div>
         </div>
-        <div className="charts">
+        <div className="charts" style={{display: "flex", justifyContent: "space-between"}}>
             <div>
-                <div>Marchés sous les seuils</div>
-                <div>
+                <div style={{color: "rgba(255, 111, 76, 1)"}}>Marchés sous les seuils</div>
+                <div style={{display: "flex"}}>
                     <div>
-                        <div>image</div>
+                        <div><img width="90px" src="/chart-placeholder.png" /></div>
                         <div>légende</div>
                     </div>
                     <div>

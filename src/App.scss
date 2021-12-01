@@ -32,6 +32,14 @@
   max-height: 12vw;
 }
 
+.body.static {
+  display: flex;
+  justify-content: center;
+  .body-container {
+    max-width: 1440px;
+  }
+}
+
 .body {
   --body-bg-color: rgba(38, 38, 38, 1);
   background: var(--body-bg-color);
