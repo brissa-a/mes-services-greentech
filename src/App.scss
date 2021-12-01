@@ -1,5 +1,6 @@
 :root {
   --header-height: 12vw;
+  --header-margin: 6vw;
   scroll-snap-type: y proximity;
 }
 
@@ -11,16 +12,18 @@
   grid-area: header;
   height: var(--header-height);
   background-color: rgba(31, 31, 31, 1);
-  padding: 6vh 10vw;
   display: flex;
-  align-items: center;
+  .left-side {
+    margin-left: var(--header-margin);
+    display: flex;
+    align-items: center;
+  }
 }
 
 .header > h1 {
   margin: 0;
   font-size: 1.2em;
   display: inline-block;
-  margin-left: 20px;
 }
 
 .msg-icon {
@@ -33,4 +36,8 @@
   --body-bg-color: rgba(38, 38, 38, 1);
   background: var(--body-bg-color);
   padding-top: 45px;
+  .body-container {
+    margin-left: var(--header-margin);
+    margin-right: var(--header-margin);
+  }
 }

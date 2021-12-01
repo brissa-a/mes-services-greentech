@@ -23,16 +23,20 @@ function App() {
   return (
     <div className="App">
       <div className="header">
-        <img className="msg-icon" src="/icon-ministere.png" />
-        <img className="msg-icon" style={{ marginLeft: "35px" }} src="/icon-msg-txt-beta.png" />
+        <div className="left-side">
+          <img className="msg-icon" src="/icon-ministere.png" style={{transform: "translateX(-20px)"}}/>
+          <img className="msg-icon" style={{ marginLeft: "35px" }} src="/icon-msg-txt-beta.png" />
+        </div>
       </div>
       <div className="body">
+        <div className="body-container">
           {page === "ProspectPublic" ? <ProspectPublic data={Object.values(favoris)[0]} /> : <SearchAnything
             favoris={favoris}
             archives={archives}
             toggleFavori={toggleFavori}
             toggleArchive={toggleArchive}
           />}
+        </div>
       </div>
     </div>
   );

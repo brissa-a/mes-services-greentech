@@ -10,7 +10,7 @@ export function ProspectPublic(props: ProspectPublicProps) {
         <div style={{marginTop: "20px"}}>&lt;- Retourner a la recherche</div>
         <div style={{marginTop: "20px", color: "rgb(255,127,0)"}}>🏙️ Prospect Public</div>
         <div style={{marginTop: "20px"}}><h1>Bordreaux Métropole</h1></div>
-        <div style={{marginTop: "20px", display: "flex", }}>
+        <div style={{marginTop: "20px", display: "flex"}}>
             <div>DECP</div>
             <div>⭐👁️</div>
         </div>
