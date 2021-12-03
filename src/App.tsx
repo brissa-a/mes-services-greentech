@@ -3,7 +3,7 @@ import { useLocalStorage } from './localStorage'
 import { buildId, Card, CardPlaceholder, Thematique, CardData } from './Card';
 
 import { page, objectId } from './UrlSearchParam';
-import { SearchAnything } from "./page/SearchAnything"
+import { SearchAnything, LastApiResponse } from "./page/SearchAnything"
 import { ProspectPublic } from './page/PropectPublic';
 import { Details } from './page/Details';
 
@@ -16,8 +16,7 @@ function App() {
   const defaultValue = null
   const [archives, setArchives] = useLocalStorage<Record<string, boolean>>("archives", { '605f26f616f88c8028d2f8d2c87c9385f7bf5651': true })
   const [favoris, setFavoris] = useLocalStorage<Record<string, CardData>>("favoris", {})
-  const [lastApiResponse, setLastApiResponse] = useLocalStorage<ApiResponse | null>("lastApiResponse", null)
-  const [searchResultsById, setSearchResultsById] = useLocalStorage<Record<string, CardData>>("searchResultsById", {})
+  const [lastApiResponse, setLastApiResponse] = useLocalStorage<LastApiResponse>("lastApiResponse", null)
   const toggleFavori = (cd: CardData) => {
     if (!favoris[cd.id]) {
       setFavoris(Object.assign({}, favoris, { [cd.id]: cd }))
@@ -33,7 +32,6 @@ function App() {
   });
 
   const staticWidthClass = page === "ProspectPublic" ? "static" : ""
-  
   return (
     <div className="App">
       <div className="header">
@@ -44,13 +42,13 @@ function App() {
       </div>
       <div className={`body ${staticWidthClass}`}>
         <div className="body-container">
-          {objectId ? <Details data={searchResultsById[objectId] || favoris[objectId] || archives[objectId]} /> : <SearchAnything
+          {objectId ? <Details data={lastApiResponse?.cardDataById[objectId] || favoris[objectId] || archives[objectId]} /> : <SearchAnything
             favoris={favoris}
             archives={archives}
             toggleFavori={toggleFavori}
             toggleArchive={toggleArchive}
             setLastApiResponse={setLastApiResponse}
-            setSearchResultsById={setSearchResultsById}
+            lastApiResponse={lastApiResponse}
           />}
         </div>
       </div>

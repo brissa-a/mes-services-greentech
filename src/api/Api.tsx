@@ -46,7 +46,7 @@ export function buildSearchAnythingRequest(description: string) {
         }
       })
     })
-      .then(resp => resp.json())
+    .then(resp => resp.json())
   }
 }
 

@@ -6,61 +6,65 @@ import { defaultDescription } from '../UrlSearchParam';
 import { buildId, Card, CardData, CardPlaceholder, Thematique, Themed } from '../Card';
 import "./SearchAnything.scss"
 
-declare global {
-    interface Window { lastApiResponse: ApiResponse; }
-}
 
 var to: NodeJS.Timeout | null = null;
 
+
+export type LastApiResponse = {
+    apiResponse: ApiResponse,
+    cardDataById: Record<string, CardData>,
+    cardData: CardData[]
+} | null
+
 type SearchAnythingProps = {
-    archives:Record<string, boolean>,
-    favoris : Record<string, CardData>,
+    archives: Record<string, boolean>,
+    favoris: Record<string, CardData>,
     toggleFavori: (cd: CardData) => void,
     toggleArchive: (cd: CardData) => void,
-    setLastApiResponse: (apiResponse: ApiResponse) => void,
-    setSearchResultsById: (searchResultsById : Record<string, CardData>) => void
+    setLastApiResponse: (lastApiResponse: LastApiResponse) => void,
+    lastApiResponse: LastApiResponse
 }
-export function SearchAnything(props:SearchAnythingProps) {
-    const [reponse, setReponse] = useState<ApiResponse | null>(null);
+export function SearchAnything(props: SearchAnythingProps) {
     const [descriptionStartup, setDescriptionStartup] = useState<string>(defaultDescription);
-
+    const { lastApiResponse } = props
     function updateReponse() {
         console.log("updating results")
-        setReponse(null);
-        buildSearchAnythingRequest(descriptionStartup).then(json => {
-            setReponse(json)
-            window.lastApiResponse = json
+        props.setLastApiResponse(null);
+        buildSearchAnythingRequest(descriptionStartup).then((reponse: ApiResponse) => {
+            const allcards: CardData[] | null = []
+            const allcardsById: Record<string, CardData> = {}
+            //Totally not uniform but easy
+            var seed = 1;
+            const random = () => {
+                var x = Math.sin(seed++) * 10000;
+                return x - Math.floor(x);
+            }
+            const { aides, collectivites, marches } = reponse.cards;
+            const allList = [[...aides], [...collectivites], [...marches]];
+            const allNames: Thematique[] = ["aide", "collectivité", "marché"]
+            while (allList.some(x => x.length)) {//While one of the list still as elements
+                const rand = Math.floor(random() * allList.length);//entier 0 < rand < allList.length 
+                const pick = allList[rand].pop()
+                const name = allNames[rand];
+                if (pick) {
+                    const obj = Object.assign({ thematique: name, id: buildId(pick) }, pick)
+                    allcards.push(obj)
+                    allcardsById[obj.id] = obj;
+                }
+            }
+            props.setLastApiResponse({ apiResponse: reponse, cardDataById: allcardsById, cardData: allcards })
         })
     }
-    
+
     function delayedUpdateReponse() {
         console.log("delaying request")
         if (to) clearTimeout(to)
         to = setTimeout(updateReponse, 600)
     }
 
-    useEffect(delayedUpdateReponse, [descriptionStartup]);
+    //useEffect(delayedUpdateReponse, [descriptionStartup]);
     console.log(descriptionStartup)
     const shareableLink = `${window.location.origin}?description=${encodeURIComponent(descriptionStartup)}`
-    const allcards: CardData[] | null = []
-    if (reponse) {
-        //Totally not uniform but easy
-        props.setLastApiResponse(reponse)
-        var seed = 1;
-        const random = () => {
-            var x = Math.sin(seed++) * 10000;
-            return x - Math.floor(x);
-        }
-        const { aides, collectivites, marches } = reponse.cards;
-        const allList = [[...aides], [...collectivites], [...marches]];
-        const allNames: Thematique[] = ["aide", "collectivité", "marché"]
-        while (allList.some(x => x.length)) {//While one of the list still as elements
-            const rand = Math.floor(random() * allList.length);//entier 0 < rand < allList.length 
-            const pick = allList[rand].pop()
-            const name = allNames[rand];
-            if (pick) allcards.push(Object.assign({ thematique: name, id: buildId(pick) }, pick))
-        }
-    }
 
     return <div className="search-anything">
         <div className="description-startup">
@@ -102,9 +106,9 @@ export function SearchAnything(props:SearchAnythingProps) {
                 </div>
             </div>
             <div className="card-list">
-                {reponse ? allcards.map(x => <Card
+                {lastApiResponse ? lastApiResponse?.cardData.map(x => <Card
                     data={x}
-                    maxscore={allcards.slice(-1)[0].score ?? 0}
+                    maxscore={lastApiResponse?.cardData.slice(-1)[0].score ?? 0}
                     archived={props.archives[x.id]}
                     favori={props.favoris[x.id]}
                     onFavori={() => props.toggleFavori(x)}
