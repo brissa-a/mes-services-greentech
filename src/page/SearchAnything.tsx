@@ -16,7 +16,9 @@ type SearchAnythingProps = {
     archives:Record<string, boolean>,
     favoris : Record<string, CardData>,
     toggleFavori: (cd: CardData) => void,
-    toggleArchive: (cd: CardData) => void
+    toggleArchive: (cd: CardData) => void,
+    setLastApiResponse: (apiResponse: ApiResponse) => void,
+    setSearchResultsById: (searchResultsById : Record<string, CardData>) => void
 }
 export function SearchAnything(props:SearchAnythingProps) {
     const [reponse, setReponse] = useState<ApiResponse | null>(null);
@@ -43,6 +45,7 @@ export function SearchAnything(props:SearchAnythingProps) {
     const allcards: CardData[] | null = []
     if (reponse) {
         //Totally not uniform but easy
+        props.setLastApiResponse(reponse)
         var seed = 1;
         const random = () => {
             var x = Math.sin(seed++) * 10000;

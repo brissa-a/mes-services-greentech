@@ -30,8 +30,8 @@ export function CardPlaceholder() {
 
 type CardProps = {
     archived: boolean,
-    favori: { thematique: Thematique } & (Partial<Aide> & Partial<Marche> & Partial<Collectivite>),
-    data: { thematique: Thematique } & (Partial<Aide> & Partial<Marche> & Partial<Collectivite>),
+    favori: CardData,
+    data: CardData,
     maxscore: number,
     onFavori: () => void,
     onArchive: () => void
@@ -60,7 +60,7 @@ export function Card(props: CardProps) {
                 <p style={{ fontWeight: "bolder", fontSize: "16px", lineHeight: "22px", marginTop: "12px" }}>
                     {props.data.titre_aide || props.data.libelle || props.data.nom || "N/A"}
                 </p>
-                <a href="#"><div style={{
+                <a href={`?object-id=${props.data.id}`}><div style={{
                     height: "32px", width: "130px", marginTop: "11px",
                     display: "flex", alignItems: "center", justifyContent: "space-around",
                     fontWeight: "lighter", fontSize: "14px", color: "rgba(133, 133, 246, 1)"

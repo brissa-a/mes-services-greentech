@@ -2,12 +2,13 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { useLocalStorage } from './localStorage'
 import { buildId, Card, CardPlaceholder, Thematique, CardData } from './Card';
 
-import { page } from './UrlSearchParam';
+import { page, objectId } from './UrlSearchParam';
 import { SearchAnything } from "./page/SearchAnything"
 import { ProspectPublic } from './page/PropectPublic';
 import { Details } from './page/Details';
 
 import './App.scss';
+import { ApiResponse } from './api/Api';
 
 var to: NodeJS.Timeout | null = null;
 
@@ -15,6 +16,8 @@ function App() {
   const defaultValue = null
   const [archives, setArchives] = useLocalStorage<Record<string, boolean>>("archives", { '605f26f616f88c8028d2f8d2c87c9385f7bf5651': true })
   const [favoris, setFavoris] = useLocalStorage<Record<string, CardData>>("favoris", {})
+  const [lastApiResponse, setLastApiResponse] = useLocalStorage<ApiResponse | null>("lastApiResponse", null)
+  const [searchResultsById, setSearchResultsById] = useLocalStorage<Record<string, CardData>>("searchResultsById", {})
   const toggleFavori = (cd: CardData) => {
     if (!favoris[cd.id]) {
       setFavoris(Object.assign({}, favoris, { [cd.id]: cd }))
@@ -41,11 +44,13 @@ function App() {
       </div>
       <div className={`body ${staticWidthClass}`}>
         <div className="body-container">
-          {page === "ProspectPublic" ? <Details data={Object.values(favoris)[0]} /> : <SearchAnything
+          {objectId ? <Details data={searchResultsById[objectId] || favoris[objectId] || archives[objectId]} /> : <SearchAnything
             favoris={favoris}
             archives={archives}
             toggleFavori={toggleFavori}
             toggleArchive={toggleArchive}
+            setLastApiResponse={setLastApiResponse}
+            setSearchResultsById={setSearchResultsById}
           />}
         </div>
       </div>

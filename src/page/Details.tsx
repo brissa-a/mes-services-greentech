@@ -5,25 +5,26 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { a11yDark as style } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { ReactElement } from "react";
 
-export type DetailsProps = {
-    data: CardData
-}
-
-function browseObject(obj: any, todo: (prefix: string[], key: string, value: any) => void, prefix: string[] = []) {
+function browseObject(obj: any, 
+    onLeaf: (prefix: string[], key: string, value: any) => void, prefix: string[] = []) {
     console.log("browseObject", obj);
     for (const [key, value] of Object.entries(obj)) {
         if (value != null && typeof value === 'object') {
             prefix.push(key)
-            browseObject(value, todo, prefix);
+            browseObject(value, onLeaf, prefix);
             prefix.pop()
         } else {
-            todo(prefix, key, value)
+            onLeaf(prefix, key, value)
         }
     }
 }
 
+export type DetailsProps = {
+    data: CardData
+}
 export function Details(props: DetailsProps) {
-    const { data } = props;
+    const {data} = props;
+    console.log("jsondata:", data);
     const toDisplay: ReactElement[] = [];
     const thematiqueUI = thematiqueToUI[data.thematique]
     browseObject(data, (prefix, key, value) => {
