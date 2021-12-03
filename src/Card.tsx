@@ -10,7 +10,7 @@ export type CardData = (Themed & (Partial<Aide> & Partial<Marche> & Partial<Coll
 export const buildId = (obj: any) => sha1(canonicalize(obj))
 Object.assign(window, { buildId })
 
-const thematiqueToUI: Record<Thematique, { color: string, text: ReactElement | string }> = {
+export const thematiqueToUI: Record<Thematique, { color: string, text: ReactElement | string }> = {
     "aide": {
         color: "rgba(133, 133, 246, 1)",
         text: <Fragment>

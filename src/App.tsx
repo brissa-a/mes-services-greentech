@@ -15,9 +15,16 @@ function App() {
   const defaultValue = null
   const [archives, setArchives] = useLocalStorage<Record<string, boolean>>("archives", { '605f26f616f88c8028d2f8d2c87c9385f7bf5651': true })
   const [favoris, setFavoris] = useLocalStorage<Record<string, CardData>>("favoris", {})
-  const toggleFavori = (cd: CardData) => setFavoris(Object.assign({}, favoris, { [cd.id]: favoris[cd.id] ? null : cd }))
+  const toggleFavori = (cd: CardData) => {
+    if (!favoris[cd.id]) {
+      setFavoris(Object.assign({}, favoris, { [cd.id]: cd }))
+    } else {
+      delete favoris[cd.id]
+      setFavoris(Object.assign({}, favoris))
+    }
+  }
   const toggleArchive = (cd: CardData) => setArchives(Object.assign({}, archives, { [cd.id]: !archives[cd.id] }))
-
+  Object.assign(window, {archives, favoris})
   useEffect(() => {
     document.documentElement.setAttribute("data-fr-theme", "dark");
   });
