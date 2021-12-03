@@ -7,6 +7,7 @@ export type ProspectPublicProps = {
     data: Themed & Partial<Collectivite>
 }
 export function ProspectPublic(props: ProspectPublicProps) {
+
     return <div>
         <div style={{ marginTop: "20px" }}>&lt;- Retourner a la recherche</div>
         <div style={{ marginTop: "20px", color: "rgb(255,127,0)" }}>🏙️ Prospect Public</div>
@@ -78,7 +79,7 @@ export function ProspectPublic(props: ProspectPublicProps) {
                 <div className="per-region">
                     <div>
                         <div className="chart"><img width="90px" src="/chart-placeholder.png" /></div>
-                        <div>légende</div>
+                        <div className="caption">légende</div>
                     </div>
                     <div>
                         <div><img width="90px" src="/chart-placeholder.png" /></div>

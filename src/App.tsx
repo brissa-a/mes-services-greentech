@@ -1,11 +1,13 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { useLocalStorage } from './localStorage'
 import { buildId, Card, CardPlaceholder, Thematique, CardData } from './Card';
-import { SearchAnything } from "./page/SearchAnything"
+
 import { page } from './UrlSearchParam';
+import { SearchAnything } from "./page/SearchAnything"
+import { ProspectPublic } from './page/PropectPublic';
+import { Details } from './page/Details';
 
 import './App.scss';
-import { ProspectPublic } from './page/PropectPublic';
 
 var to: NodeJS.Timeout | null = null;
 
@@ -32,7 +34,7 @@ function App() {
       </div>
       <div className={`body ${staticWidthClass}`}>
         <div className="body-container">
-          {page === "ProspectPublic" ? <ProspectPublic data={Object.values(favoris)[0]} /> : <SearchAnything
+          {page === "ProspectPublic" ? <Details data={Object.values(favoris)[0]} /> : <SearchAnything
             favoris={favoris}
             archives={archives}
             toggleFavori={toggleFavori}
