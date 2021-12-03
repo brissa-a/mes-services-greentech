@@ -3,7 +3,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import type { Aide, ApiResponse, Collectivite, Marche } from '../api/Api';
 import { buildSearchAnythingRequest } from '../api/Api';
 import { defaultDescription } from '../UrlSearchParam';
-import { buildId, Card, CardData, CardPlaceholder, Thematique, Themed } from '../Card';
+import { buildId, Card, CardData, CardPlaceholder, Thematique, Themed, thematiqueToUI } from '../Card';
 import "./SearchAnything.scss"
 
 
@@ -66,6 +66,13 @@ export function SearchAnything(props: SearchAnythingProps) {
     console.log(descriptionStartup)
     const shareableLink = `${window.location.origin}?description=${encodeURIComponent(descriptionStartup)}`
 
+    const filters = Object.entries(thematiqueToUI).map(([key, value]) => {
+        return <div key={key} className="fr-toggle" style={{color: value.color}}>
+            <input type="checkbox" className="fr-toggle__input" aria-describedby={`toggle-${key}-hint-text`} id={`toggle-${key}`} />
+            <label className="fr-toggle__label" htmlFor={`toggle-${key}`}>{value.text}</label>
+        </div>
+    })
+
     return <div className="search-anything">
         <div className="description-startup">
             <div>
@@ -87,11 +94,8 @@ export function SearchAnything(props: SearchAnythingProps) {
         <div className="resultats">
             <div className="control-panel white-text">
                 <div style={{ textAlign: "center", fontWeight: 700, marginBottom: "16px" }}>Vos pistes de prospection</div>
-                <div>
-                    <div className="fr-toggle">
-                        <input type="checkbox" className="fr-toggle__input" aria-describedby="toggle-698-hint-text" id="toggle-698" />
-                        <label className="fr-toggle__label" htmlFor="toggle-698">Aide publique</label>
-                    </div>
+                <div style={{display: "flex", justifyContent: "space-between"}}>
+                    {filters}
                 </div>
                 <div style={{ textAlign: "center" }}>
                     <button className="fr-btn">

@@ -18,8 +18,8 @@ export const thematiqueToUI: Record<Thematique, { color: string, text: ReactElem
             <span style={{ marginLeft: "5px" }}>Aide publique</span>
         </Fragment>
     },
-    "marché": { color: "rgb(0,255,127)", text: "💱 Marché public" },
-    "collectivité": { color: "rgb(255,127,0)", text: "🏙️ Collectivité" }
+    "marché": { color: "rgb(0,255,127)", text: "💱 Marché public"},
+    "collectivité": { color: "rgb(255,127,0)", text: "🏙️ Propect public" }
 };
 
 export function CardPlaceholder() {

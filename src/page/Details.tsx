@@ -32,7 +32,7 @@ export function Details(props: DetailsProps) {
         if (value) {
             toDisplay.push(<div key={key} style={{ margin: "20px" }}>
                 <div style={{ margin: "20px 0px", color: thematiqueUI.color }}>{fullname}</div>
-                <div style={{ margin: "20px 0px" }}>{JSON.stringify(value)}</div>
+                <div style={{ margin: "20px 0px" }}>{value + ""}</div>
                 <div style={{ width: "200px", border: "0.5px solid rgba(206, 206, 206, 0.2)" }}></div>
             </div>)
         }
