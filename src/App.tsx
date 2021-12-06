@@ -4,11 +4,9 @@ import { buildId, Card, CardPlaceholder, Thematique, CardData } from './Card';
 
 import { page, objectId } from './UrlSearchParam';
 import { SearchAnything, LastApiResponse } from "./page/SearchAnything"
-import { ProspectPublic } from './page/PropectPublic';
 import { Details } from './page/Details';
 
 import './App.scss';
-import { ApiResponse } from './api/Api';
 
 var to: NodeJS.Timeout | null = null;
 

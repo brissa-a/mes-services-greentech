@@ -1,11 +1,13 @@
 import { Collectivite } from "../api/Api";
-import { CardData, Themed, thematiqueToUI } from "../Card"
+import { CardData, Themed, thematiqueToUI, Thematique } from "../Card"
 import "./Details.scss"
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { a11yDark as style } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { ReactElement } from "react";
 
-function browseObject(obj: any, 
+import { devMode } from "../devMode"
+
+function browseObject(obj: any,
     onLeaf: (prefix: string[], key: string, value: any) => void, prefix: string[] = []) {
     console.log("browseObject", obj);
     for (const [key, value] of Object.entries(obj)) {
@@ -19,22 +21,38 @@ function browseObject(obj: any,
     }
 }
 
+export const thematiqueToFieldsConf: Record<Thematique, Record<string, string | boolean>> = {
+    "aide": { id: false, thematique: false },
+    "marché": { id: false, thematique: false },
+    "collectivité": { id: false, thematique: false }
+};
+
 export type DetailsProps = {
     data: CardData
 }
 export function Details(props: DetailsProps) {
-    const {data} = props;
+    const { data } = props;
     console.log("jsondata:", data);
     const toDisplay: ReactElement[] = [];
     const thematiqueUI = thematiqueToUI[data.thematique]
+    const fieldsConf = thematiqueToFieldsConf[data.thematique]
     browseObject(data, (prefix, key, value) => {
         const fullname = [...prefix, key].join("/")
         if (value) {
-            toDisplay.push(<div key={key} style={{ margin: "20px" }}>
-                <div style={{ margin: "20px 0px", color: thematiqueUI.color }}>{fullname}</div>
-                <div style={{ margin: "20px 0px" }}>{value + ""}</div>
-                <div style={{ width: "200px", border: "0.5px solid rgba(206, 206, 206, 0.2)" }}></div>
-            </div>)
+            const humanReadableName = fieldsConf[fullname]
+            if (humanReadableName || humanReadableName === undefined) {
+                toDisplay.push(<div key={key} style={{ margin: "20px" }}>
+                    <div style={{ margin: "20px 0px", color: thematiqueUI.color }}>{humanReadableName || fullname}</div>
+                    <div style={{ margin: "20px 0px" }}>{value + ""}</div>
+                    <div style={{ width: "200px", border: "0.5px solid rgba(206, 206, 206, 0.2)" }}></div>
+                </div>)
+            } else if (devMode) {
+                toDisplay.push(<div key={key} style={{ margin: "20px", filter: "opacity(25%)" }}>
+                    <div style={{ margin: "20px 0px", color: thematiqueUI.color }}>{humanReadableName || fullname}</div>
+                    <div style={{ margin: "20px 0px" }}>{value + ""}</div>
+                    <div style={{ width: "200px", border: "0.5px solid rgba(206, 206, 206, 0.2)" }}></div>
+                </div>)
+            }
         }
     })
     return <div style={{ display: "flex", flexWrap: "wrap" }}>
