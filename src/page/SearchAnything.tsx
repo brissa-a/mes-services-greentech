@@ -25,11 +25,12 @@ type SearchAnythingProps = {
     lastApiResponse: LastApiResponse
 }
 export function SearchAnything(props: SearchAnythingProps) {
-    const [descriptionStartup, setDescriptionStartup] = useState<string>(defaultDescription);
+    const [descriptionStartup, setDescriptionStartup] = useState<string>("");
     const { lastApiResponse } = props
     function updateReponse() {
         console.log("updating results")
         props.setLastApiResponse(null);
+        if (!descriptionStartup) return;
         buildSearchAnythingRequest(descriptionStartup).then((reponse: ApiResponse) => {
             const allcards: CardData[] | null = []
             const allcardsById: Record<string, CardData> = {}
@@ -62,13 +63,13 @@ export function SearchAnything(props: SearchAnythingProps) {
         to = setTimeout(updateReponse, 600)
     }
 
-    //useEffect(delayedUpdateReponse, [descriptionStartup]);
+    //useEffect(, [descriptionStartup]);
     console.log(descriptionStartup)
     const shareableLink = `${window.location.origin}?description=${encodeURIComponent(descriptionStartup)}`
 
     const filters = Object.entries(thematiqueToUI).map(([key, value]) => {
         return <div key={key} className="fr-toggle" style={{color: value.color}}>
-            <input type="checkbox" className="fr-toggle__input" aria-describedby={`toggle-${key}-hint-text`} id={`toggle-${key}`} />
+            <input onChange={e => console.log({[key]: e.target.checked})} type="checkbox" className="fr-toggle__input" aria-describedby={`toggle-${key}-hint-text`} id={`toggle-${key}`} />
             <label className="fr-toggle__label" htmlFor={`toggle-${key}`}>{value.text}</label>
         </div>
     })
@@ -81,7 +82,10 @@ export function SearchAnything(props: SearchAnythingProps) {
             <div >
                 <div className="label">1, 2, 3... pitchez !</div>
                 <textarea
-                    onChange={e => setDescriptionStartup(e.target.value)}
+                    onChange={e => {
+                        setDescriptionStartup(e.target.value)
+                        delayedUpdateReponse()
+                    }}
                     className=""
                     value={descriptionStartup}
                     placeholder="ex: Nous sommes une startup spécialisé dans le tri des déchets métalliques et...">
