@@ -22,9 +22,25 @@ function browseObject(obj: any,
 }
 
 export const thematiqueToFieldsConf: Record<Thematique, Record<string, string | boolean>> = {
-    "aide": { id: false, thematique: false },
-    "marché": { id: false, thematique: false },
-    "collectivité": { id: false, thematique: false }
+    "aide": {
+        titre_aide: "Nom",
+        funding_source_url: "Url source",
+        aide_detail: "Détailles de l'aide",
+        contact: "Qui contacter ?"
+    },
+    "marché": {
+        libelle: "Nom",
+        groupe_marchandise_nom: "Groupe Marchandise",
+        duree_mois: "Durée (en mois)",
+        annee: "Année",
+        depense_annualisee: "Dépense annualisée",
+        acheteur: "Acheteur",
+        entite_porteuse: "Entité Porteuse",
+        contexte: "Contexte"
+    },
+    "collectivité": {
+         nom: "Nom"
+    }
 };
 
 export type DetailsProps = {
@@ -40,16 +56,17 @@ export function Details(props: DetailsProps) {
         const fullname = [...prefix, key].join("/")
         if (value) {
             const humanReadableName = fieldsConf[fullname]
-            if (humanReadableName || humanReadableName === undefined) {
+            if (humanReadableName) {
+                const devTitle = (devMode && humanReadableName) ? <span style={{filter: "opacity(25%)"}}>({fullname})</span> : null
                 toDisplay.push(<div key={key} style={{ margin: "20px" }}>
-                    <div style={{ margin: "20px 0px", color: thematiqueUI.color }}>{humanReadableName || fullname}</div>
-                    <div style={{ margin: "20px 0px" }}>{value + ""}</div>
+                    <div style={{ margin: "20px 0px", color: thematiqueUI.color }}>{humanReadableName || fullname} {devTitle}</div>
+                    <div style={{ margin: "20px 0px" }} dangerouslySetInnerHTML={{ __html: value + "" }}></div>
                     <div style={{ width: "200px", border: "0.5px solid rgba(206, 206, 206, 0.2)" }}></div>
                 </div>)
             } else if (devMode) {
                 toDisplay.push(<div key={key} style={{ margin: "20px", filter: "opacity(25%)" }}>
                     <div style={{ margin: "20px 0px", color: thematiqueUI.color }}>{humanReadableName || fullname}</div>
-                    <div style={{ margin: "20px 0px" }}>{value + ""}</div>
+                    <div style={{ margin: "20px 0px" }} dangerouslySetInnerHTML={{ __html: value + "" }}></div>
                     <div style={{ width: "200px", border: "0.5px solid rgba(206, 206, 206, 0.2)" }}></div>
                 </div>)
             }
