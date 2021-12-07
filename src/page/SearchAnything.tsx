@@ -68,7 +68,8 @@ export function SearchAnything(props: SearchAnythingProps) {
     const shareableLink = `${window.location.origin}?description=${encodeURIComponent(descriptionStartup)}`
 
     const filters = Object.entries(thematiqueToUI).map(([key, value]) => {
-        return <div key={key} className="fr-toggle" style={{color: value.color}}>
+        var style = {color: value.color, "--bf500": value.color} as React.CSSProperties;
+        return <div key={key} className="fr-toggle" style={style}>
             <input onChange={e => console.log({[key]: e.target.checked})} type="checkbox" className="fr-toggle__input" aria-describedby={`toggle-${key}-hint-text`} id={`toggle-${key}`} />
             <label className="fr-toggle__label" htmlFor={`toggle-${key}`}>{value.text}</label>
         </div>
