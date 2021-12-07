@@ -12,12 +12,12 @@ export type CardData = (Themed & (Partial<Aide> & Partial<Marche> & Partial<Coll
 export const buildId = (obj: any) => sha1(canonicalize(obj))
 Object.assign(window, { buildId })
 
-export type thematiqueUI = {
+export type ThematiqueUI = {
     color: string,
     text: string,
     textWithIcon: ReactElement | string
 }
-export const thematiqueToUI: Record<Thematique, thematiqueUI> = {
+export const thematiqueToUI: Record<Thematique, ThematiqueUI> = {
     "aide": {
         color: "rgba(133, 133, 246, 1)",
         text: "Aide publique",

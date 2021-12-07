@@ -3,8 +3,9 @@ import React, { Fragment, useEffect, useState } from 'react';
 import type { Aide, ApiResponse, Collectivite, Marche } from '../api/Api';
 import { buildSearchAnythingRequest } from '../api/Api';
 import { defaultDescription } from '../UrlSearchParam';
-import { buildId, Card, CardData, CardPlaceholder, Thematique, Themed, thematiqueToUI } from '../Card';
+import { buildId, Card, CardData, CardPlaceholder, Thematique, Themed, thematiqueToUI, ThematiqueUI } from '../Card';
 import "./SearchAnything.scss"
+import { useLocalStorage } from '../localStorage';
 
 
 var to: NodeJS.Timeout | null = null;
@@ -25,7 +26,13 @@ type SearchAnythingProps = {
     lastApiResponse: LastApiResponse
 }
 export function SearchAnything(props: SearchAnythingProps) {
-    const [descriptionStartup, setDescriptionStartup] = useState<string>("");
+    const [descriptionStartup, setDescriptionStartup] = useLocalStorage<string>("description", "");
+    const [controlPanel, setControlPanel] = useLocalStorage("controlPanel", {
+        showHidden: false,
+        "aide": true,
+        "marché": true,
+        "collectivité": true
+    });
     const { lastApiResponse } = props
     function updateReponse() {
         console.log("updating results")
@@ -63,20 +70,29 @@ export function SearchAnything(props: SearchAnythingProps) {
         to = setTimeout(updateReponse, 600)
     }
 
-    //useEffect(, [descriptionStartup]);
-    console.log(descriptionStartup)
     const shareableLink = `${window.location.origin}?description=${encodeURIComponent(descriptionStartup)}`
 
-    const filters = Object.entries(thematiqueToUI).map(([key, value]) => {
+    const filters = (Object.entries(thematiqueToUI) as [Thematique, ThematiqueUI][]).map(([key, value]) => {
         var style = { color: value.color, "--bf500": value.color } as React.CSSProperties;
         return <div key={key} className="fr-toggle" style={style}>
-            <input onChange={e => console.log({ [key]: e.target.checked })} type="checkbox" className="fr-toggle__input" aria-describedby={`toggle-${key}-hint-text`} id={`toggle-${key}`} />
+            <input
+                onChange={e => {
+                    setControlPanel(Object.assign({}, controlPanel, { [key]: e.target.checked }))
+                }}
+                checked={controlPanel[key]}
+                type="checkbox" className="fr-toggle__input" aria-describedby={`toggle-${key}-hint-text`} id={`toggle-${key}`} />
             <label className="fr-toggle__label" htmlFor={`toggle-${key}`}>{value.text}</label>
         </div>
     })
-    const key = "showHide"
-    const showHideButton = <div className="fr-toggle" >
-        <input type="checkbox" className="fr-toggle__input" aria-describedby={`toggle-${key}-hint-text`} id={`toggle-${key}`} />
+    const key = "showHidden"
+    const showHiddenToggle = <div className="fr-toggle" >
+        <input
+            onChange={e => {
+                setControlPanel(Object.assign({}, controlPanel, { showHidden: e.target.checked }))
+            }}
+            checked={controlPanel.showHidden}
+            type="checkbox" className="fr-toggle__input" aria-describedby={`toggle-${key}-hint-text`} id={`toggle-${key}`}
+        />
         <label className="fr-toggle__label" htmlFor={`toggle-${key}`}>Afficher les pistes écartées (?)</label>
     </div>
 
@@ -108,7 +124,7 @@ export function SearchAnything(props: SearchAnythingProps) {
                     {filters}
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-around" }}>
-                    {showHideButton}
+                    {showHiddenToggle}
                 </div>
                 {/* <div style={{ textAlign: "center" }}>
                     <button className="fr-btn">
@@ -123,7 +139,7 @@ export function SearchAnything(props: SearchAnythingProps) {
                 </div> */}
             </div>
             <div className="card-list">
-                {lastApiResponse ? lastApiResponse?.cardData.map(x => <Card
+                {lastApiResponse ? lastApiResponse?.cardData.map(x => (!props.archives[x.id] || controlPanel.showHidden) && controlPanel[x.thematique] && <Card
                     data={x}
                     maxscore={lastApiResponse?.cardData.slice(-1)[0].score ?? 0}
                     archived={props.archives[x.id]}
