@@ -68,12 +68,17 @@ export function SearchAnything(props: SearchAnythingProps) {
     const shareableLink = `${window.location.origin}?description=${encodeURIComponent(descriptionStartup)}`
 
     const filters = Object.entries(thematiqueToUI).map(([key, value]) => {
-        var style = {color: value.color, "--bf500": value.color} as React.CSSProperties;
+        var style = { color: value.color, "--bf500": value.color } as React.CSSProperties;
         return <div key={key} className="fr-toggle" style={style}>
-            <input onChange={e => console.log({[key]: e.target.checked})} type="checkbox" className="fr-toggle__input" aria-describedby={`toggle-${key}-hint-text`} id={`toggle-${key}`} />
+            <input onChange={e => console.log({ [key]: e.target.checked })} type="checkbox" className="fr-toggle__input" aria-describedby={`toggle-${key}-hint-text`} id={`toggle-${key}`} />
             <label className="fr-toggle__label" htmlFor={`toggle-${key}`}>{value.text}</label>
         </div>
     })
+    const key = "showHide"
+    const showHideButton = <div className="fr-toggle" >
+        <input type="checkbox" className="fr-toggle__input" aria-describedby={`toggle-${key}-hint-text`} id={`toggle-${key}`} />
+        <label className="fr-toggle__label" htmlFor={`toggle-${key}`}>Afficher les pistes écartées (?)</label>
+    </div>
 
     return <div className="search-anything">
         <div className="description-startup">
@@ -99,10 +104,13 @@ export function SearchAnything(props: SearchAnythingProps) {
         <div className="resultats">
             <div className="control-panel white-text">
                 <div style={{ textAlign: "center", fontWeight: 700, marginBottom: "16px" }}>Vos pistes de prospection</div>
-                <div style={{display: "flex", justifyContent: "space-between"}}>
+                <div className="thematique-filter" style={{ display: "flex", justifyContent: "space-between" }}>
                     {filters}
                 </div>
-                <div style={{ textAlign: "center" }}>
+                <div style={{ display: "flex", justifyContent: "space-around" }}>
+                    {showHideButton}
+                </div>
+                {/* <div style={{ textAlign: "center" }}>
                     <button className="fr-btn">
                         Toutes (7)
                     </button> &nbsp;
@@ -112,7 +120,7 @@ export function SearchAnything(props: SearchAnythingProps) {
                     <button className="fr-btn">
                         Archivée ({props.archives.length})
                     </button>
-                </div>
+                </div> */}
             </div>
             <div className="card-list">
                 {lastApiResponse ? lastApiResponse?.cardData.map(x => <Card
