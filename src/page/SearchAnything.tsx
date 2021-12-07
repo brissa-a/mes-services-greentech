@@ -95,7 +95,9 @@ export function SearchAnything(props: SearchAnythingProps) {
         />
         <label className="fr-toggle__label" htmlFor={`toggle-${key}`}>Afficher les pistes écartées (?)</label>
     </div>
-
+    const filteredCards = lastApiResponse
+        ? lastApiResponse?.cardData.filter(x => (!props.archives[x.id] || controlPanel.showHidden) && controlPanel[x.thematique])
+        : []
     return <div className="search-anything">
         <div className="description-startup">
             <div>
@@ -139,7 +141,7 @@ export function SearchAnything(props: SearchAnythingProps) {
                 </div> */}
             </div>
             <div className="card-list">
-                {lastApiResponse ? lastApiResponse?.cardData.map(x => (!props.archives[x.id] || controlPanel.showHidden) && controlPanel[x.thematique] && <Card
+                {filteredCards.length > 0 ? filteredCards.map(x => <Card
                     data={x}
                     maxscore={lastApiResponse?.cardData.slice(-1)[0].score ?? 0}
                     archived={props.archives[x.id]}
