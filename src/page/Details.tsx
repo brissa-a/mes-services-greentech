@@ -25,7 +25,7 @@ export const thematiqueToFieldsConf: Record<Thematique, Record<string, string | 
     "aide": {
         titre_aide: "Nom",
         funding_source_url: "Url source",
-        aide_detail: "Détailles de l'aide",
+        aide_detail: "Détails de l'aide",
         contact: "Qui contacter ?"
     },
     "marché": {
@@ -39,7 +39,7 @@ export const thematiqueToFieldsConf: Record<Thematique, Record<string, string | 
         contexte: "Contexte"
     },
     "collectivité": {
-         nom: "Nom"
+        nom: "Nom"
     }
 };
 
@@ -57,7 +57,7 @@ export function Details(props: DetailsProps) {
         if (value) {
             const humanReadableName = fieldsConf[fullname]
             if (humanReadableName) {
-                const devTitle = (devMode && humanReadableName) ? <span style={{filter: "opacity(25%)"}}>({fullname})</span> : null
+                const devTitle = (devMode && humanReadableName) ? <span style={{ filter: "opacity(25%)" }}>({fullname})</span> : null
                 toDisplay.push(<div key={key} style={{ margin: "20px" }}>
                     <div style={{ margin: "20px 0px", color: thematiqueUI.color }}>{humanReadableName || fullname} {devTitle}</div>
                     <div style={{ margin: "20px 0px" }} dangerouslySetInnerHTML={{ __html: value + "" }}></div>

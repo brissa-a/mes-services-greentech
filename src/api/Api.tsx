@@ -34,7 +34,7 @@ export function buildSearchAnythingRequest(description: string) {
         "fichier_decp": "decp_score.csv",
         "descriptionSU": description,
         "fichier_vocab": "vocab.pkl",
-        "fichier_embeddings_achats": "embeddings_achats_previs.pkl",
+        "fichier_embeddings_achats": "vocab_achats_previs.pkl",
         "nb_aides": 10,
         "nb_achats_previs": 12,
         "nb_acheteur": 10,
