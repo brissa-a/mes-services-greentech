@@ -1,10 +1,11 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, ReactNode, useEffect, useState } from 'react';
 import { useLocalStorage } from './localStorage'
 import { buildId, Card, CardPlaceholder, Thematique, CardData } from './Card';
 
-import { page, objectId } from './UrlSearchParam';
+import { page, objectId, defaultDescription } from './UrlSearchParam';
 import { SearchAnything, LastApiResponse } from "./page/SearchAnything"
 import { Details } from './page/Details';
+import { FavorisPage } from './page/FavorisPage';
 
 import './App.scss';
 
@@ -24,30 +25,36 @@ function App() {
     }
   }
   const toggleArchive = (cd: CardData) => setArchives(Object.assign({}, archives, { [cd.id]: !archives[cd.id] }))
-  Object.assign(window, {archives, favoris})
+  Object.assign(window, { archives, favoris })
   useEffect(() => {
     document.documentElement.setAttribute("data-fr-theme", "dark");
   });
 
+  const router : Record<string, ReactNode> = {
+    "/favoris": <FavorisPage favoris={favoris} />,
+    "/details": objectId && <Details data={lastApiResponse?.cardDataById[objectId] || favoris[objectId] || archives[objectId]} />
+  }
+  const defaultPage = <SearchAnything
+    favoris={favoris}
+    archives={archives}
+    toggleFavori={toggleFavori}
+    toggleArchive={toggleArchive}
+    setLastApiResponse={setLastApiResponse}
+    lastApiResponse={lastApiResponse}
+  />
+  const page = router[window.location.pathname] || defaultPage;
   const staticWidthClass = page === "ProspectPublic" ? "static" : ""
   return (
     <div className="App">
       <div className="header">
         <div className="left-side">
-          <img className="msg-icon" src="/icon-ministere.png" style={{transform: "translateX(-20px)"}}/>
-          <img className="msg-icon" style={{ marginLeft: "35px", transform: "scale(0.8)"}} src="/icon-msg-txt-beta.png"/>
+          <img className="msg-icon" src="/icon-ministere.png" style={{ transform: "translateX(-20px)" }} />
+          <img className="msg-icon" style={{ marginLeft: "35px", transform: "scale(0.8)" }} src="/icon-msg-txt-beta.png" />
         </div>
       </div>
-      <div className={`body ${staticWidthClass}`}>
+      <div className={`body`}>
         <div className="body-container">
-          {objectId ? <Details data={lastApiResponse?.cardDataById[objectId] || favoris[objectId] || archives[objectId]} /> : <SearchAnything
-            favoris={favoris}
-            archives={archives}
-            toggleFavori={toggleFavori}
-            toggleArchive={toggleArchive}
-            setLastApiResponse={setLastApiResponse}
-            lastApiResponse={lastApiResponse}
-          />}
+          {page}
         </div>
       </div>
     </div>
