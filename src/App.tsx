@@ -30,8 +30,12 @@ function App() {
     document.documentElement.setAttribute("data-fr-theme", "dark");
   });
 
-  const router : Record<string, ReactNode> = {
-    "/favoris": <FavorisPage favoris={favoris} />,
+  const router: Record<string, ReactNode> = {
+    "/favoris": <FavorisPage favoris={favoris}
+      archives={archives}
+      toggleFavori={toggleFavori}
+      toggleArchive={toggleArchive}
+      lastApiResponse={lastApiResponse} />,
     "/details": objectId && <Details data={lastApiResponse?.cardDataById[objectId] || favoris[objectId] || archives[objectId]} />
   }
   const defaultPage = <SearchAnything
