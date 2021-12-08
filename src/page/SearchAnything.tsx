@@ -52,7 +52,7 @@ export function SearchAnything(props: SearchAnythingProps) {
             const allNames: Thematique[] = ["aide", "collectivité", "marché"]
             while (allList.some(x => x.length)) {//While one of the list still as elements
                 const rand = Math.floor(random() * allList.length);//entier 0 < rand < allList.length 
-                const pick = allList[rand].pop()
+                const pick = allList[rand].shift()
                 const name = allNames[rand];
                 if (pick) {
                     const obj = Object.assign({ thematique: name, id: buildId(pick) }, pick)
