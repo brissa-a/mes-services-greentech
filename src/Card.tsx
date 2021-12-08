@@ -59,6 +59,7 @@ export function Card(props: CardProps) {
     const [showDetails, setShowDetails] = useState(false);
     const achivedProps = props.archived ? { style: { "opacity": 0.3, "filter": "grayscale(50%)" } } : {}
     const favoriPros = props.favori ? { style: { "filter": "invert(42%) sepia(93%) saturate(1352%) hue-rotate(0deg) brightness(119%) contrast(119%)" } } : {};
+    const eyeImgSrc = props.archived ? "icons/eye.svg" : "icons/closed-eye.svg"
     return <div {...achivedProps} className="card"
         onMouseEnter={() => setShowDetails(true)}
         onMouseLeave={() => setShowDetails(false)}>
@@ -70,7 +71,7 @@ export function Card(props: CardProps) {
                     <div style={{ fontWeight: 100, fontSize: "12px", lineHeight: "22px" }}></div>
                     <div style={{ display: "flex", width: "42px", justifyContent: "space-between" }}>
                         <img style={Object.assign({ height: "1em", cursor: "pointer" }, favoriPros.style)} src="icons/star.svg" alt="Favori" aria-label="Favori" onClick={props.onFavori} />
-                        <img style={{ height: "1em", cursor: "pointer" }} src="icons/trash.svg" alt="Archiver" aria-label="Archiver" onClick={props.onArchive} />
+                        <img style={{ height: "1em", cursor: "pointer" }} src={eyeImgSrc} alt="Archiver" aria-label="Archiver" onClick={props.onArchive} />
                     </div>
                 </div>
                 {showDetails && devMode && <div style={{ position: "absolute", top: "1px", right: "10px", fontSize: "0.5em" }}>{props.data.score}</div>}
