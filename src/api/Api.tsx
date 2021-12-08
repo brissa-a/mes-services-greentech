@@ -32,7 +32,7 @@ export function buildSearchAnythingRequest(description: string) {
         "fichier_aides": "Aides_detailsandname.xlsx",
         "fichier_achats_previs": "Programmation_2021-2024.xlsx",
         "fichier_decp": "decp_score.csv",
-        "descriptionSU": "Je suis une entreprise de traitement des déchets",
+        "descriptionSU": description,
         "fichier_vocab": "vocab.pkl",
         "fichier_embeddings_achats": "embeddings_achats_previs.pkl",
         "nb_aides": 10,
