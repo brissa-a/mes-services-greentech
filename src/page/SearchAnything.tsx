@@ -93,42 +93,44 @@ export function SearchAnything(props: SearchAnythingProps) {
             checked={controlPanel.showHidden}
             type="checkbox" className="fr-toggle__input" aria-describedby={`toggle-${key}-hint-text`} id={`toggle-${key}`}
         />
-        <label className="fr-toggle__label" htmlFor={`toggle-${key}`}>Afficher les pistes écartées (?)</label>
+        <label className="fr-toggle__label" htmlFor={`toggle-${key}`}>Afficher les pistes écartées ({Object.values(props.archives).map(x => Number(x)).reduce((a,b)=>a+b)})</label>
     </div>
     const filteredCards = lastApiResponse
         ? lastApiResponse?.cardData.filter(x => (!props.archives[x.id] || controlPanel.showHidden) && controlPanel[x.thematique])
         : []
-    return <div className="search-anything">
-        <div className="description-startup">
-            <div>
-                <div className="big">Aimant greentech</div>
-            </div>
-            <div >
-                <div className="label">1, 2, 3... pitchez !</div>
-                <textarea
-                    onChange={e => {
-                        setDescriptionStartup(e.target.value)
-                        delayedUpdateReponse()
-                    }}
-                    className=""
-                    value={descriptionStartup}
-                    placeholder="ex: Nous sommes une startup spécialisé dans le tri des déchets métalliques et...">
-                </textarea>
-            </div>
-            <div style={{ margin: "10px" }}>
-                <a href={shareableLink}>Shareable link</a>
-            </div>
-        </div>
-        <div className="resultats">
-            <div className="control-panel white-text">
-                <div style={{ textAlign: "center", fontWeight: 700, marginBottom: "16px" }}>Vos pistes de prospection</div>
-                <div className="thematique-filter" style={{ display: "flex", justifyContent: "space-between" }}>
-                    {filters}
+    return <div>
+        <div><a href="/favoris">⭐ Mes Favoris ({Object.values(props.favoris).length})</a></div>
+        <div className="search-anything">
+            <div className="description-startup">
+                <div>
+                    <div className="big">Aimant greentech</div>
                 </div>
-                <div style={{ display: "flex", justifyContent: "space-around" }}>
-                    {showHiddenToggle}
+                <div >
+                    <div className="label">1, 2, 3... pitchez !</div>
+                    <textarea
+                        onChange={e => {
+                            setDescriptionStartup(e.target.value)
+                            delayedUpdateReponse()
+                        }}
+                        className=""
+                        value={descriptionStartup}
+                        placeholder="ex: Nous sommes une startup spécialisé dans le tri des déchets métalliques et...">
+                    </textarea>
                 </div>
-                {/* <div style={{ textAlign: "center" }}>
+                <div style={{ margin: "10px" }}>
+                    <a href={shareableLink}>Shareable link</a>
+                </div>
+            </div>
+            <div className="resultats">
+                <div className="control-panel white-text">
+                    <div style={{ textAlign: "center", fontWeight: 700, marginBottom: "16px" }}>Vos pistes de prospection</div>
+                    <div className="thematique-filter" style={{ display: "flex", justifyContent: "space-between" }}>
+                        {filters}
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "space-around" }}>
+                        {showHiddenToggle}
+                    </div>
+                    {/* <div style={{ textAlign: "center" }}>
                     <button className="fr-btn">
                         Toutes (7)
                     </button> &nbsp;
@@ -139,27 +141,28 @@ export function SearchAnything(props: SearchAnythingProps) {
                         Archivée ({props.archives.length})
                     </button>
                 </div> */}
-            </div>
-            <div className="card-list">
-                {filteredCards.length > 0 ? filteredCards.map(x => <Card
-                    data={x}
-                    maxscore={lastApiResponse?.cardData.slice(-1)[0].score ?? 0}
-                    archived={props.archives[x.id]}
-                    favori={props.favoris[x.id]}
-                    onFavori={() => props.toggleFavori(x)}
-                    onArchive={() => props.toggleArchive(x)}
-                />) :
-                    <Fragment>
-                        <CardPlaceholder />
-                        <CardPlaceholder />
-                        <CardPlaceholder />
-                        <CardPlaceholder />
-                        <CardPlaceholder />
-                        <CardPlaceholder />
-                        <CardPlaceholder />
-                        <CardPlaceholder />
-                        <CardPlaceholder />
-                    </Fragment>}
+                </div>
+                <div className="card-list">
+                    {filteredCards.length > 0 ? filteredCards.map(x => <Card
+                        data={x}
+                        maxscore={lastApiResponse?.cardData.slice(-1)[0].score ?? 0}
+                        archived={props.archives[x.id]}
+                        favori={props.favoris[x.id]}
+                        onFavori={() => props.toggleFavori(x)}
+                        onArchive={() => props.toggleArchive(x)}
+                    />) :
+                        <Fragment>
+                            <CardPlaceholder />
+                            <CardPlaceholder />
+                            <CardPlaceholder />
+                            <CardPlaceholder />
+                            <CardPlaceholder />
+                            <CardPlaceholder />
+                            <CardPlaceholder />
+                            <CardPlaceholder />
+                            <CardPlaceholder />
+                        </Fragment>}
+                </div>
             </div>
         </div>
     </div>
