@@ -57,7 +57,7 @@ export function Card(props: CardProps) {
                 {thematiqueToUI[props.data.thematique].textWithIcon}</span>
             <div style={{ margin: "15px 25px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", marginTop: "3px" }}>
-                    <div style={{ fontWeight: 100, fontSize: "12px", lineHeight: "22px" }}>Test texte gris | 2022/06</div>
+                    <div style={{ fontWeight: 100, fontSize: "12px", lineHeight: "22px" }}></div>
                     <div style={{ display: "flex", width: "42px", justifyContent: "space-between" }}>
                         <img style={Object.assign({ height: "1em", cursor: "pointer" }, favoriPros.style)} src="icons/star.svg" alt="Favori" aria-label="Favori" onClick={props.onFavori}/>
                         <img style={{ height: "1em", cursor: "pointer" }} src="icons/trash.svg" alt="Archiver" aria-label="Archiver" onClick={props.onArchive}/>
