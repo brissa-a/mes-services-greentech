@@ -16,6 +16,11 @@ export type Collectivite = typeof mockApiResponse.cards.collectivites[0]
 */
 export type Marche = typeof mockApiResponse.cards.marches[0]
 
+/*
+
+*/
+export type Investisseur = typeof mockApiResponse.cards.investisseurs[0]
+
 export type ApiResponse = typeof mockApiResponse
 
 export function buildSearchAnythingRequest(description: string) {
@@ -32,17 +37,23 @@ export function buildSearchAnythingRequest(description: string) {
         "fichier_aides": "Aides_detailsandname.xlsx",
         "fichier_achats_previs": "Programmation_2021-2024.xlsx",
         "fichier_decp": "decp_score.csv",
+        "fichier_investisseurs": "GTIetmontant.csv",
         "descriptionSU": description,
         "fichier_vocab": "vocab.pkl",
         "fichier_embeddings_achats": "vocab_achats_previs.pkl",
         "nb_aides": 10,
         "nb_achats_previs": 12,
         "nb_acheteur": 10,
+        "montant_min": 0,
+        "montant_max": 200000000,
+        "secteurs": [
+            "Economie circulaire"
+        ],    
         "cards": {
           "collectivites": [],
           "aides": [],
-          "marches": []
-
+          "marches": [],
+          "investisseurs" : []
         }
       })
     })
