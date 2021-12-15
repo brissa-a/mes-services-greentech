@@ -124,7 +124,7 @@ export function SearchAnything(props: SearchAnythingProps) {
             <div className="resultats">
                 <div className="control-panel white-text">
                     <div style={{ textAlign: "center", fontWeight: 700, marginBottom: "16px" }}>Vos pistes de prospection</div>
-                    <div className="thematique-filter" style={{ display: "flex", justifyContent: "space-between" }}>
+                    <div className="thematique-filter" style={{ display: "flex", justifyContent: "space-around" }}>
                         {filters}
                     </div>
                     <div style={{ display: "flex", justifyContent: "space-around" }}>
