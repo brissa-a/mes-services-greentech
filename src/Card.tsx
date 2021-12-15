@@ -3,7 +3,8 @@ import type { Aide, Collectivite, Marche } from './api/Api';
 import { canonicalize } from 'json-canonicalize';
 import sha1 from 'sha1';
 import { devMode } from './devMode';
-//import "./Card.scss"
+import "./Card.scss"
+import { ClosedEye, Euro, Eye, Radar, Rocket, Star } from "./Icons"
 
 export type Thematique = "aide" | "marché" | "collectivité"
 export type Themed = { thematique: Thematique, id: string }
@@ -22,19 +23,19 @@ export const thematiqueToUI: Record<Thematique, ThematiqueUI> = {
         color: "rgba(133, 133, 246, 1)",
         text: "Aide publique",
         textWithIcon: <Fragment>
-            <img style={{ height: "1em" }} src="icons/rocket.svg" alt="Favori" aria-label="Favori" />
+            <Rocket style={{ height: "1em" }} alt="Favori" aria-label="Favori" />
             <span style={{ marginLeft: "5px" }}>{"Aide publique"}</span>
         </Fragment>
     },
     "marché": {
         color: "rgba(223, 207, 97, 1)", text: "Achat prévisionnel", textWithIcon: <Fragment>
-            <img style={{ height: "1em" }} src="icons/euro-yellow.svg" alt="Favori" aria-label="Favori" />
+            <Euro style={{ height: "1em" }} alt="Favori" aria-label="Favori" />
             <span style={{ marginLeft: "5px" }}>{"Achat prévisionnel"}</span>
         </Fragment>
     },
     "collectivité": {
         color: "rgba(255, 111, 76, 1)", text: "Propect public", textWithIcon: <Fragment>
-            <img style={{ height: "1em" }} src="icons/radar.svg" alt="Favori" aria-label="Favori" />
+            <Radar style={{ height: "1em" }} alt="Favori" aria-label="Favori" />
             <span style={{ marginLeft: "5px" }}>{"Propect public"}</span>
         </Fragment>
     }
@@ -59,7 +60,7 @@ export function Card(props: CardProps) {
     const [showDetails, setShowDetails] = useState(false);
     const achivedProps = props.archived ? { style: { "opacity": 0.3, "filter": "grayscale(50%)" } } : {}
     const favoriPros = props.favori ? { style: { "filter": "invert(42%) sepia(93%) saturate(1352%) hue-rotate(0deg) brightness(119%) contrast(119%)" } } : {};
-    const eyeImgSrc = props.archived ? "icons/eye.svg" : "icons/closed-eye.svg"
+    const EyeImg = props.archived ? Eye : ClosedEye
     return <div {...achivedProps} className="card"
         onMouseEnter={() => setShowDetails(true)}
         onMouseLeave={() => setShowDetails(false)}>
@@ -70,22 +71,22 @@ export function Card(props: CardProps) {
                 <div style={{ display: "flex", justifyContent: "space-between", marginTop: "3px" }}>
                     <div style={{ fontWeight: 100, fontSize: "12px", lineHeight: "22px" }}></div>
                     <div style={{ display: "flex", width: "42px", justifyContent: "space-between" }}>
-                        <img style={Object.assign({ height: "1em", cursor: "pointer" }, favoriPros.style)} src="icons/star.svg" alt="Favori" aria-label="Favori" onClick={props.onFavori} />
-                        <img style={{ height: "1em", cursor: "pointer" }} src={eyeImgSrc} alt="Archiver" aria-label="Archiver" onClick={props.onArchive} />
+                        <Star style={Object.assign({ height: "1em", cursor: "pointer" }, favoriPros.style)} src="icons/star.svg" alt="Favori" aria-label="Favori" onClick={props.onFavori} />
+                        <EyeImg style={{ height: "1em", cursor: "pointer" }} alt="Archiver" aria-label="Archiver" onClick={props.onArchive} />
                     </div>
                 </div>
                 {showDetails && devMode && <div style={{ position: "absolute", top: "1px", right: "10px", fontSize: "0.5em" }}>{props.data.score}</div>}
                 <a href={`/details?object-id=${props.data.id}`}>
-                <p style={{ fontWeight: "bolder", fontSize: "16px", lineHeight: "22px", marginTop: "12px" }}>
-                    {props.data.titre_aide || props.data.libelle || props.data.nom || "N/A"}
-                </p>
+                    <p style={{ fontWeight: "bolder", fontSize: "16px", lineHeight: "22px", marginTop: "12px" }}>
+                        {props.data.titre_aide || props.data.libelle || props.data.nom || "N/A"}
+                    </p>
                 </a>
                 <a href={`/details?object-id=${props.data.id}`}><div style={{
                     height: "32px", width: "130px", marginTop: "11px",
                     display: "flex", alignItems: "center", justifyContent: "space-around",
                     fontWeight: "lighter", fontSize: "14px", color: "rgba(133, 133, 246, 1)"
                 }}>
-                    <img style={{ height: "1em" }} src="icons/eye.svg" alt="Favori" aria-label="Favori" />
+                    <Eye style={{ height: "1em" }} alt="Favori" aria-label="Favori" />
                     <span className="txt">Voir le détail</span>
                 </div></a>
             </div>

@@ -72,12 +72,15 @@ export function Details(props: DetailsProps) {
             }
         }
     })
-    return <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {toDisplay}
-        {/* <div style={{ width: "800px", border: `2px solid ${thematiqueUI.color}` }}>
+    return <div>
+        <div onClick={() => window.history.back()}>&lt; Retour</div>
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
+            {toDisplay}
+            {/* <div style={{ width: "800px", border: `2px solid ${thematiqueUI.color}` }}>
             <SyntaxHighlighter language="javascript" style={style}>
                 {JSON.stringify(data, null, " ")}
             </SyntaxHighlighter>
         </div> */}
+        </div>
     </div>
 }
