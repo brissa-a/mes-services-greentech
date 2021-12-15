@@ -6,6 +6,7 @@ import { defaultDescription } from '../UrlSearchParam';
 import { buildId, Card, CardData, CardPlaceholder, Thematique, Themed, thematiqueToUI, ThematiqueUI } from '../Card';
 import "./SearchAnything.scss"
 import { useLocalStorage } from '../localStorage';
+import { Star } from '../Icons';
 
 
 var to: NodeJS.Timeout | null = null;
@@ -99,7 +100,6 @@ export function SearchAnything(props: SearchAnythingProps) {
         ? lastApiResponse?.cardData.filter(x => (!props.archives[x.id] || controlPanel.showHidden) && controlPanel[x.thematique])
         : []
     return <div>
-        <div><a href="/favoris">⭐ Mes Favoris ({Object.values(props.favoris).length})</a></div>
         <div className="search-anything">
             <div className="description-startup">
                 <div>
@@ -127,8 +127,9 @@ export function SearchAnything(props: SearchAnythingProps) {
                     <div className="thematique-filter" style={{ display: "flex", justifyContent: "space-around" }}>
                         {filters}
                     </div>
-                    <div style={{ display: "flex", justifyContent: "space-around" }}>
+                    <div style={{ display: "flex", justifyContent: "space-around", "alignItems": "center" }}>
                         {showHiddenToggle}
+                        <div><a href="/favoris"><Star style={{color: "rgb(255, 243, 76)"}}/> Mes Favoris ({Object.values(props.favoris).length})</a></div>
                     </div>
                     {/* <div style={{ textAlign: "center" }}>
                     <button className="fr-btn">
