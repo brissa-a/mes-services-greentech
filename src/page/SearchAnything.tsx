@@ -129,7 +129,7 @@ export function SearchAnything(props: SearchAnythingProps) {
                     </div>
                     <div style={{ display: "flex", justifyContent: "space-around", "alignItems": "center" }}>
                         {showHiddenToggle}
-                        <div><a href="/favoris"><Star style={{color: "rgb(255, 243, 76)"}}/> Mes Favoris ({Object.values(props.favoris).length})</a></div>
+                        <a className="link" href="/favoris"><div><Star style={{color: "rgb(255, 243, 76)"}}/> Mes Favoris ({Object.values(props.favoris).length})</div></a>
                     </div>
                     {/* <div style={{ textAlign: "center" }}>
                     <button className="fr-btn">

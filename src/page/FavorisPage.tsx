@@ -7,6 +7,7 @@ import { ReactElement } from "react";
 
 import { devMode } from "../devMode"
 import { LastApiResponse } from "./SearchAnything";
+import { Back } from "../Icons";
 
 export type FavorisPageProps = {
     archives: Record<string, boolean>,
@@ -18,7 +19,14 @@ export type FavorisPageProps = {
 export function FavorisPage(props: FavorisPageProps) {
     const { favoris, lastApiResponse } = props;
     const filteredCards = Object.values(favoris)
-    return <div className="card-list">
+    return <div>
+        <div style={{ display: "flex" }}>
+            <div style={{ color: "rgba(133, 133, 246, 1)", cursor: "pointer" }} onClick={() => window.history.back()}><Back height="13" />  Retour</div>
+        </div>
+        <div>
+            <h2 style={{margin: "25px 0px"}}>Mes Favoris ({filteredCards.length})</h2>
+        </div>
+        <div className="card-list">
         {filteredCards.map(x => <Card
             data={x}
             maxscore={lastApiResponse?.cardData.slice(-1)[0].score ?? 0}
@@ -27,6 +35,7 @@ export function FavorisPage(props: FavorisPageProps) {
             onFavori={() => props.toggleFavori(x)}
             onArchive={() => props.toggleArchive(x)}
         />)}
+    </div>
     </div>
 
 }

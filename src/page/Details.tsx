@@ -6,6 +6,7 @@ import { a11yDark as style } from 'react-syntax-highlighter/dist/esm/styles/hljs
 import { ReactElement } from "react";
 
 import { devMode } from "../devMode"
+import { Back } from "../Icons";
 
 function browseObject(obj: any,
     onLeaf: (prefix: string[], key: string, value: any) => void, prefix: string[] = []) {
@@ -73,7 +74,9 @@ export function Details(props: DetailsProps) {
         }
     })
     return <div>
-        <div onClick={() => window.history.back()}>&lt; Retour</div>
+        <div style={{display: "flex"}}>
+            <div style={{color:"rgba(133, 133, 246, 1)", cursor: "pointer"}} onClick={() => window.history.back()}><Back height="13"/>  Retour</div>
+        </div>
         <div style={{ display: "flex", flexWrap: "wrap" }}>
             {toDisplay}
             {/* <div style={{ width: "800px", border: `2px solid ${thematiqueUI.color}` }}>

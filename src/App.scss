@@ -49,3 +49,13 @@
     margin-right: var(--header-margin);
   }
 }
+
+.link {
+  color: rgba(133, 133, 246, 1);
+  text-decoration: none;
+  box-shadow: none;
+}
+
+.link:hover {
+  box-shadow: 0 1px 0 0 currentColor;
+}
