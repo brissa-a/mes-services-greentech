@@ -73,7 +73,7 @@ function App() {
                 </a>
             </div>
             <div className="fr-footer__content">
-                <p className="fr-footer__content-desc">Lorem [...] elit ut.</p>
+                <p className="fr-footer__content-desc">Mes services Greentech est en version beta. L’outil vous propose automatiquement des pistes pour booster votre développement ! Merci de nous aider à améliorer l’expérience en répondant à ce formulaire.</p>
                 <ul className="fr-footer__content-list">
                     <li className="fr-footer__content-item">
                         <a className="fr-footer__content-link" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
