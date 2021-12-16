@@ -1,5 +1,5 @@
 import { Collectivite } from "../api/Api";
-import { Themed } from "../Card"
+import { Themed } from "../component/Card"
 import "./ProspectPublic.scss"
 
 

@@ -1,5 +1,5 @@
 import { Collectivite } from "../api/Api";
-import { CardData, Themed, thematiqueToUI, Thematique, Card } from "../Card"
+import { CardData, Themed, thematiqueToUI, Thematique, Card } from "../component/Card"
 import "./FavorisPage.scss"
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { a11yDark as style } from 'react-syntax-highlighter/dist/esm/styles/hljs';
@@ -7,7 +7,7 @@ import { ReactElement } from "react";
 
 import { devMode } from "../devMode"
 import { LastApiResponse } from "./SearchAnything";
-import { Back } from "../Icons";
+import { Back } from "../component/Icons";
 
 export type FavorisPageProps = {
     archives: Record<string, boolean>,

@@ -3,10 +3,10 @@ import React, { Fragment, useEffect, useState } from 'react';
 import type { Aide, ApiResponse, Collectivite, Marche } from '../api/Api';
 import { buildSearchAnythingRequest } from '../api/Api';
 import { defaultDescription } from '../UrlSearchParam';
-import { buildId, Card, CardData, CardPlaceholder, Thematique, Themed, thematiqueToUI, ThematiqueUI } from '../Card';
+import { buildId, Card, CardData, CardPlaceholder, Thematique, Themed, thematiqueToUI, ThematiqueUI } from '../component/Card';
 import "./SearchAnything.scss"
 import { useLocalStorage } from '../localStorage';
-import { Star } from '../Icons';
+import { Star } from '../component/Icons';
 
 
 var to: NodeJS.Timeout | null = null;
@@ -28,7 +28,8 @@ type SearchAnythingProps = {
 }
 export function SearchAnything(props: SearchAnythingProps) {
     const [descriptionStartup, setDescriptionStartup] = useLocalStorage<string>("description", "");
-    const [controlPanel, setControlPanel] = useLocalStorage("controlPanel", {
+    type ControlPanel = {showHidden:boolean, [x:string]:boolean}
+    const [controlPanel, setControlPanel] = useLocalStorage<ControlPanel>("controlPanel", {
         showHidden: false,
         "aide": true,
         "marché": true,

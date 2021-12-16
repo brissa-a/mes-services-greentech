@@ -1,8 +1,8 @@
 import React, { Fragment, ReactElement, useEffect, useState } from 'react';
-import type { Aide, Collectivite, Marche } from './api/Api';
+import type { Aide, Collectivite, Marche } from '../api/Api';
 import { canonicalize } from 'json-canonicalize';
 import sha1 from 'sha1';
-import { devMode } from './devMode';
+import { devMode } from '../devMode';
 import "./Card.scss"
 import { ClosedEye, Euro, Eye, Radar, Rocket, Star } from "./Icons"
 

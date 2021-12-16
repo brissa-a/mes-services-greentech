@@ -1,12 +1,12 @@
 import { Collectivite } from "../api/Api";
-import { CardData, Themed, thematiqueToUI, Thematique } from "../Card"
+import { CardData, Themed, thematiqueToUI, Thematique } from "../component/Card"
 import "./Details.scss"
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { a11yDark as style } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { ReactElement } from "react";
 
 import { devMode } from "../devMode"
-import { Back } from "../Icons";
+import { Back } from "../component/Icons";
 
 function browseObject(obj: any,
     onLeaf: (prefix: string[], key: string, value: any) => void, prefix: string[] = []) {
