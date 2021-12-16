@@ -8,6 +8,7 @@ import { Details } from './page/Details';
 import { FavorisPage } from './page/FavorisPage';
 import { Footer } from "./component/Footer"
 import { Header } from "./component/Header"
+import { DonnezVotreAvis } from "./component/DonnezVotreAvis"
 
 import './App.scss';
 
@@ -51,6 +52,7 @@ function App() {
   const page = router[window.location.pathname] || defaultPage;
   const staticWidthClass = page === "ProspectPublic" ? "static" : ""
   return <div className="App">
+    <DonnezVotreAvis/>
     <Header />
     <div className={`body`}>
       <div className="body-container">

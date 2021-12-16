@@ -10,7 +10,11 @@ export const Footer = () => <footer className="fr-footer" role="contentinfo" id=
                 </a>
             </div>
             <div className="fr-footer__content">
-                <p className="fr-footer__content-desc">Mes services Greentech est en version beta. L’outil vous propose automatiquement des pistes pour booster votre développement ! Merci de nous aider à améliorer l’expérience en répondant à ce formulaire.</p>
+                <p className="fr-footer__content-desc">
+                    Mes services Greentech est en version beta. L’outil vous propose automatiquement des pistes pour
+                    booster votre développement ! Merci de nous aider à améliorer l’expérience 
+                     <a href="https://airtable.com/shr2A0YbTvAwdrxub" target="_blank"> en répondant à ce formulaire.</a>
+                </p>
                 <ul className="fr-footer__content-list">
                     <li className="fr-footer__content-item">
                         <a className="fr-footer__content-link" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>

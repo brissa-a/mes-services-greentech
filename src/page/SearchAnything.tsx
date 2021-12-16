@@ -28,7 +28,7 @@ type SearchAnythingProps = {
 }
 export function SearchAnything(props: SearchAnythingProps) {
     const [descriptionStartup, setDescriptionStartup] = useLocalStorage<string>("description", "");
-    type ControlPanel = {showHidden:boolean, [x:string]:boolean}
+    type ControlPanel = { showHidden: boolean, [x: string]: boolean }
     const [controlPanel, setControlPanel] = useLocalStorage<ControlPanel>("controlPanel", {
         showHidden: false,
         "aide": true,
@@ -75,7 +75,7 @@ export function SearchAnything(props: SearchAnythingProps) {
     const shareableLink = `${window.location.origin}?description=${encodeURIComponent(descriptionStartup)}`
 
     const filters = (Object.entries(thematiqueToUI) as [Thematique, ThematiqueUI][]).map(([key, value]) => {
-        var style = { color: value.color, "--bf500": value.color } as React.CSSProperties;
+        var style = { color: value.color, "--bf500": value.color, "margin": '0 1em' } as React.CSSProperties;
         return <div key={key} className="fr-toggle" style={style}>
             <input
                 onChange={e => {
@@ -95,7 +95,7 @@ export function SearchAnything(props: SearchAnythingProps) {
             checked={controlPanel.showHidden}
             type="checkbox" className="fr-toggle__input" aria-describedby={`toggle-${key}-hint-text`} id={`toggle-${key}`}
         />
-        <label className="fr-toggle__label" htmlFor={`toggle-${key}`}>Afficher les pistes écartées ({Object.values(props.archives).map(x => Number(x)).reduce((a,b)=>a+b)})</label>
+        <label className="fr-toggle__label" htmlFor={`toggle-${key}`}>Afficher les pistes écartées ({Object.values(props.archives).map(x => Number(x)).reduce((a, b) => a + b)})</label>
     </div>
     const filteredCards = lastApiResponse
         ? lastApiResponse?.cardData.filter(x => (!props.archives[x.id] || controlPanel.showHidden) && controlPanel[x.thematique])
@@ -123,26 +123,17 @@ export function SearchAnything(props: SearchAnythingProps) {
                 </div>
             </div>
             <div className="resultats">
-                <div className="control-panel white-text">
-                    <div style={{ textAlign: "center", fontWeight: 700, marginBottom: "16px" }}>Vos pistes de prospection</div>
-                    <div className="thematique-filter" style={{ display: "flex", justifyContent: "space-around" }}>
-                        {filters}
+                <div style={{display: "flex", justifyContent: "space-around"}}>
+                    <div className="control-panel white-text">
+                        <div style={{ textAlign: "center", fontWeight: 700, marginBottom: "16px" }}>Vos pistes de prospection</div>
+                        <div className="thematique-filter" style={{ display: "flex", justifyContent: "space-around" }}>
+                            {filters}
+                        </div>
+                        <div style={{ display: "flex", justifyContent: "space-around", "alignItems": "center" }}>
+                            {showHiddenToggle}
+                            <a className="link" href="/favoris"><div><Star style={{ color: "rgb(255, 243, 76)" }} /> Mes Favoris ({Object.values(props.favoris).length})</div></a>
+                        </div>
                     </div>
-                    <div style={{ display: "flex", justifyContent: "space-around", "alignItems": "center" }}>
-                        {showHiddenToggle}
-                        <a className="link" href="/favoris"><div><Star style={{color: "rgb(255, 243, 76)"}}/> Mes Favoris ({Object.values(props.favoris).length})</div></a>
-                    </div>
-                    {/* <div style={{ textAlign: "center" }}>
-                    <button className="fr-btn">
-                        Toutes (7)
-                    </button> &nbsp;
-                    <button className="fr-btn">
-                        Séletionnées (0)
-                    </button> &nbsp;
-                    <button className="fr-btn">
-                        Archivée ({props.archives.length})
-                    </button>
-                </div> */}
                 </div>
                 <div className="card-list">
                     {filteredCards.length > 0 ? filteredCards.map(x => <Card
