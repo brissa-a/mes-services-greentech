@@ -33,7 +33,8 @@ export function SearchAnything(props: SearchAnythingProps) {
         showHidden: false,
         "aide": true,
         "marché": true,
-        "collectivité": true
+        "collectivité": true,
+        "investisseurs": true
     });
     const { lastApiResponse } = props
     function updateReponse() {
@@ -49,9 +50,9 @@ export function SearchAnything(props: SearchAnythingProps) {
                 var x = Math.sin(seed++) * 10000;
                 return x - Math.floor(x);
             }
-            const { aides, collectivites, marches } = reponse.cards;
-            const allList = [[...aides], [...collectivites], [...marches]];
-            const allNames: Thematique[] = ["aide", "collectivité", "marché"]
+            const { aides, collectivites, marches, investisseurs} = reponse.cards;
+            const allList = [[...aides], [...collectivites], [...marches], [...investisseurs]];
+            const allNames: Thematique[] = ["aide", "collectivité", "marché", "investisseurs"]
             while (allList.some(x => x.length)) {//While one of the list still as elements
                 const rand = Math.floor(random() * allList.length);//entier 0 < rand < allList.length 
                 const pick = allList[rand].shift()
@@ -126,7 +127,7 @@ export function SearchAnything(props: SearchAnythingProps) {
                 <div style={{display: "flex", justifyContent: "space-around"}}>
                     <div className="control-panel white-text">
                         <div style={{ textAlign: "center", fontWeight: 700, marginBottom: "16px" }}>Vos pistes de prospection</div>
-                        <div className="thematique-filter" style={{ display: "flex", justifyContent: "space-around" }}>
+                        <div className="thematique-filter" style={{ display: "flex", justifyContent: "space-around", "flexWrap": "wrap"}}>
                             {filters}
                         </div>
                         <div style={{ display: "flex", justifyContent: "space-around", "alignItems": "center" }}>

@@ -6,7 +6,7 @@ import { devMode } from '../devMode';
 import "./Card.scss"
 import { ClosedEye, Euro, Eye, Radar, Rocket, Star } from "./Icons"
 
-export type Thematique = "aide" | "marché" | "collectivité"
+export type Thematique = "aide" | "marché" | "collectivité" | "investisseurs"
 export type Themed = { thematique: Thematique, id: string }
 export type CardData = (Themed & (Partial<Aide> & Partial<Marche> & Partial<Collectivite>))
 
@@ -23,20 +23,26 @@ export const thematiqueToUI: Record<Thematique, ThematiqueUI> = {
         color: "rgba(133, 133, 246, 1)",
         text: "Aide publique",
         textWithIcon: <Fragment>
-            <Rocket style={{ height: "1em" }} alt="Favori" aria-label="Favori" />
+            <Rocket style={{ height: "1em" }} />
             <span style={{ marginLeft: "5px" }}>{"Aide publique"}</span>
         </Fragment>
     },
     "marché": {
         color: "rgba(223, 207, 97, 1)", text: "Achat prévisionnel", textWithIcon: <Fragment>
-            <Euro style={{ height: "1em" }} alt="Favori" aria-label="Favori" />
+            <Euro style={{ height: "1em" }} />
             <span style={{ marginLeft: "5px" }}>{"Achat prévisionnel"}</span>
         </Fragment>
     },
     "collectivité": {
         color: "rgba(255, 111, 76, 1)", text: "Propect public", textWithIcon: <Fragment>
-            <Radar style={{ height: "1em" }} alt="Favori" aria-label="Favori" />
+            <Radar style={{ height: "1em" }}/>
             <span style={{ marginLeft: "5px" }}>{"Propect public"}</span>
+        </Fragment>
+    },
+    "investisseurs": {
+        color: "rgba(39, 166, 88, 1)", text: "Investisseurs", textWithIcon: <Fragment>
+            <Euro style={{ height: "1em" }}/>
+            <span style={{ marginLeft: "5px" }}>{"Investisseurs"}</span>
         </Fragment>
     }
 }

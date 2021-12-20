@@ -41,7 +41,17 @@ export const thematiqueToFieldsConf: Record<Thematique, Record<string, string | 
     },
     "collectivité": {
         nom: "Nom"
-    }
+    },
+    "investisseurs": {
+        "nom": "Nom",
+        "mail": "Email",
+        "fonction": "Fonction",
+        "telephone": "Telephone",
+        "type_investissements": "Types d'investissements",
+        "secteurs": "Secteurs",
+        "montant_min": "Investissement minimum (€)",
+        "montant_max": "Investissement maximum (€)"
+    }  
 };
 
 export type DetailsProps = {
