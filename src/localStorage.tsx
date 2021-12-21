@@ -13,14 +13,16 @@ export function useLocalStorage<Type>(key: string, defaultValue: Type): [Type, R
   });
 
   useEffect(() => {
+    console.log("setLocalStorageCalled ", key, ":", value)
     localStorage.setItem(key, JSON.stringify(value));
   }, [key, value]);
 
-  window.addEventListener('storage', e => {
-    if (e.key === key) {
-      setValue(e.newValue ? JSON.parse(e.newValue) : defaultValue as Type)
-    }
-  })
+  // TODO fix infinite loop
+  // window.addEventListener('storage', e => {
+  //   if (e.key === key) {
+  //     setValue(e.newValue ? JSON.parse(e.newValue) : defaultValue as Type)
+  //   }
+  // })
 
   return [value, setValue];
 };
