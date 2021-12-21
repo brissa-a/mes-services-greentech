@@ -43,6 +43,8 @@ export function SearchAnything(props: SearchAnythingProps) {
     const [secteurs, setSecteurs] = useLocalStorage<string[]>("secteurs", allSecteur)
     const [montant_min, setMontantMin] = useLocalStorage("montant_min", 0)
     const [montant_max, setMontantMax] = useLocalStorage("montant_max", 200000000)
+    const [temp_montant_min, setTempMontantMin] = useState(montant_min)
+    const [temp_montant_max, setTempMontantMax] = useState(montant_max)
     type ControlPanel = { showHidden: boolean } & Record<Thematique, boolean>
     const [controlPanel, setControlPanel] = useLocalStorage<ControlPanel>("controlPanel", {
         showHidden: false,
@@ -57,6 +59,7 @@ export function SearchAnything(props: SearchAnythingProps) {
         props.setLastApiResponse(null);
         if (!descriptionStartup) return;
         buildSearchAnythingRequest(descriptionStartup, secteurs, montant_min, montant_max).then((reponse: ApiResponse) => {
+            console.log("Got reponse for", {descriptionStartup, secteurs, montant_min, montant_max})
             const allcards: CardData[] | null = []
             const allcardsById: Record<string, CardData> = {}
             //Totally not uniform but easy
@@ -87,6 +90,8 @@ export function SearchAnything(props: SearchAnythingProps) {
         if (to) clearTimeout(to)
         to = setTimeout(updateReponse, 600)
     }
+
+    useEffect(delayedUpdateReponse, [descriptionStartup, secteurs, montant_min, montant_max])
 
     const shareableLink = `${window.location.origin}?description=${encodeURIComponent(descriptionStartup)}`
 
@@ -127,7 +132,6 @@ export function SearchAnything(props: SearchAnythingProps) {
                     <textarea
                         onChange={e => {
                             setDescriptionStartup(e.target.value)
-                            delayedUpdateReponse()
                         }}
                         className=""
                         value={descriptionStartup}
@@ -143,7 +147,6 @@ export function SearchAnything(props: SearchAnythingProps) {
                             {allSecteur.map(secteur => <div className="fr-checkbox-group">
                                 <input type="checkbox" id={secteur} name={secteur} checked={secteurs.includes(secteur)} onChange={e => {
                                     e.currentTarget.checked ? setSecteurs([...secteurs, secteur]) : setSecteurs(secteurs.filter(x => x != secteur))
-                                    delayedUpdateReponse()
                                 }} />
                                 <label className="fr-label" htmlFor={secteur}>{secteur}</label>
                             </div>)}
@@ -154,26 +157,28 @@ export function SearchAnything(props: SearchAnythingProps) {
                 <div className="montants">
                     <label className="label">Si vous cherchez un investisseur</label>
                     <div className="inputs">
-                        <input className="fr-input" type="number" id="montant_min" name="montant_min" value={montant_min}
-                            onChange={e => setMontantMin(e.currentTarget.valueAsNumber)}
+                        <input className="fr-input" type="number" id="montant_min" name="montant_min" value={temp_montant_min}
+                            onChange={e => setTempMontantMin(e.currentTarget.valueAsNumber)}
                             onBlur={e => {
                                 if (e.currentTarget.valueAsNumber > montant_max) {
+                                    setTempMontantMin(montant_max)
                                     setMontantMin(montant_max)
                                 } else {
+                                    setTempMontantMin(e.currentTarget.valueAsNumber)
                                     setMontantMin(e.currentTarget.valueAsNumber)
                                 }
-                                delayedUpdateReponse()
                             }}
                         />
-                        <input className="fr-input" type="number" id="montant_max" name="montant_max" value={montant_max}
-                        onChange={e => setMontantMax(e.currentTarget.valueAsNumber)}
+                        <input className="fr-input" type="number" id="montant_max" name="montant_max" value={temp_montant_max}
+                        onChange={e => setTempMontantMax(e.currentTarget.valueAsNumber)}
                         onBlur={e => {
                             if (montant_min > e.currentTarget.valueAsNumber) {
+                                setTempMontantMax(montant_min)
                                 setMontantMax(montant_min)
                             } else {
+                                setTempMontantMax(e.currentTarget.valueAsNumber)
                                 setMontantMax(e.currentTarget.valueAsNumber)
                             }
-                            delayedUpdateReponse()
                         }} />
                     </div>
                 </div>
