@@ -132,6 +132,13 @@ export function SearchAnything(props: SearchAnythingProps) {
                         placeholder="ex: Nous sommes une startup spécialisé dans le tri des déchets métalliques et...">
                     </textarea>
                 </div>
+                <div >
+                    <div className="label">Thématiques</div>
+                    {allSecteur.map(secteur => <div className="fr-checkbox-group">
+                        <input type="checkbox" id={secteur} name={secteur}/>
+                        <label className="fr-label" htmlFor={secteur}>{secteur}</label>
+                    </div>)}
+                </div>
                 <div style={{ margin: "10px" }}>
                     <a href={shareableLink}>Shareable link</a>
                 </div>
