@@ -40,7 +40,9 @@ type SearchAnythingProps = {
 }
 export function SearchAnything(props: SearchAnythingProps) {
     const [descriptionStartup, setDescriptionStartup] = useLocalStorage<string>("description", "");
-    const [secteur, setSecteur] = useLocalStorage<string[]>("secteur", allSecteur)
+    const [secteurs, setSecteurs] = useLocalStorage<string[]>("secteurs", allSecteur)
+    const [montant_min, setMontantMin] = useLocalStorage("montant_min", 0)
+    const [montant_max, setMontantMax] = useLocalStorage("montant_max", 200000000)
     type ControlPanel = { showHidden: boolean } & Record<Thematique, boolean>
     const [controlPanel, setControlPanel] = useLocalStorage<ControlPanel>("controlPanel", {
         showHidden: false,
@@ -54,7 +56,7 @@ export function SearchAnything(props: SearchAnythingProps) {
         console.log("updating results")
         props.setLastApiResponse(null);
         if (!descriptionStartup) return;
-        buildSearchAnythingRequest(descriptionStartup).then((reponse: ApiResponse) => {
+        buildSearchAnythingRequest(descriptionStartup, secteurs, montant_min, montant_max).then((reponse: ApiResponse) => {
             const allcards: CardData[] | null = []
             const allcardsById: Record<string, CardData> = {}
             //Totally not uniform but easy
@@ -116,11 +118,11 @@ export function SearchAnything(props: SearchAnythingProps) {
         : []
     return <div>
         <div className="search-anything">
-            <div className="description-startup">
+            <div className="query-pannel">
                 <div>
                     <div className="big">Aimant greentech</div>
                 </div>
-                <div >
+                <div className="description-startup">
                     <div className="label">1, 2, 3... pitchez !</div>
                     <textarea
                         onChange={e => {
@@ -132,12 +134,48 @@ export function SearchAnything(props: SearchAnythingProps) {
                         placeholder="ex: Nous sommes une startup spécialisé dans le tri des déchets métalliques et...">
                     </textarea>
                 </div>
-                <div >
-                    <div className="label">Thématiques</div>
-                    {allSecteur.map(secteur => <div className="fr-checkbox-group">
-                        <input type="checkbox" id={secteur} name={secteur}/>
-                        <label className="fr-label" htmlFor={secteur}>{secteur}</label>
-                    </div>)}
+                <div className="secteur">
+                    <fieldset className="fr-fieldset fr-fieldset--inline">
+                        <legend className="fr-fieldset__legend fr-text--regular" id='checkboxes-inline-legend'>
+                            Thématiques
+                        </legend>
+                        <div className="fr-fieldset__content">
+                            {allSecteur.map(secteur => <div className="fr-checkbox-group">
+                                <input type="checkbox" id={secteur} name={secteur} checked={secteurs.includes(secteur)} onChange={e => {
+                                    e.currentTarget.checked ? setSecteurs([...secteurs, secteur]) : setSecteurs(secteurs.filter(x => x != secteur))
+                                    delayedUpdateReponse()
+                                }} />
+                                <label className="fr-label" htmlFor={secteur}>{secteur}</label>
+                            </div>)}
+                        </div>
+                    </fieldset>
+
+                </div>
+                <div className="montants">
+                    <label className="label">Si vous cherchez un investisseur</label>
+                    <div className="inputs">
+                        <input className="fr-input" type="number" id="montant_min" name="montant_min" value={montant_min}
+                            onChange={e => setMontantMin(e.currentTarget.valueAsNumber)}
+                            onBlur={e => {
+                                if (e.currentTarget.valueAsNumber > montant_max) {
+                                    setMontantMin(montant_max)
+                                } else {
+                                    setMontantMin(e.currentTarget.valueAsNumber)
+                                }
+                                delayedUpdateReponse()
+                            }}
+                        />
+                        <input className="fr-input" type="number" id="montant_max" name="montant_max" value={montant_max}
+                        onChange={e => setMontantMax(e.currentTarget.valueAsNumber)}
+                        onBlur={e => {
+                            if (montant_min > e.currentTarget.valueAsNumber) {
+                                setMontantMax(montant_min)
+                            } else {
+                                setMontantMax(e.currentTarget.valueAsNumber)
+                            }
+                            delayedUpdateReponse()
+                        }} />
+                    </div>
                 </div>
                 <div style={{ margin: "10px" }}>
                     <a href={shareableLink}>Shareable link</a>

@@ -23,7 +23,7 @@ export type Investisseur = typeof mockApiResponse.cards.investisseurs[0]
 
 export type ApiResponse = typeof mockApiResponse
 
-export function buildSearchAnythingRequest(description: string) {
+export function buildSearchAnythingRequest(description: string, secteurs:string[], montant_min:number, montant_max:number) {
   if (useMockResponse) {
     return new Promise<ApiResponse>(res => setTimeout(() => res(mockApiResponse), 3000))
   } else {
@@ -44,11 +44,9 @@ export function buildSearchAnythingRequest(description: string) {
         "nb_aides": 10,
         "nb_achats_previs": 12,
         "nb_acheteur": 10,
-        "montant_min": 0,
-        "montant_max": 200000000,
-        "secteurs": [
-            "Economie circulaire"
-        ],    
+        "montant_min": montant_min,
+        "montant_max": montant_max,
+        "secteurs": secteurs,    
         "cards": {
           "collectivites": [],
           "aides": [],
