@@ -11,6 +11,18 @@ import { Star } from '../component/Icons';
 
 var to: NodeJS.Timeout | null = null;
 
+const allSecteur = [
+    'Agriculture durable',
+    'Bât iments et ville durable',
+    'Eau biodiversité et biomimétisme',
+    'Energies renouvelables',
+    'Santé et environnement',
+    'Economie circulaire',
+    'Efficacité numérique',
+    'Gestion des risques',
+    'Mobilité durable',
+    'Numérique durable'
+]
 
 export type LastApiResponse = {
     apiResponse: ApiResponse,
@@ -28,7 +40,8 @@ type SearchAnythingProps = {
 }
 export function SearchAnything(props: SearchAnythingProps) {
     const [descriptionStartup, setDescriptionStartup] = useLocalStorage<string>("description", "");
-    type ControlPanel = { showHidden: boolean, [x: string]: boolean }
+    const [secteur, setSecteur] = useLocalStorage<string[]>("secteur", allSecteur)
+    type ControlPanel = { showHidden: boolean } & Record<Thematique, boolean>
     const [controlPanel, setControlPanel] = useLocalStorage<ControlPanel>("controlPanel", {
         showHidden: false,
         "aide": true,
@@ -50,7 +63,7 @@ export function SearchAnything(props: SearchAnythingProps) {
                 var x = Math.sin(seed++) * 10000;
                 return x - Math.floor(x);
             }
-            const { aides, collectivites, marches, investisseurs} = reponse.cards;
+            const { aides, collectivites, marches, investisseurs } = reponse.cards;
             const allList = [[...aides], [...collectivites], [...marches], [...investisseurs]];
             const allNames: Thematique[] = ["aide", "collectivité", "marché", "investisseurs"]
             while (allList.some(x => x.length)) {//While one of the list still as elements
@@ -124,10 +137,10 @@ export function SearchAnything(props: SearchAnythingProps) {
                 </div>
             </div>
             <div className="resultats">
-                <div style={{display: "flex", justifyContent: "space-around"}}>
+                <div style={{ display: "flex", justifyContent: "space-around" }}>
                     <div className="control-panel white-text">
                         <div style={{ textAlign: "center", fontWeight: 700, marginBottom: "16px" }}>Vos pistes de prospection</div>
-                        <div className="thematique-filter" style={{ display: "flex", justifyContent: "space-around", "flexWrap": "wrap"}}>
+                        <div className="thematique-filter" style={{ display: "flex", justifyContent: "space-around", "flexWrap": "wrap" }}>
                             {filters}
                         </div>
                         <div style={{ display: "flex", justifyContent: "space-around", "alignItems": "center" }}>
