@@ -15,10 +15,27 @@ import './App.scss';
 var to: NodeJS.Timeout | null = null;
 
 function App() {
-  const defaultValue = null
   const [archives, setArchives] = useLocalStorage<Record<string, boolean>>("archives", { '605f26f616f88c8028d2f8d2c87c9385f7bf5651': true })
   const [favoris, setFavoris] = useLocalStorage<Record<string, CardData>>("favoris", {})
   const [lastApiResponse, setLastApiResponse] = useLocalStorage<LastApiResponse>("lastApiResponse", null)
+  const [pathname, setPathname] = useState(window.location.pathname)
+  function goto(urlstr:string) {
+    console.log(urlstr)
+    const url = new URL(urlstr, window.location.origin)
+    window.history.pushState({}, "", urlstr)
+    window.scrollTo(0, 0)
+    setPathname(url.pathname)
+  }
+  function onBackButtonEvent(e: PopStateEvent) {
+    setPathname(window.location.pathname)
+  }
+
+  useEffect(() => {
+    window.addEventListener('popstate', onBackButtonEvent);
+    return () => {
+      window.removeEventListener('popstate', onBackButtonEvent);  
+    };
+  })
   const toggleFavori = (cd: CardData) => {
     if (!favoris[cd.id]) {
       setFavoris(Object.assign({}, favoris, { [cd.id]: cd }))
@@ -38,7 +55,8 @@ function App() {
       archives={archives}
       toggleFavori={toggleFavori}
       toggleArchive={toggleArchive}
-      lastApiResponse={lastApiResponse} />,
+      lastApiResponse={lastApiResponse}
+      goto={goto}/>,
     "/details": objectId && <Details data={ ((lastApiResponse != "loading") && lastApiResponse?.cardDataById[objectId]) || favoris[objectId] || archives[objectId]} />
   }
   const defaultPage = <SearchAnything
@@ -48,14 +66,18 @@ function App() {
     toggleArchive={toggleArchive}
     setLastApiResponse={setLastApiResponse}
     lastApiResponse={lastApiResponse}
+    goto={goto}
   />
-  const page = router[window.location.pathname] || defaultPage;
-  const staticWidthClass = page === "ProspectPublic" ? "static" : ""
+  const page = router[pathname];
+  
   return <div className="App">
     <DonnezVotreAvis/>
     <Header />
     <div className={`body`}>
       <div className="body-container">
+        <div style={{display: page ? "none" : "block"}}>
+          {defaultPage}
+        </div>
         {page}
       </div>
     </div>

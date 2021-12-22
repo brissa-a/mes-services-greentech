@@ -62,7 +62,8 @@ type CardProps = {
     data: CardData,
     maxscore: number,
     onFavori: () => void,
-    onArchive: () => void
+    onArchive: () => void,
+    goto: (pathname:string) => void
 }
 
 export function Card(props: CardProps) {
@@ -89,12 +90,12 @@ export function Card(props: CardProps) {
                     </div>
                 </div>
                 {showDetails && devMode && <div style={{ position: "absolute", top: "1px", right: "10px", fontSize: "0.5em" }}>{props.data.score}</div>}
-                <a href={`/details?object-id=${props.data.id}`}>
+                <a onClick={() => props.goto(`/details?object-id=${props.data.id}`)}>
                     <p style={{ fontWeight: "bolder", fontSize: "16px", lineHeight: "22px", marginTop: "12px" }}>
                         {props.data.titre_aide || props.data.libelle || props.data.nom || "N/A"}
                     </p>
                 </a>
-                <a href={`/details?object-id=${props.data.id}`}><div style={{
+                <a onClick={() => props.goto(`/details?object-id=${props.data.id}`)}><div style={{
                     height: "32px", width: "130px", marginTop: "11px",
                     display: "flex", alignItems: "center", justifyContent: "space-around",
                     fontWeight: "lighter", fontSize: "14px", color: "rgba(133, 133, 246, 1)"

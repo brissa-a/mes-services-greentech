@@ -39,7 +39,8 @@ type SearchAnythingProps = {
     toggleFavori: (cd: CardData) => void,
     toggleArchive: (cd: CardData) => void,
     setLastApiResponse: (lastApiResponse: LastApiResponse) => void,
-    lastApiResponse: LastApiResponse
+    lastApiResponse: LastApiResponse,
+    goto: (pathname:string) => void
 }
 export function SearchAnything(props: SearchAnythingProps) {
     const [descriptionStartup, setDescriptionStartup] = useLocalStorage<string>("description", "");
@@ -196,7 +197,7 @@ export function SearchAnything(props: SearchAnythingProps) {
                         </div>
                         <div style={{ display: "flex", justifyContent: "space-around", "alignItems": "center" }}>
                             {showHiddenToggle}
-                            <a className="link" href="/favoris"><div><Star style={{ color: "rgb(255, 243, 76)" }} /> Mes Favoris ({Object.values(props.favoris).length})</div></a>
+                            <a className="link" onClick={() => props.goto("/favoris")}><div><Star style={{ color: "rgb(255, 243, 76)" }} /> Mes Favoris ({Object.values(props.favoris).length})</div></a>
                         </div>
                     </div>
                 </div>
@@ -208,6 +209,7 @@ export function SearchAnything(props: SearchAnythingProps) {
                         favori={props.favoris[x.id]}
                         onFavori={() => props.toggleFavori(x)}
                         onArchive={() => props.toggleArchive(x)}
+                        goto={props.goto}
                     />) :
                         <Fragment>
                             <CardPlaceholder loading={lastApiResponse == "loading"}/>

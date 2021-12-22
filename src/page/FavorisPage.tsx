@@ -14,7 +14,8 @@ export type FavorisPageProps = {
     favoris: Record<string, CardData>,
     toggleFavori: (cd: CardData) => void,
     toggleArchive: (cd: CardData) => void,
-    lastApiResponse: LastApiResponse
+    lastApiResponse: LastApiResponse,
+    goto: (pathname:string) => void
 }
 export function FavorisPage(props: FavorisPageProps) {
     const { favoris, lastApiResponse } = props;
@@ -34,6 +35,7 @@ export function FavorisPage(props: FavorisPageProps) {
             favori={props.favoris[x.id]}
             onFavori={() => props.toggleFavori(x)}
             onArchive={() => props.toggleArchive(x)}
+            goto={props.goto}
         />)}
     </div>
     </div>
