@@ -185,7 +185,7 @@ export function SearchAnything(props: SearchAnythingProps) {
                     </button>
                 </div>
                 <div style={{ margin: "10px" }}>
-                    <a href={shareableLink}>Shareable link</a>
+                    {/* <a href={shareableLink}>Shareable link</a> */}
                 </div>
             </div>
             <div className="resultats">

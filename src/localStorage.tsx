@@ -13,7 +13,7 @@ export function useLocalStorage<Type>(key: string, defaultValue: Type): [Type, R
   });
 
   useEffect(() => {
-    console.log("setLocalStorageCalled ", key, ":", value)
+    //console.log("setLocalStorageCalled ", key, ":", value)
     localStorage.setItem(key, JSON.stringify(value));
   }, [key, value]);
 
