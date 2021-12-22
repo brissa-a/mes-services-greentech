@@ -80,6 +80,15 @@
             height: 250px;
         }
     }
+
+    .validate-btn-row{
+        display: flex;
+        justify-content: right;
+
+        .validate-btn {
+            margin-top: 24px;
+        }
+    }
 }
 
 .resultats {

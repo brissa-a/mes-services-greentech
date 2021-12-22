@@ -58,11 +58,11 @@ export function SearchAnything(props: SearchAnythingProps) {
     });
     const { lastApiResponse } = props
     function updateReponse() {
-        console.log("updating results")
         props.setLastApiResponse(null);
+        console.log("Requesting", { descriptionStartup, secteurs, montant_min, montant_max })
         if (!descriptionStartup) return;
         buildSearchAnythingRequest(descriptionStartup, secteurs, montant_min, montant_max).then((reponse: ApiResponse) => {
-            console.log("Got reponse for", {descriptionStartup, secteurs, montant_min, montant_max})
+            console.log("Got reponse for", { descriptionStartup, secteurs, montant_min, montant_max })
             const allcards: CardData[] | null = []
             const allcardsById: Record<string, CardData> = {}
             //Totally not uniform but easy
@@ -87,14 +87,6 @@ export function SearchAnything(props: SearchAnythingProps) {
             props.setLastApiResponse({ apiResponse: reponse, cardDataById: allcardsById, cardData: allcards })
         })
     }
-
-    function delayedUpdateReponse() {
-        console.log("delaying request")
-        if (to) clearTimeout(to)
-        to = setTimeout(updateReponse, 600)
-    }
-
-    useEffect(delayedUpdateReponse, [descriptionStartup, secteurs, montant_min, montant_max])
 
     const shareableLink = `${window.location.origin}?description=${encodeURIComponent(descriptionStartup)}`
 
@@ -173,17 +165,22 @@ export function SearchAnything(props: SearchAnythingProps) {
                             }}
                         />
                         <input className="fr-input" type="number" id="montant_max" name="montant_max" value={temp_montant_max}
-                        onChange={e => setTempMontantMax(e.currentTarget.valueAsNumber)}
-                        onBlur={e => {
-                            if (montant_min > e.currentTarget.valueAsNumber) {
-                                setTempMontantMax(montant_min)
-                                setMontantMax(montant_min)
-                            } else {
-                                setTempMontantMax(e.currentTarget.valueAsNumber)
-                                setMontantMax(e.currentTarget.valueAsNumber)
-                            }
-                        }} />
+                            onChange={e => setTempMontantMax(e.currentTarget.valueAsNumber)}
+                            onBlur={e => {
+                                if (montant_min > e.currentTarget.valueAsNumber) {
+                                    setTempMontantMax(montant_min)
+                                    setMontantMax(montant_min)
+                                } else {
+                                    setTempMontantMax(e.currentTarget.valueAsNumber)
+                                    setMontantMax(e.currentTarget.valueAsNumber)
+                                }
+                            }} />
                     </div>
+                </div>
+                <div className="validate-btn-row">
+                    <button className="fr-btn validate-btn" onClick={updateReponse}>
+                        Valider
+                    </button>
                 </div>
                 <div style={{ margin: "10px" }}>
                     <a href={shareableLink}>Shareable link</a>
