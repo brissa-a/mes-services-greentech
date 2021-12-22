@@ -63,7 +63,7 @@ type CardProps = {
     maxscore: number,
     onFavori: () => void,
     onArchive: () => void,
-    goto: (pathname:string) => void
+    goto: (pathname: string) => void
 }
 
 export function Card(props: CardProps) {
@@ -90,19 +90,25 @@ export function Card(props: CardProps) {
                     </div>
                 </div>
                 {showDetails && devMode && <div style={{ position: "absolute", top: "1px", right: "10px", fontSize: "0.5em" }}>{props.data.score}</div>}
-                <a onClick={() => props.goto(`/details?object-id=${props.data.id}`)}>
+                <a onClick={e => {
+                    e.preventDefault();
+                    props.goto(`/details?object-id=${props.data.id}`)
+                }} href={`/details?object-id=${props.data.id}`}>
                     <p style={{ fontWeight: "bolder", fontSize: "16px", lineHeight: "22px", marginTop: "12px" }}>
                         {props.data.titre_aide || props.data.libelle || props.data.nom || "N/A"}
                     </p>
                 </a>
-                <a onClick={() => props.goto(`/details?object-id=${props.data.id}`)}><div style={{
+                <a onClick={e => {
+                    e.preventDefault();
+                    props.goto(`/details?object-id=${props.data.id}`)
+                }} href={`/details?object-id=${props.data.id}`}><div style={{
                     height: "32px", width: "130px", marginTop: "11px",
                     display: "flex", alignItems: "center", justifyContent: "space-around",
                     fontWeight: "lighter", fontSize: "14px", color: "rgba(133, 133, 246, 1)"
                 }}>
-                    <Eye style={{ height: "1em" }} alt="Favori" aria-label="Favori" />
-                    <span className="txt">Voir le détail</span>
-                </div></a>
+                        <Eye style={{ height: "1em" }} alt="Favori" aria-label="Favori" />
+                        <span className="txt">Voir le détail</span>
+                    </div></a>
             </div>
         </div>
     </div>
