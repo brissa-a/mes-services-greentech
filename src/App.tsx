@@ -2,7 +2,7 @@ import React, { Fragment, ReactNode, useEffect, useState } from 'react';
 import { useLocalStorage } from './localStorage'
 import { buildId, Card, CardPlaceholder, Thematique, CardData } from './component/Card';
 
-import { page, objectId, defaultDescription } from './UrlSearchParam';
+import { defaultDescription } from './UrlSearchParam';
 import { SearchAnything, LastApiResponse } from "./page/SearchAnything"
 import { Details } from './page/Details';
 import { FavorisPage } from './page/FavorisPage';
@@ -49,7 +49,7 @@ function App() {
   useEffect(() => {
     document.documentElement.setAttribute("data-fr-theme", "dark");
   });
-
+  const objectId = new URLSearchParams(window.location.search).get("object-id")
   const router: Record<string, ReactNode> = {
     "/favoris": <FavorisPage favoris={favoris}
       archives={archives}
