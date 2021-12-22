@@ -76,8 +76,9 @@
             font-size: 0.8em;
         }
         .fr-fieldset__content {
-            flex-direction: column;
-            height: 250px;
+            .fr-checkbox-group {
+                width: 220px;
+            }
         }
     }
 
