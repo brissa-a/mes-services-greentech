@@ -49,7 +49,9 @@ export const thematiqueToUI: Record<Thematique, ThematiqueUI> = {
 
 export function CardPlaceholder() {
     return <div className="card placeholder">
-
+        <div className="loading-container">
+            <div className="loading">.&nbsp;&nbsp;</div>
+        </div>
     </div>
 }
 
