@@ -73,7 +73,11 @@
 
     .secteur {
         .fr-label {
-            font-size: 0.5em;
+            font-size: 0.8em;
+        }
+        .fr-fieldset__content {
+            flex-direction: column;
+            height: 250px;
         }
     }
 }
@@ -87,7 +91,6 @@
 
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
-
 
 /* Chrome, Edge, and Safari */
 .card-list::-webkit-scrollbar {
@@ -195,6 +198,6 @@
     padding-left: 0.5em;
 }
 
-.thematique-filter .fr-toggle__input:checked~.fr-toggle__label:after {
-    background-color: rgba(255, 255, 255, 1)
+.thematique-filter .fr-toggle__input:checked ~ .fr-toggle__label:after {
+    background-color: rgba(255, 255, 255, 1);
 }

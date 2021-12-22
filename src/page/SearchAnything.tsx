@@ -24,6 +24,9 @@ const allSecteur = [
     'Numérique durable'
 ]
 
+const defaultMontantMin = 0
+const defaultMontantMax = 200000000
+
 export type LastApiResponse = {
     apiResponse: ApiResponse,
     cardDataById: Record<string, CardData>,
@@ -41,8 +44,8 @@ type SearchAnythingProps = {
 export function SearchAnything(props: SearchAnythingProps) {
     const [descriptionStartup, setDescriptionStartup] = useLocalStorage<string>("description", "");
     const [secteurs, setSecteurs] = useLocalStorage<string[]>("secteurs", allSecteur)
-    const [montant_min, setMontantMin] = useLocalStorage("montant_min", 0)
-    const [montant_max, setMontantMax] = useLocalStorage("montant_max", 200000000)
+    const [montant_min, setMontantMin] = useLocalStorage("montant_min", defaultMontantMin)
+    const [montant_max, setMontantMax] = useLocalStorage("montant_max", defaultMontantMax)
     const [temp_montant_min, setTempMontantMin] = useState(montant_min)
     const [temp_montant_max, setTempMontantMax] = useState(montant_max)
     type ControlPanel = { showHidden: boolean } & Record<Thematique, boolean>
@@ -140,11 +143,11 @@ export function SearchAnything(props: SearchAnythingProps) {
                 </div>
                 <div className="secteur">
                     <fieldset className="fr-fieldset fr-fieldset--inline">
-                        <legend className="fr-fieldset__legend fr-text--regular" id='checkboxes-inline-legend'>
+                        <legend className="label" id='checkboxes-inline-legend'>
                             Thématiques
                         </legend>
                         <div className="fr-fieldset__content">
-                            {allSecteur.map(secteur => <div className="fr-checkbox-group">
+                            {allSecteur.map(secteur => <div className="fr-checkbox-group fr-checkbox-group--sm">
                                 <input type="checkbox" id={secteur} name={secteur} checked={secteurs.includes(secteur)} onChange={e => {
                                     e.currentTarget.checked ? setSecteurs([...secteurs, secteur]) : setSecteurs(secteurs.filter(x => x != secteur))
                                 }} />
