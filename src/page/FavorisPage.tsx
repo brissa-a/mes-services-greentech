@@ -27,7 +27,7 @@ export function FavorisPage(props: FavorisPageProps) {
             <h2 style={{margin: "25px 0px"}}>Mes Favoris ({filteredCards.length})</h2>
         </div>
         <div className="card-list">
-        {filteredCards.map(x => <Card
+        {lastApiResponse != "loading" && filteredCards.map(x => <Card
             data={x}
             maxscore={lastApiResponse?.cardData.slice(-1)[0].score ?? 0}
             archived={props.archives[x.id]}

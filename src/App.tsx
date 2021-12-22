@@ -39,7 +39,7 @@ function App() {
       toggleFavori={toggleFavori}
       toggleArchive={toggleArchive}
       lastApiResponse={lastApiResponse} />,
-    "/details": objectId && <Details data={lastApiResponse?.cardDataById[objectId] || favoris[objectId] || archives[objectId]} />
+    "/details": objectId && <Details data={ ((lastApiResponse != "loading") && lastApiResponse?.cardDataById[objectId]) || favoris[objectId] || archives[objectId]} />
   }
   const defaultPage = <SearchAnything
     favoris={favoris}

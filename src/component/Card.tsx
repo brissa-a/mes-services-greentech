@@ -35,23 +35,24 @@ export const thematiqueToUI: Record<Thematique, ThematiqueUI> = {
     },
     "collectivité": {
         color: "rgba(255, 111, 76, 1)", text: "Propect public", textWithIcon: <Fragment>
-            <Radar style={{ height: "1em" }}/>
+            <Radar style={{ height: "1em" }} />
             <span style={{ marginLeft: "5px" }}>{"Propect public"}</span>
         </Fragment>
     },
     "investisseurs": {
         color: "rgba(39, 166, 88, 1)", text: "Investisseurs", textWithIcon: <Fragment>
-            <Euro style={{ height: "1em" }}/>
+            <Euro style={{ height: "1em" }} />
             <span style={{ marginLeft: "5px" }}>{"Investisseurs"}</span>
         </Fragment>
     }
 }
 
-export function CardPlaceholder() {
+export function CardPlaceholder(props: { loading: boolean }) {
+    const loadingAnimation = <div className="loading-container">
+        <div className="loading">.&nbsp;&nbsp;</div>
+    </div>
     return <div className="card placeholder">
-        <div className="loading-container">
-            <div className="loading">.&nbsp;&nbsp;</div>
-        </div>
+        {props.loading ? loadingAnimation : null}
     </div>
 }
 
@@ -68,11 +69,11 @@ export function Card(props: CardProps) {
     const [showDetails, setShowDetails] = useState(false);
     const achivedProps = props.archived ? { style: { "opacity": 0.3, "filter": "grayscale(50%)" } } : {}
     const StarIcon = props.favori
-        ? ({className, ...other} : {className:string, [x:string]:any}) => <Star className={className + " active"} {...other}/>
-        : ({...other}) => <Star {...other}/>;
+        ? ({ className, ...other }: { className: string, [x: string]: any }) => <Star className={className + " active"} {...other} />
+        : ({ ...other }) => <Star {...other} />;
     const ArchiveIcon = props.archived
-        ? ({className, ...other} : {className:string, [x:string]:any}) => <Eye className={className + " active"} {...other}/>
-        : ({...other}) => <ClosedEye {...other}/>
+        ? ({ className, ...other }: { className: string, [x: string]: any }) => <Eye className={className + " active"} {...other} />
+        : ({ ...other }) => <ClosedEye {...other} />
     return <div {...achivedProps} className="card"
         onMouseEnter={() => setShowDetails(true)}
         onMouseLeave={() => setShowDetails(false)}>

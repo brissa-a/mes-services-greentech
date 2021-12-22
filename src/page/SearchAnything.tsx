@@ -31,7 +31,7 @@ export type LastApiResponse = {
     apiResponse: ApiResponse,
     cardDataById: Record<string, CardData>,
     cardData: CardData[]
-} | null
+} | null | "loading"
 
 type SearchAnythingProps = {
     archives: Record<string, boolean>,
@@ -61,6 +61,7 @@ export function SearchAnything(props: SearchAnythingProps) {
         props.setLastApiResponse(null);
         console.log("Requesting", { descriptionStartup, secteurs, montant_min, montant_max })
         if (!descriptionStartup) return;
+        props.setLastApiResponse("loading");
         buildSearchAnythingRequest(descriptionStartup, secteurs, montant_min, montant_max).then((reponse: ApiResponse) => {
             console.log("Got reponse for", { descriptionStartup, secteurs, montant_min, montant_max })
             const allcards: CardData[] | null = []
@@ -113,7 +114,7 @@ export function SearchAnything(props: SearchAnythingProps) {
         />
         <label className="fr-toggle__label" htmlFor={`toggle-${key}`}>Afficher les pistes écartées ({Object.values(props.archives).map(x => Number(x)).reduce((a, b) => a + b)})</label>
     </div>
-    const filteredCards = lastApiResponse
+    const filteredCards = (lastApiResponse && lastApiResponse != "loading")
         ? lastApiResponse?.cardData.filter(x => (!props.archives[x.id] || controlPanel.showHidden) && controlPanel[x.thematique])
         : []
     return <div>
@@ -200,7 +201,7 @@ export function SearchAnything(props: SearchAnythingProps) {
                     </div>
                 </div>
                 <div className="card-list">
-                    {filteredCards.length > 0 ? filteredCards.map(x => <Card
+                    {(filteredCards.length > 0 && lastApiResponse != "loading") ? filteredCards.map(x => <Card
                         data={x}
                         maxscore={lastApiResponse?.cardData.slice(-1)[0].score ?? 0}
                         archived={props.archives[x.id]}
@@ -209,15 +210,15 @@ export function SearchAnything(props: SearchAnythingProps) {
                         onArchive={() => props.toggleArchive(x)}
                     />) :
                         <Fragment>
-                            <CardPlaceholder />
-                            <CardPlaceholder />
-                            <CardPlaceholder />
-                            <CardPlaceholder />
-                            <CardPlaceholder />
-                            <CardPlaceholder />
-                            <CardPlaceholder />
-                            <CardPlaceholder />
-                            <CardPlaceholder />
+                            <CardPlaceholder loading={lastApiResponse == "loading"}/>
+                            <CardPlaceholder loading={lastApiResponse == "loading"}/>
+                            <CardPlaceholder loading={lastApiResponse == "loading"}/>
+                            <CardPlaceholder loading={lastApiResponse == "loading"}/>
+                            <CardPlaceholder loading={lastApiResponse == "loading"}/>
+                            <CardPlaceholder loading={lastApiResponse == "loading"}/>
+                            <CardPlaceholder loading={lastApiResponse == "loading"}/>
+                            <CardPlaceholder loading={lastApiResponse == "loading"}/>
+                            <CardPlaceholder loading={lastApiResponse == "loading"}/>
                         </Fragment>}
                 </div>
             </div>
