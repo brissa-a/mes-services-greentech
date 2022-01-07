@@ -41,6 +41,8 @@ export function buildSearchAnythingRequest(description: string, secteurs:string[
         "descriptionSU": description,
         "fichier_vocab": "vocab.pkl",
         "fichier_embeddings_achats": "vocab_achats_previs.pkl",
+        "vectorizer_achats": "vectorizer_AchatsEtat.pickle",
+        "vectorizer_aides": "vectorizer_aides.pickle",
         "nb_aides": 10,
         "nb_achats_previs": 12,
         "nb_acheteur": 10,
