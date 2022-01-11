@@ -29,16 +29,16 @@ export const thematiqueToFieldsConf: Record<Thematique, Record<string, string | 
         aide_detail: "Détails de l'aide",
         contact: "Qui contacter ?"
     },
-    "marché": {
-        libelle: "Nom",
-        groupe_marchandise_nom: "Groupe Marchandise",
-        duree_mois: "Durée (en mois)",
-        annee: "Année",
-        depense_annualisee: "Dépense annualisée",
-        acheteur: "Acheteur",
-        entite_porteuse: "Entité Porteuse",
-        contexte: "Contexte"
-    },
+    // "marché": {
+    //     libelle: "Nom",
+    //     groupe_marchandise_nom: "Groupe Marchandise",
+    //     duree_mois: "Durée (en mois)",
+    //     annee: "Année",
+    //     depense_annualisee: "Dépense annualisée",
+    //     acheteur: "Acheteur",
+    //     entite_porteuse: "Entité Porteuse",
+    //     contexte: "Contexte"
+    // },
     "collectivité": {
         nom: "Nom"
     },

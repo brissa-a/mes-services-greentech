@@ -6,7 +6,7 @@ import { devMode } from '../devMode';
 import "./Card.scss"
 import { ClosedEye, Euro, Eye, Radar, Rocket, Star } from "./Icons"
 
-export type Thematique = "aide" | "marché" | "collectivité" | "investisseurs"
+export type Thematique = "aide" | "collectivité" | "investisseurs" //"marché"
 export type Themed = { thematique: Thematique, id: string }
 export type CardData = (Themed & (Partial<Aide> & Partial<Marche> & Partial<Collectivite>))
 
@@ -27,12 +27,12 @@ export const thematiqueToUI: Record<Thematique, ThematiqueUI> = {
             <span style={{ marginLeft: "5px" }}>{"Aide publique"}</span>
         </Fragment>
     },
-    "marché": {
-        color: "rgba(223, 207, 97, 1)", text: "Achat prévisionnel", textWithIcon: <Fragment>
-            <Euro style={{ height: "1em" }} />
-            <span style={{ marginLeft: "5px" }}>{"Achat prévisionnel"}</span>
-        </Fragment>
-    },
+    // "marché": {
+    //     color: "rgba(223, 207, 97, 1)", text: "Achat prévisionnel", textWithIcon: <Fragment>
+    //         <Euro style={{ height: "1em" }} />
+    //         <span style={{ marginLeft: "5px" }}>{"Achat prévisionnel"}</span>
+    //     </Fragment>
+    // },
     "collectivité": {
         color: "rgba(255, 111, 76, 1)", text: "Propect public", textWithIcon: <Fragment>
             <Radar style={{ height: "1em" }} />

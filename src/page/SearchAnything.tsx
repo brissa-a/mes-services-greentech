@@ -53,7 +53,7 @@ export function SearchAnything(props: SearchAnythingProps) {
     const [controlPanel, setControlPanel] = useLocalStorage<ControlPanel>("controlPanel", {
         showHidden: false,
         "aide": true,
-        "marché": true,
+        //"marché": true,
         "collectivité": true,
         "investisseurs": true
     });
@@ -75,7 +75,7 @@ export function SearchAnything(props: SearchAnythingProps) {
             }
             const { aides, collectivites, marches, investisseurs } = reponse.cards;
             const allList = [[...aides], [...collectivites], [...marches], [...investisseurs]];
-            const allNames: Thematique[] = ["aide", "collectivité", "marché", "investisseurs"]
+            const allNames: Thematique[] = ["aide", "collectivité", "investisseurs"]
             while (allList.some(x => x.length)) {//While one of the list still as elements
                 const rand = Math.floor(random() * allList.length);//entier 0 < rand < allList.length 
                 const pick = allList[rand].shift()
