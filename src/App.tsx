@@ -15,7 +15,7 @@ import './App.scss';
 var to: NodeJS.Timeout | null = null;
 
 function App() {
-  const [archives, setArchives] = useLocalStorage<Record<string, boolean>>("archives", { '605f26f616f88c8028d2f8d2c87c9385f7bf5651': true })
+  const [archives, setArchives] = useLocalStorage<Record<string, boolean>>("archives", {})
   const [favoris, setFavoris] = useLocalStorage<Record<string, CardData>>("favoris", {})
   const [lastApiResponse, setLastApiResponse] = useLocalStorage<LastApiResponse>("lastApiResponse", null)
   const [pathname, setPathname] = useState(window.location.pathname)
