@@ -113,7 +113,7 @@ export function SearchAnything(props: SearchAnythingProps) {
             checked={controlPanel.showHidden}
             type="checkbox" className="fr-toggle__input" aria-describedby={`toggle-${key}-hint-text`} id={`toggle-${key}`}
         />
-        <label className="fr-toggle__label" htmlFor={`toggle-${key}`}>Afficher les pistes écartées ({Object.values(props.archives).map(x => Number(x)).reduce((a, b) => a + b)})</label>
+        <label className="fr-toggle__label" htmlFor={`toggle-${key}`}>Afficher les pistes écartées ({Object.values(props.archives).map(x => Number(x)).reduce((a, b) => a + b, 0)})</label>
     </div>
     const filteredCards = (lastApiResponse && lastApiResponse != "loading")
         ? lastApiResponse?.cardData.filter(x => (!props.archives[x.id] || controlPanel.showHidden) && controlPanel[x.thematique])
