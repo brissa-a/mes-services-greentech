@@ -34,9 +34,9 @@ export const thematiqueToUI: Record<Thematique, ThematiqueUI> = {
     //     </Fragment>
     // },
     "collectivité": {
-        color: "rgba(255, 111, 76, 1)", text: "Propect public", textWithIcon: <Fragment>
+        color: "rgba(255, 111, 76, 1)", text: "Prospect public", textWithIcon: <Fragment>
             <Radar style={{ height: "1em" }} />
-            <span style={{ marginLeft: "5px" }}>{"Propect public"}</span>
+            <span style={{ marginLeft: "5px" }}>{"Prospect public"}</span>
         </Fragment>
     },
     "investisseurs": {

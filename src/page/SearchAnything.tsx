@@ -13,7 +13,7 @@ var to: NodeJS.Timeout | null = null;
 
 const allSecteur = [
     'Agriculture durable',
-    'Bât iments et ville durable',
+    'Bâtiments et ville durable',
     'Eau biodiversité et biomimétisme',
     'Energies renouvelables',
     'Santé et environnement',
@@ -205,7 +205,7 @@ export function SearchAnything(props: SearchAnythingProps) {
                     </div>
                 </div>
                 <div className="card-list">
-                    {(filteredCards.length > 0 && lastApiResponse != "loading") ? filteredCards.map(x => <Card
+                    {(filteredCards.length > 0 && lastApiResponse != "loading") ? filteredCards.map(x => thematiqueToUI[x.thematique] && <Card
                         data={x}
                         maxscore={lastApiResponse?.cardData.slice(-1)[0].score ?? 0}
                         archived={props.archives[x.id]}
