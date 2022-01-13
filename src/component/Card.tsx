@@ -75,6 +75,7 @@ export function Card(props: CardProps) {
     const ArchiveIcon = props.archived
         ? ({ className, ...other }: { className: string, [x: string]: any }) => <Eye className={className + " active"} {...other} />
         : ({ ...other }) => <ClosedEye {...other} />
+    if (!thematiqueToUI[props.data.thematique]) return null
     return <div {...achivedProps} className="card"
         onMouseEnter={() => setShowDetails(true)}
         onMouseLeave={() => setShowDetails(false)}>

@@ -44,7 +44,7 @@ type SearchAnythingProps = {
 }
 export function SearchAnything(props: SearchAnythingProps) {
     const [descriptionStartup, setDescriptionStartup] = useLocalStorage<string>("description", "");
-    const [secteurs, setSecteurs] = useLocalStorage<string[]>("secteurs", allSecteur)
+    const [secteurs, setSecteurs] = useLocalStorage<string[]>("secteurs", [])
     const [montant_min, setMontantMin] = useLocalStorage("montant_min", defaultMontantMin)
     const [montant_max, setMontantMax] = useLocalStorage("montant_max", defaultMontantMax)
     const [temp_montant_min, setTempMontantMin] = useState(montant_min)
@@ -74,7 +74,7 @@ export function SearchAnything(props: SearchAnythingProps) {
                 return x - Math.floor(x);
             }
             const { aides, collectivites, marches, investisseurs } = reponse.cards;
-            const allList = [[...aides], [...collectivites], [...marches], [...investisseurs]];
+            const allList = [[...aides], [...collectivites], [...investisseurs]];
             const allNames: Thematique[] = ["aide", "collectivité", "investisseurs"]
             while (allList.some(x => x.length)) {//While one of the list still as elements
                 const rand = Math.floor(random() * allList.length);//entier 0 < rand < allList.length 
