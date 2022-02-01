@@ -18,6 +18,10 @@
     display: flex;
     align-items: center;
   }
+
+  [href] {
+    box-shadow: none;
+  }
 }
 
 .header > h1 {

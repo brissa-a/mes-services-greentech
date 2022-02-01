@@ -72,7 +72,7 @@ function App() {
   
   return <div className="App">
     <DonnezVotreAvis/>
-    <Header />
+    <Header goto={goto}/>
     <div className={`body`}>
       <div className="body-container">
         <div style={{display: page ? "none" : "block"}}>
