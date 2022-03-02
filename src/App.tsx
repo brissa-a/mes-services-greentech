@@ -14,17 +14,37 @@ import './App.scss';
 
 var to: NodeJS.Timeout | null = null;
 
+declare global {
+  interface Window { _paq: any; }
+}
+
 function App() {
   const [archives, setArchives] = useLocalStorage<Record<string, boolean>>("archives", {})
   const [favoris, setFavoris] = useLocalStorage<Record<string, CardData>>("favoris", {})
   const [lastApiResponse, setLastApiResponse] = useLocalStorage<LastApiResponse>("lastApiResponse", null)
   const [pathname, setPathname] = useState(window.location.pathname)
-  function goto(urlstr:string) {
+  function goto(urlstr: string) {
     console.log(urlstr)
+    const _paq = window._paq || [];
+    console.log({setReferrerUrl: window.location.href})
+    _paq.push(['setReferrerUrl', window.location.href]);
     const url = new URL(urlstr, window.location.origin)
     window.history.pushState({}, "", urlstr)
     window.scrollTo(0, 0)
     setPathname(url.pathname)
+    console.log({setCustomUrl: window.location.href})
+    _paq.push(['setCustomUrl', window.location.href]);
+
+    // remove all previously assigned custom variables, requires Matomo (formerly Piwik) 3.0.2
+    _paq.push(['deleteCustomVariables', 'page']);
+    _paq.push(['trackPageView']);
+
+    // make Matomo aware of newly added content
+    // var content = document.getElementById('content');
+    // _paq.push(['MediaAnalytics::scanForMedia', content]);
+    // _paq.push(['FormAnalytics::scanForForms', content]);
+    // _paq.push(['trackContentImpressionsWithinNode', content]);
+    _paq.push(['enableLinkTracking']);
   }
   function onBackButtonEvent(e: PopStateEvent) {
     setPathname(window.location.pathname)
@@ -33,7 +53,7 @@ function App() {
   useEffect(() => {
     window.addEventListener('popstate', onBackButtonEvent);
     return () => {
-      window.removeEventListener('popstate', onBackButtonEvent);  
+      window.removeEventListener('popstate', onBackButtonEvent);
     };
   })
   const toggleFavori = (cd: CardData) => {
@@ -56,8 +76,8 @@ function App() {
       toggleFavori={toggleFavori}
       toggleArchive={toggleArchive}
       lastApiResponse={lastApiResponse}
-      goto={goto}/>,
-    "/details": objectId && <Details data={ ((lastApiResponse != "loading") && lastApiResponse?.cardDataById[objectId]) || favoris[objectId] || archives[objectId]} />
+      goto={goto} />,
+    "/details": objectId && <Details data={((lastApiResponse != "loading") && lastApiResponse?.cardDataById[objectId]) || favoris[objectId] || archives[objectId]} />
   }
   const defaultPage = <SearchAnything
     favoris={favoris}
@@ -69,13 +89,13 @@ function App() {
     goto={goto}
   />
   const page = router[pathname];
-  
+
   return <div className="App">
-    <DonnezVotreAvis/>
-    <Header goto={goto}/>
+    <DonnezVotreAvis />
+    <Header goto={goto} />
     <div className={`body`}>
       <div className="body-container">
-        <div style={{display: page ? "none" : "block"}}>
+        <div style={{ display: page ? "none" : "block" }}>
           {defaultPage}
         </div>
         {page}

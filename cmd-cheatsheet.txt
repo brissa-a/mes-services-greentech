@@ -1,7 +1,3 @@
-firebase hosting:channel:deploy new-awesome-feature
-
-
-
 # Installation aws cli
 msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi
 aws --version
@@ -14,3 +10,6 @@ aws_secret_access_key=SECRETKEY
 aws s3 ls --endpoint-url=https://s3.fr-par.scw.cloud --region=fr-par
 
 aws s3 sync --endpoint-url=https://s3.fr-par.scw.cloud --region=fr-par  build/ s3://msg-prod
+
+aws s3 sync --endpoint-url=https://s3.fr-par.scw.cloud --region=fr-par  build/ s3://msg-next --delete
+
