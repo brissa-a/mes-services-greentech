@@ -44,7 +44,14 @@
     (function () {
       var u = "//matomo.greentechinnovation.fr/";
       _paq.push(['setTrackerUrl', u + 'matomo.php']);
-      _paq.push(['setSiteId', '1']);
+      if (['messervices.greentechinnovation.fr', 'msg.greentechinnovation.fr'].includes(window.location.hostname)){
+        _paq.push(['setSiteId', '2']);
+        console.log({setSiteId: '2'})
+      } else {
+        _paq.push(['setSiteId', '1']);
+        console.log({setSiteId: '1'})
+      }
+      
       var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
       g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
     })();
